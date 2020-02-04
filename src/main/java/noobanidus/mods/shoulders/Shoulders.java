@@ -12,6 +12,8 @@ import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLPaths;
 import noobanidus.mods.shoulders.common.config.ConfigManager;
+import noobanidus.mods.shoulders.common.data.ShoulderList;
+import noobanidus.mods.shoulders.common.info.ShoulderData;
 import noobanidus.mods.shoulders.common.setup.ClientSetup;
 import noobanidus.mods.shoulders.common.setup.CommonSetup;
 import org.apache.logging.log4j.LogManager;
@@ -37,6 +39,9 @@ public class Shoulders {
 
   public static void playerLoggedOn(PlayerEvent.PlayerLoggedInEvent event) {
     PlayerEntity player = event.getPlayer();
-    Shoulders.LOG.info("Player " + player.getScoreboardName() + " with UUID: " + player.getCachedUniqueIdString());
+    ShoulderData data = ShoulderList.getData(player);
+    if (data != null) {
+      Shoulders.LOG.info("Patreon Player " + player.getScoreboardName() + " with UUID: " + player.getCachedUniqueIdString() + " just logged in!!!!!!!");
+    }
   }
 }

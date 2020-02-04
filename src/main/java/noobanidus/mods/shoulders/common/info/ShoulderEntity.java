@@ -1,12 +1,11 @@
 package noobanidus.mods.shoulders.common.info;
 
-import net.minecraft.util.IStringSerializable;
 import noobanidus.mods.shoulders.client.models.BeetleModel;
 import noobanidus.mods.shoulders.client.models.ShoulderRidingModel;
 
 import java.util.function.Supplier;
 
-public enum ShoulderEntity implements IStringSerializable {
+public enum ShoulderEntity implements BiDirectional {
   BEETLE("beetle", BeetleModel::new);
 
   private String entity;
@@ -24,5 +23,9 @@ public enum ShoulderEntity implements IStringSerializable {
   @Override
   public String getName() {
     return this.entity;
+  }
+
+  public static ShoulderEntity getByName(String name) {
+    return BiDirectional.getByString(values(), name);
   }
 }

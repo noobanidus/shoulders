@@ -1,8 +1,6 @@
 package noobanidus.mods.shoulders.common.info;
 
-import net.minecraft.util.IStringSerializable;
-
-public enum Shoulder implements IStringSerializable {
+public enum Shoulder implements BiDirectional {
   RIGHT("right"), LEFT("left"), HEAD("head");
 
   private String shoulder;
@@ -14,5 +12,9 @@ public enum Shoulder implements IStringSerializable {
   @Override
   public String getName() {
     return this.shoulder;
+  }
+
+  public static Shoulder getByName(String name) {
+    return BiDirectional.getByString(values(), name);
   }
 }

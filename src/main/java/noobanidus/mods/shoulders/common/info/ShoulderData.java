@@ -22,6 +22,10 @@ public class ShoulderData implements INBTSerializable<CompoundNBT> {
   private ShoulderData () {
   }
 
+  public UUID getPlayer() {
+    return player;
+  }
+
   public ShoulderEntity getEntity() {
     return entity;
   }
@@ -44,8 +48,8 @@ public class ShoulderData implements INBTSerializable<CompoundNBT> {
   }
 
   public static ShoulderData fromJson (JsonObject source) {
-    ShoulderEntity entity = ShoulderEntity.valueOf(source.get("entity").getAsString());
-    Shoulder shoulder = Shoulder.valueOf(source.get("shoulder").getAsString());
+    ShoulderEntity entity = ShoulderEntity.getByName(source.get("entity").getAsString());
+    Shoulder shoulder = Shoulder.getByName(source.get("shoulder").getAsString());
     int variant = source.get("variant").getAsInt();
     UUID player = UUID.fromString(source.get("player").getAsString());
     return new ShoulderData(player, entity, shoulder, variant);
@@ -65,8 +69,8 @@ public class ShoulderData implements INBTSerializable<CompoundNBT> {
   @Override
   public void deserializeNBT(CompoundNBT nbt) {
     this.player = nbt.getUniqueId("player");
-    this.shoulder = Shoulder.valueOf(nbt.getString("shoulder"));
-    this.entity = ShoulderEntity.valueOf(nbt.getString("entity"));
+    this.shoulder = Shoulder.getByName(nbt.getString("shoulder"));
+    this.entity = ShoulderEntity.getByName(nbt.getString("entity"));
     this.variant = nbt.getInt("variant");
   }
 }

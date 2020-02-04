@@ -8,7 +8,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.ShoulderRidingModel;
-import noobanidus.mods.shoulders.common.capability.PlayerShoulderCapabilityProvider;
+import noobanidus.mods.shoulders.common.data.ShoulderList;
 import noobanidus.mods.shoulders.common.info.ShoulderData;
 import noobanidus.mods.shoulders.common.info.ShoulderEntity;
 
@@ -33,12 +33,10 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    entityIn.getCapability(PlayerShoulderCapabilityProvider.PLAYER_SHOULDER_CAPABILITY).ifPresent((cap) -> {
-      if (cap.hasShouldered()) {
-        ShoulderData data = cap.getData();
-        this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
-      }
-    });
+    ShoulderData data = ShoulderList.getData(entityIn);
+    if (data != null) {
+      this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
+    }
     GlStateManager.disableRescaleNormal();
   }
 
