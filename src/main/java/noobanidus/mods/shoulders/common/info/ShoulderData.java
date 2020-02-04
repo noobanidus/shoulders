@@ -30,6 +30,18 @@ public class ShoulderData implements INBTSerializable<CompoundNBT> {
     return entity;
   }
 
+  public boolean left () {
+    return getShoulder().left();
+  }
+
+  public boolean right () {
+    return getShoulder().right();
+  }
+
+  public boolean head () {
+    return getShoulder().head();
+  }
+
   public Shoulder getShoulder() {
     return shoulder;
   }

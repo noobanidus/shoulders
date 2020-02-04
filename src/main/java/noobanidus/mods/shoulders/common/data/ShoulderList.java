@@ -22,10 +22,10 @@ public class ShoulderList {
   private static String shoulderUrl = "https://raw.githubusercontent.com/noobanidus/shoulders/1.14/src/generated/resources/data/info/shoulders.json";
   private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
 
-  public static void load () {
+  public static boolean load () {
     dataMap.clear();
 
-    JsonArray data = null;
+    JsonArray data;
     try {
       Shoulders.LOG.info("Fetching Patreon supporter information from GitHub...");
       final String response = IOUtils.toString(new URL(shoulderUrl), StandardCharsets.UTF_8);
@@ -33,7 +33,7 @@ public class ShoulderList {
       data = GSON.fromJson(response, JsonArray.class);
     } catch (IOException e) {
       Shoulders.LOG.error("Unable to load Patreon information!");
-      return;
+      return false;
     }
 
     for (JsonElement element : data) {
@@ -41,6 +41,8 @@ public class ShoulderList {
       ShoulderData entry = ShoulderData.fromJson(object);
       dataMap.put(entry.getPlayer(), entry);
     }
+
+    return true;
   }
 
   @Nullable

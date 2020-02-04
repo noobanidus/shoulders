@@ -18,14 +18,14 @@ import java.util.Map;
 
 @OnlyIn(Dist.CLIENT)
 public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, PlayerModel<T>> {
-  private final Map<ShoulderEntity, ShoulderRidingModel<?>> MODEL_MAP = new HashMap<>();
+  private final Map<ShoulderEntity, ShoulderRidingModel> MODEL_MAP = new HashMap<>();
 
   public ShoulderLayer(IEntityRenderer<T, PlayerModel<T>> player) {
     super(player);
   }
 
   @Nullable
-  public ShoulderRidingModel<?> getModelFor(ShoulderData data) {
+  public ShoulderRidingModel getModelFor(ShoulderData data) {
     return MODEL_MAP.computeIfAbsent(data.getEntity(), (e) -> e.getModel().get());
   }
 
@@ -40,12 +40,12 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
     GlStateManager.disableRescaleNormal();
   }
 
-  private void renderModel(T player, ShoulderData data, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn, ShoulderRidingModel<?> model) {
+  private void renderModel(T player, ShoulderData data, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn, ShoulderRidingModel model) {
     GlStateManager.pushMatrix();
     switch (data.getEntity()) {
       case BEETLE:
-        GlStateManager.translatef(0.375F /*: -0.4F*/, player.shouldRenderSneaking() ? -0.3F : -0.5F, 0.0F);
-        GlStateManager.scalef(0.35f, 0.35f, 0.35f);
+        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.3 : -0.5, 0.0);
+        GlStateManager.scaled(0.35, 0.35, 0.35);
         break;
     }
     this.bindTexture(model.getTexture(data));

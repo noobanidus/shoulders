@@ -9,6 +9,19 @@ public enum Shoulder implements BiDirectional {
     this.shoulder = shoulder;
   }
 
+  public boolean left () {
+    return this == LEFT;
+  }
+
+  public boolean right () {
+    return this == RIGHT;
+  }
+
+  public boolean head () {
+    return this == HEAD;
+  }
+
+
   @Override
   public String getName() {
     return this.shoulder;
