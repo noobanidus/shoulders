@@ -47,6 +47,10 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
         GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.3 : -0.5, 0.0);
         GlStateManager.scaled(0.35, 0.35, 0.35);
         break;
+      case RABBIT:
+        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.7 : -0.98, -0.07);
+        GlStateManager.scaled(0.65, 0.65, 0.65);
+        break;
     }
     this.bindTexture(model.getTexture(data));
     model.renderOnShoulder(data, limbSwing, limbSwingAmount, netHeadYaw, headPitch, scaleIn, player.ticksExisted);
