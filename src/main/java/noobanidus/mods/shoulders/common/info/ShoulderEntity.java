@@ -1,25 +1,25 @@
 package noobanidus.mods.shoulders.common.info;
 
-import noobanidus.mods.shoulders.client.models.BeetleModel;
-import noobanidus.mods.shoulders.client.models.RabbitModel;
-import noobanidus.mods.shoulders.client.models.ShoulderRidingModel;
+import noobanidus.mods.shoulders.client.models.*;
 
 import java.util.function.Supplier;
 
 public enum ShoulderEntity implements BiDirectional {
   BEETLE("beetle", BeetleModel::new),
-  RABBIT("rabbit", RabbitModel::new)
+  RABBIT("rabbit", RabbitModel::new),
+  OCELOT("ocelot", OcelotModel::new),
+  BAT("bat", BatModel::new)
   ;
 
   private String entity;
-  private Supplier<ShoulderRidingModel> model;
+  private Supplier<IShoulderRidingModel> model;
 
-  ShoulderEntity(String entity, Supplier<ShoulderRidingModel> model) {
+  ShoulderEntity(String entity, Supplier<IShoulderRidingModel> model) {
     this.entity = entity;
     this.model = model;
   }
 
-  public Supplier<ShoulderRidingModel> getModel() {
+  public Supplier<IShoulderRidingModel> getModel() {
     return model;
   }
 

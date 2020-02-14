@@ -1,13 +1,13 @@
 package noobanidus.mods.shoulders.client.models;
 
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.Shoulders;
 import noobanidus.mods.shoulders.common.info.ShoulderData;
 
-import javax.annotation.Nonnull;
-
-public class BeetleModel extends ShoulderRidingModel {
+public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingModel {
   private RendererModel body;
   private RendererModel wingL;
   private RendererModel wingR;

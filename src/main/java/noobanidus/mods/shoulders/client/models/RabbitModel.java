@@ -1,7 +1,9 @@
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
+import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -11,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
-public class RabbitModel extends ShoulderRidingModel {
+public class RabbitModel extends EntityModel<Entity> implements IShoulderRidingModel {
   private final RendererModel rabbitLeftFoot = new RendererModel(this, 26, 24);
   private final RendererModel rabbitRightFoot;
   private final RendererModel rabbitLeftThigh;

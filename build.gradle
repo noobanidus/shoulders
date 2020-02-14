@@ -34,7 +34,7 @@ targetCompatibility = '1.8'
 minecraft {
     mappings channel: 'snapshot', version: "${mcp_mappings}"
 
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    accessTransformer = file('src/ocelotHead/resources/META-INF/accesstransformer.cfg')
 
     runs {
         client {
@@ -84,7 +84,7 @@ minecraft {
             }
 
             args '--mod', 'shoulders', '--all', '--output', '"' + rootProject.file('src/generated/resources/') + '"',
-                    '--existing', '"' + rootProject.file('src/main/resources') + '"'//, '--existing', '"' + rootProject.file('src/generated/resources') + '"'
+                    '--existing', '"' + rootProject.file('src/ocelotHead/resources') + '"'//, '--existing', '"' + rootProject.file('src/generated/resources') + '"'
 
         }
     }
@@ -108,10 +108,15 @@ repositories {
     maven { // JEI
         url "http://dvs1.progwml6.com/files/maven"
     }
+    flatDir {
+        dir "libs"
+    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    compileOnly "epicsquid.mysticalworld:MysticalWorld:1.14.4-1.8.0:api"
 
     def noobutil = "noobanidus.libs:noobutil:${minecraft_version}-${noobutil_version}"
     implementation fg.deobf(noobutil)
