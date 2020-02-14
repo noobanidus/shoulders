@@ -42,7 +42,7 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.BAT, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.RABBIT, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -53,17 +53,17 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
     GlStateManager.pushMatrix();
     switch (data.getEntity()) {
       case BEETLE:
-/*        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.3 : -0.5, 0.0);
+        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.3 : -0.5, 0.0);
         GlStateManager.scaled(0.35, 0.35, 0.35);
-        break;*/
+        break;
       case RABBIT:
-/*        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.7 : -0.98, -0.07);
+        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.7 : -0.98, -0.07);
         GlStateManager.scaled(0.65, 0.65, 0.65);
-        break;*/
+        break;
       case OCELOT:
-/*        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
+        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
         GlStateManager.scaled(0.45, 0.45, 0.45);
-        break;*/
+        break;
       case BAT:
         GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
         GlStateManager.scaled(0.45, 0.45, 0.45);

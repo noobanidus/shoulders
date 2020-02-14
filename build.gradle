@@ -118,11 +118,32 @@ dependencies {
 
     compileOnly "epicsquid.mysticalworld:MysticalWorld:1.14.4-1.8.0:api"
 
-    def noobutil = "noobanidus.libs:noobutil:${minecraft_version}-${noobutil_version}"
+/*    def noobutil = "noobanidus.libs:noobutil:${minecraft_version}-${noobutil_version}"
     implementation fg.deobf(noobutil)
-    shade noobutil
+    shade noobutil*/
 }
 
+task deobfJar(type: Jar) {
+    from(sourceSets.main.output)
+    exclude "data/**"
+    exclude ".cache"
+    classifier = "deobf"
+}
+
+task embedJar (type: Jar) {
+    from(sourceSets.main.output)
+    exclude "META-INF/mods.toml"
+    exclude "data/**"
+    exclude ".cache"
+    classifier = "embed"
+}
+
+embedJar.finalizedBy reobf
+
+build.dependsOn embedJar
+build.dependsOn deobfJar
+
+/*
 shadowJar {
     configurations = [project.configurations.shade]
     relocate 'noobanidus.libs.noobutil', 'noobanids.libs.repack_shoulders.noobutil'
@@ -137,4 +158,10 @@ reobf {
 
 build.dependsOn reobfShadowJar
 
+task embedJar (type: Jar) {
+    classifier = 'embed'
+    exclude "mods.toml"
+}
 
+embedJar.dependsOn reobfShadowJar
+build.dependsOn embedJar*/

@@ -29,7 +29,7 @@ public class GenerateInfo implements IDataProvider {
     Path path = this.generator.getOutputFolder();
 
     List<ShoulderData> patreonData = Arrays.asList(
-        new ShoulderData(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"), ShoulderEntity.RABBIT, Shoulder.LEFT, 0) // Dev
+        new ShoulderData(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"), ShoulderEntity.RABBIT, Shoulder.RIGHT, 0) // Dev
     );
 
     JsonArray dataArray = new JsonArray();
