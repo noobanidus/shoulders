@@ -25,6 +25,9 @@ apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
 
 version = "${minecraft_version}-${mod_version}"
+if (System.getenv('BUILD_NUMBER') != null) {
+    version = "${minecraft_version}-${mod_version}-"+ System.getenv('BUILD_NUMBER')
+}
 group = "noobanidus.mods.shoulders"
 archivesBaseName = "shoulders"
 
