@@ -143,25 +143,26 @@ embedJar.finalizedBy reobf
 build.dependsOn embedJar
 build.dependsOn deobfJar
 
-/*
-shadowJar {
-    configurations = [project.configurations.shade]
-    relocate 'noobanidus.libs.noobutil', 'noobanids.libs.repack_shoulders.noobutil'
-    classifier ''
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId project.group
+            artifactId project.archivesBaseName
+            version project.version
+            from components.java
+
+            artifact embedJar {
+                classifier "embed"
+            }
+
+            artifact deobfJar {
+                classifier "deobf"
+            }
+        }
+    }
+    repositories {
+        maven {
+            url "file:///" + System.getenv("local_maven")
+        }
+    }
 }
-
-jar.classifier = 'nodep'
-
-reobf {
-    shadowJar {}
-}
-
-build.dependsOn reobfShadowJar
-
-task embedJar (type: Jar) {
-    classifier = 'embed'
-    exclude "mods.toml"
-}
-
-embedJar.dependsOn reobfShadowJar
-build.dependsOn embedJar*/
