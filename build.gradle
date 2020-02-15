@@ -26,7 +26,7 @@ apply plugin: 'eclipse'
 
 version = "${minecraft_version}-${mod_version}"
 if (System.getenv('BUILD_NUMBER') != null) {
-    version = "${minecraft_version}-${mod_version}-"+ System.getenv('BUILD_NUMBER')
+    version = "${minecraft_version}-${mod_version}-" + System.getenv('BUILD_NUMBER')
 }
 group = "noobanidus.mods.shoulders"
 archivesBaseName = "shoulders"
@@ -127,7 +127,7 @@ task deobfJar(type: Jar) {
     classifier = "deobf"
 }
 
-task embedJar (type: Jar) {
+task embedJar(type: Jar) {
     from(sourceSets.main.output)
     exclude "META-INF/mods.toml"
     exclude "data/**"
@@ -154,6 +154,12 @@ publishing {
 
             artifact deobfJar {
                 classifier "deobf"
+            }
+
+            pom.withXml {
+                asNode().dependencies.dependency.each {
+                    dep -> dep.parent().remove(dep)
+                }
             }
         }
     }
