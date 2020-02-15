@@ -116,8 +116,6 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    compileOnly "epicsquid.mysticalworld:MysticalWorld:1.14.4-1.8.0:api"
-
 /*    def noobutil = "noobanidus.libs:noobutil:${minecraft_version}-${noobutil_version}"
     implementation fg.deobf(noobutil)
     shade noobutil*/
