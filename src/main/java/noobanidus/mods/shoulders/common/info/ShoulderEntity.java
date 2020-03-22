@@ -4,7 +4,7 @@ import noobanidus.mods.shoulders.client.models.*;
 
 import java.util.function.Supplier;
 
-public enum ShoulderEntity implements TriDirectional {
+public enum ShoulderEntity implements BiDirectional {
   BEETLE("beetle", BeetleModel::new),
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
@@ -30,6 +30,6 @@ public enum ShoulderEntity implements TriDirectional {
   }
 
   public static ShoulderEntity getByName(String name) {
-    return TriDirectional.getByString(values(), name);
+    return BiDirectional.getByString(values(), name);
   }
 }

@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.IShoulderRidingModel;
@@ -29,20 +30,11 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
     return MODEL_MAP.computeIfAbsent(data.getEntity(), (e) -> e.getModel().get());
   }
 
-  private float getScaleFor(ShoulderData data) {
-    switch (data.getEntity()) {
-      case OCELOT:
-        return 0.5f;
-      default:
-        return 1.0f;
-    }
-  }
-
   @Override
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.TURTLE, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.BAT, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -51,26 +43,43 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
 
   private void renderModel(T player, ShoulderData data, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn, IShoulderRidingModel model) {
     GlStateManager.pushMatrix();
+    boolean offsetArmor = !player.getItemStackFromSlot(EquipmentSlotType.CHEST).isEmpty();
+    double armorOffset = 0;
     switch (data.getEntity()) {
       case BEETLE:
-        GlStateManager.scaled(0.35, 0.35, 0.35);
-        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.3 : -0.5, 0.0);
+        if (offsetArmor) {
+          armorOffset = -0.2;
+        }
+        GlStateManager.scaled(0.3, 0.3, 0.3);
+        GlStateManager.translated(data.left() ? 1.275 : -1.275, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
         break;
       case RABBIT:
+        if (offsetArmor) {
+          armorOffset = -0.1;
+        }
         GlStateManager.scaled(0.65, 0.65, 0.65);
-        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.7 : -0.98, -0.07);
+        GlStateManager.translated(data.left() ? 0.6 : -0.6, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
         break;
       case OCELOT:
+        if (offsetArmor) {
+          armorOffset = -0.1;
+        }
         GlStateManager.scaled(0.45, 0.45, 0.45);
-        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
+        //GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
+        GlStateManager.translated(data.left() ? 0.85 : -0.85, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
         break;
       case BAT:
-        GlStateManager.scaled(0.45, 0.45, 0.45);
-        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
+        GlStateManager.rotated(180, 0, 0, 1);
+        GlStateManager.rotated(180, 0, 1, 0);
+        GlStateManager.scaled(0.26, 0.26, 0.26);
+        GlStateManager.translated(data.left() ? 1.575 : -1.575, player.shouldRenderSneaking() ? 0 : 1.5, 0);
         break;
       case TURTLE:
-        GlStateManager.scaled(0.45, 0.45, 0.45);
-        GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
+        if (offsetArmor) {
+          armorOffset = -0.2;
+        }
+        GlStateManager.scaled(0.25, 0.25, 0.25);
+        GlStateManager.translated(data.left() ? 1.675 : -1.675, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, -0.3);
         break;
     }
     this.bindTexture(model.getTexture(data));
