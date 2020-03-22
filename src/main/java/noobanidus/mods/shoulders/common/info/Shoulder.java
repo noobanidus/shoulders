@@ -21,13 +21,19 @@ public enum Shoulder implements BiDirectional {
     return this == HEAD;
   }
 
-
-  @Override
   public String getName() {
     return this.shoulder;
   }
 
   public static Shoulder getByName(String name) {
-    return BiDirectional.getByString(values(), name);
+    switch (name.toLowerCase()) {
+      case "right":
+        return RIGHT;
+      case "head":
+        return HEAD;
+      case "left":
+      default:
+        return LEFT;
+    }
   }
 }
