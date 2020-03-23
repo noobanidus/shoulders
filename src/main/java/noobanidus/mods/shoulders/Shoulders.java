@@ -7,7 +7,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import noobanidus.mods.shoulders.common.bootstrap.Bootstrap;
 import org.apache.logging.log4j.LogManager;
@@ -28,6 +27,6 @@ public class Shoulders {
 
   @OnlyIn(Dist.CLIENT)
   public void onClientSetup(FMLClientSetupEvent event) {
-    Bootstrap.init(Minecraft.getInstance().getRenderManager().getSkinMap());
+    Bootstrap.init(Minecraft.getInstance().getRenderManager().getSkinMap().values());
   }
 }
