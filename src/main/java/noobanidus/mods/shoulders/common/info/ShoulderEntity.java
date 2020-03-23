@@ -2,9 +2,10 @@ package noobanidus.mods.shoulders.common.info;
 
 import noobanidus.mods.shoulders.client.models.*;
 
+import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
-public enum ShoulderEntity implements BiDirectional {
+public enum ShoulderEntity {
   BEETLE("beetle", BeetleModel::new),
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
@@ -25,12 +26,18 @@ public enum ShoulderEntity implements BiDirectional {
     return model;
   }
 
-  @Override
   public String getName() {
     return this.entity;
   }
 
-  public static ShoulderEntity getByName(String name) {
-    return BiDirectional.getByString(values(), name);
+  @Nullable
+  public static ShoulderEntity getByName(String value) {
+    for (ShoulderEntity val : values()) {
+      if (val.getName().equals(value)) {
+        return val;
+      }
+    }
+
+    return null;
   }
 }

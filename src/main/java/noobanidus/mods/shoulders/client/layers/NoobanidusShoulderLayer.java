@@ -18,10 +18,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 @OnlyIn(Dist.CLIENT)
-public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, PlayerModel<T>> {
+public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, PlayerModel<T>> {
   private final Map<ShoulderEntity, IShoulderRidingModel> MODEL_MAP = new HashMap<>();
 
-  public ShoulderLayer(IEntityRenderer<T, PlayerModel<T>> player) {
+  public NoobanidusShoulderLayer(IEntityRenderer<T, PlayerModel<T>> player) {
     super(player);
   }
 

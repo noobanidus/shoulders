@@ -1,6 +1,6 @@
 package noobanidus.mods.shoulders.common.info;
 
-public enum Shoulder implements BiDirectional {
+public enum Shoulder {
   RIGHT("right"), LEFT("left"), HEAD("head");
 
   private String shoulder;
