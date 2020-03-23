@@ -14,8 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 @Mod("shoulders")
 public class Shoulders {
-  public static final Logger LOG = LogManager.getLogger();
-  public static final String MODID = "shoulders";
 
   public Shoulders() {
     IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -27,6 +25,6 @@ public class Shoulders {
 
   @OnlyIn(Dist.CLIENT)
   public void onClientSetup(FMLClientSetupEvent event) {
-    Bootstrap.init(Minecraft.getInstance().getRenderManager().getSkinMap().values());
+    Bootstrap.init(Minecraft.getInstance());
   }
 }

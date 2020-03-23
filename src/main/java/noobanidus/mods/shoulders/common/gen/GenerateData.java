@@ -3,9 +3,9 @@ package noobanidus.mods.shoulders.common.gen;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
-import noobanidus.mods.shoulders.Shoulders;
+import noobanidus.mods.shoulders.Constants;
 
-@Mod.EventBusSubscriber(modid = Shoulders.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Constants.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class GenerateData {
   @SubscribeEvent
   public static void onGatherData(GatherDataEvent event) {

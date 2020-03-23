@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import noobanidus.mods.shoulders.Shoulders;
+import noobanidus.mods.shoulders.Constants;
 import noobanidus.mods.shoulders.common.info.ShoulderData;
 
 public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingModel {
@@ -120,6 +120,6 @@ public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingM
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    return new ResourceLocation(Shoulders.MODID + ":textures/entity/beetle_blue.png");
+    return new ResourceLocation(Constants.MODID + ":textures/entity/beetle_blue.png");
   }
 }

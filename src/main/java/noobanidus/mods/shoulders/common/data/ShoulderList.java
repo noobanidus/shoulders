@@ -2,15 +2,12 @@ package noobanidus.mods.shoulders.common.data;
 
 import com.google.gson.*;
 import net.minecraft.entity.player.PlayerEntity;
-import noobanidus.mods.shoulders.Shoulders;
-import noobanidus.mods.shoulders.common.info.Shoulder;
+import noobanidus.mods.shoulders.Constants;
 import noobanidus.mods.shoulders.common.info.ShoulderData;
-import noobanidus.mods.shoulders.common.info.ShoulderEntity;
 import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -27,12 +24,12 @@ public class ShoulderList {
 
     JsonArray data;
     try {
-      Shoulders.LOG.info("Fetching Patreon supporter information from GitHub...");
+      Constants.LOG.info("Fetching Patreon supporter information from GitHub...");
       final String response = IOUtils.toString(new URL(shoulderUrl), StandardCharsets.UTF_8);
 
       data = GSON.fromJson(response, JsonArray.class);
     } catch (IOException e) {
-      Shoulders.LOG.error("Unable to load Patreon information!");
+      Constants.LOG.error("Unable to load Patreon information!");
       return false;
     }
 
