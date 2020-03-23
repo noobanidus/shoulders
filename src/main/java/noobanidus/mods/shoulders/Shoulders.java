@@ -38,20 +38,11 @@ public class Shoulders {
       modBus.addListener(ClientSetup::init);
     });
 
-    MinecraftForge.EVENT_BUS.addListener(Shoulders::playerLoggedOn);
     MinecraftForge.EVENT_BUS.addListener(this::onServerStarting);
   }
 
   public void onServerStarting(FMLServerStartingEvent event) {
     COMMAND_SHOULDERS = new CommandShoulders(event.getCommandDispatcher());
     COMMAND_SHOULDERS.register();
-  }
-
-  public static void playerLoggedOn(PlayerEvent.PlayerLoggedInEvent event) {
-    PlayerEntity player = event.getPlayer();
-    ShoulderData data = ShoulderList.getData(player);
-    if (data != null) {
-      Shoulders.LOG.info("Patreon Player " + player.getScoreboardName() + " with UUID: " + player.getCachedUniqueIdString() + " just logged in!!!!!!!");
-    }
   }
 }

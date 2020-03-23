@@ -16,10 +16,6 @@ buildscript {
         classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.0.165-run-configs-rework', changing: true
     }
 }
-plugins {
-    id 'com.github.johnrengelman.shadow' version '5.2.0'
-}
-
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'maven-publish'
 apply plugin: 'eclipse'
@@ -89,49 +85,36 @@ minecraft {
     }
 }
 
-configurations {
-    shade
-}
-
 sourceSets.main.resources {
     srcDir 'src/generated/resources'
 }
 
 repositories {
-    maven {
-        url "https://maven.blamejared.com"
-    }
-    maven {
-        url "http://maven.tterrag.com/"
-    }
-    maven { // JEI
-        url "http://dvs1.progwml6.com/files/maven"
-    }
-    flatDir {
-        dir "libs"
-    }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-/*    def noobutil = "noobanidus.libs:noobutil:${minecraft_version}-${noobutil_version}"
-    implementation fg.deobf(noobutil)
-    shade noobutil*/
 }
 
 task deobfJar(type: Jar) {
     from(sourceSets.main.output)
     exclude "data/**"
+    exclude "META-INF/**"
     exclude ".cache"
+    exclude "noobanidus/mods/shoulders/Shoulders"
+    exclude "noobanidus/mods/shoulders/setup/**"
+    exclude "noobanidus/mods/shoulders/gen/**"
     classifier = "deobf"
 }
 
 task embedJar(type: Jar) {
     from(sourceSets.main.output)
-    exclude "META-INF/mods.toml"
+    exclude "META-INF/**"
     exclude "data/**"
     exclude ".cache"
+    exclude "noobanidus/mods/shoulders/Shoulders"
+    exclude "noobanidus/mods/shoulders/setup/**"
+    exclude "noobanidus/mods/shoulders/gen/**"
     classifier = "embed"
 }
 
