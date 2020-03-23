@@ -28,6 +28,6 @@ public class Shoulders {
 
   @OnlyIn(Dist.CLIENT)
   public void onClientSetup(FMLClientSetupEvent event) {
-    Bootstrap.init(Minecraft.getInstance());
+    Bootstrap.init(Minecraft.getInstance().getRenderManager().getSkinMap());
   }
 }
