@@ -19,11 +19,10 @@ import java.util.Map;
 @OnlyIn(Dist.CLIENT)
 public class Bootstrap {
   @SuppressWarnings("unchecked")
-  public static void init() {
+  public static void init(Minecraft mc) {
     final Field renderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "field_177097_h");
     renderers.setAccessible(true);
 
-    final Minecraft mc = Minecraft.getInstance();
     final EntityRendererManager manager = mc.getRenderManager();
     final Map<String, PlayerRenderer> skinMap = manager.getSkinMap();
     boolean found = false;
