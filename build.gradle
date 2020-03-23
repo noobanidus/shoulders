@@ -102,7 +102,7 @@ task deobfJar(type: Jar) {
     exclude "META-INF/**"
     exclude ".cache"
     exclude "noobanidus/mods/shoulders/Shoulders"
-    exclude "noobanidus/mods/shoulders/gen/**"
+    exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "deobf"
 }
 
@@ -112,7 +112,7 @@ task embedJar(type: Jar) {
     exclude "data/**"
     exclude ".cache"
     exclude "noobanidus/mods/shoulders/Shoulders"
-    exclude "noobanidus/mods/shoulders/gen/**"
+    exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "embed"
 }
 
