@@ -17,16 +17,14 @@ import java.util.List;
 public class Bootstrap {
   @SuppressWarnings("unchecked")
   public static void init(Collection<?> map) {
-    final Field renderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "field_177097_h");
+    final Field renderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "");
     renderers.setAccessible(true);
 
     boolean found = false;
 
     for (Object renderer : map) {
-      List<LayerRenderer> theseRenderers;
-      try {
-        theseRenderers = (List<LayerRenderer>) renderers.get(renderer);
-      } catch (IllegalAccessException e) {
+      List<LayerRenderer> theseRenderers = ObfuscationReflectionHelper.getPrivateValue(LivingRenderer.class, (PlayerRenderer)renderer, "field_177097_h");
+      if (theseRenderers == null) {
         continue;
       }
 
