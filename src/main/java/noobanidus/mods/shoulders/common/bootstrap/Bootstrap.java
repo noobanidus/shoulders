@@ -17,9 +17,6 @@ import java.util.List;
 public class Bootstrap {
   @SuppressWarnings("unchecked")
   public static void init(Collection<?> map) {
-    final Field renderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "");
-    renderers.setAccessible(true);
-
     boolean found = false;
 
     for (Object renderer : map) {
