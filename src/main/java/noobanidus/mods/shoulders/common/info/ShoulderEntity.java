@@ -9,7 +9,8 @@ public enum ShoulderEntity implements BiDirectional {
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
   BAT("bat", BatModel::new),
-  TURTLE("turtle", TurtleModel::new)
+  TURTLE("turtle", TurtleModel::new),
+  CHICKEN("chicken", ChickenModel::new)
   ;
 
   private String entity;

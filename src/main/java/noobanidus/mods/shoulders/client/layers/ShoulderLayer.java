@@ -34,7 +34,7 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.BAT, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.CHICKEN, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -54,6 +54,13 @@ public class ShoulderLayer<T extends PlayerEntity> extends LayerRenderer<T, Play
         GlStateManager.translated(data.left() ? 1.275 : -1.275, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
         break;
       case RABBIT:
+        if (offsetArmor) {
+          armorOffset = -0.1;
+        }
+        GlStateManager.scaled(0.65, 0.65, 0.65);
+        GlStateManager.translated(data.left() ? 0.6 : -0.6, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
+        break;
+      case CHICKEN:
         if (offsetArmor) {
           armorOffset = -0.1;
         }
