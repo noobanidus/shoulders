@@ -23,8 +23,7 @@ public class Bootstrap {
     final Field renderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "field_177097_h");
     renderers.setAccessible(true);
 
-    final EntityRendererManager manager = mc.getRenderManager();
-    final Map<String, PlayerRenderer> skinMap = manager.getSkinMap();
+    final Map<String, PlayerRenderer> skinMap = mc.getRenderManager().getSkinMap();
     boolean found = false;
 
     for (PlayerRenderer renderer : skinMap.values()) {
