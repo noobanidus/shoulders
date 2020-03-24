@@ -110,7 +110,7 @@ task deobfJar(type: Jar) {
     exclude "META-INF/mods.toml"
     exclude "META-INF/accesstransformer.cfg"
     exclude ".cache"
-    exclude "noobanidus/mods/shoulders/Shoulders"
+    exclude "noobanidus/mods/shoulders/Shoulders**"
     exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "deobf"
     manifest {
@@ -126,7 +126,7 @@ task embedJar(type: Jar) {
     exclude "META-INF/accesstransformer.cfg"
     exclude "data/**"
     exclude ".cache"
-    exclude "noobanidus/mods/shoulders/Shoulders"
+    exclude "noobanidus/mods/shoulders/Shoulders**"
     exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "embed"
     manifest {
