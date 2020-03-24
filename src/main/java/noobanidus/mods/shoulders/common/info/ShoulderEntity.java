@@ -2,7 +2,6 @@ package noobanidus.mods.shoulders.common.info;
 
 import noobanidus.mods.shoulders.client.models.*;
 
-import javax.annotation.Nullable;
 import java.util.function.Supplier;
 
 public enum ShoulderEntity {
@@ -11,8 +10,7 @@ public enum ShoulderEntity {
   OCELOT("ocelot", OcelotModel::new),
   BAT("bat", BatModel::new),
   TURTLE("turtle", TurtleModel::new),
-  CHICKEN("chicken", ChickenModel::new)
-  ;
+  CHICKEN("chicken", ChickenModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;
@@ -30,7 +28,6 @@ public enum ShoulderEntity {
     return this.entity;
   }
 
-  @Nullable
   public static ShoulderEntity getByName(String value) {
     for (ShoulderEntity val : values()) {
       if (val.getName().equals(value)) {

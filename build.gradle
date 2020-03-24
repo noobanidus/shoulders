@@ -96,6 +96,14 @@ dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 }
 
+jar {
+    manifest {
+        attributes(
+            'FMLModType': 'LIBRARY'
+        )
+    }
+}
+
 task deobfJar(type: Jar) {
     from(sourceSets.main.output)
     exclude "data/**"
