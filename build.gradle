@@ -107,21 +107,33 @@ jar {
 task deobfJar(type: Jar) {
     from(sourceSets.main.output)
     exclude "data/**"
-    exclude "META-INF/**"
+    exclude "META-INF/mods.toml"
+    exclude "META-INF/accesstransformer.cfg"
     exclude ".cache"
     exclude "noobanidus/mods/shoulders/Shoulders"
     exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "deobf"
+    manifest {
+        attributes(
+            'FMLModType': 'LIBRARY'
+        )
+    }
 }
 
 task embedJar(type: Jar) {
     from(sourceSets.main.output)
-    exclude "META-INF/**"
+    exclude "META-INF/mods.toml"
+    exclude "META-INF/accesstransformer.cfg"
     exclude "data/**"
     exclude ".cache"
     exclude "noobanidus/mods/shoulders/Shoulders"
     exclude "noobanidus/mods/shoulders/common/gen/**"
     classifier = "embed"
+    manifest {
+        attributes(
+            'FMLModType': 'LIBRARY'
+        )
+    }
 }
 
 embedJar.finalizedBy reobf
