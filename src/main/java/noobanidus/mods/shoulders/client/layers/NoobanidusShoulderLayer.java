@@ -62,10 +62,10 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         break;
       case CHICKEN:
         if (offsetArmor) {
-          armorOffset = -0.1;
+          armorOffset = -0.15;
         }
-        GlStateManager.scaled(0.65, 0.65, 0.65);
-        GlStateManager.translated(data.left() ? 0.6 : -0.6, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
+        GlStateManager.scaled(0.4, 0.4, 0.4);
+        GlStateManager.translated(data.left() ? 0.95 : -0.95, player.shouldRenderSneaking() ? -1.25 + armorOffset : -1.55 + armorOffset, -0.06);
         break;
       case OCELOT:
         if (offsetArmor) {
