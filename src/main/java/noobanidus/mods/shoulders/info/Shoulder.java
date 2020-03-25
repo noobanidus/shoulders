@@ -1,4 +1,4 @@
-package noobanidus.mods.shoulders.common.info;
+package noobanidus.mods.shoulders.info;
 
 public enum Shoulder {
   RIGHT("right"), LEFT("left"), HEAD("head");

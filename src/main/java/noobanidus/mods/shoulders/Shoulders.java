@@ -8,9 +8,7 @@ import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import noobanidus.mods.shoulders.common.bootstrap.Bootstrap;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import noobanidus.mods.shoulders.client.bootstrap.Bootstrap;
 
 @Mod("shoulders")
 public class Shoulders {

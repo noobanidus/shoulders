@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderData;
 
 import java.util.Arrays;
 import java.util.List;

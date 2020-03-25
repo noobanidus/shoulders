@@ -1,4 +1,4 @@
-package noobanidus.mods.shoulders.common.gen;
+package noobanidus.mods.shoulders.gen;
 
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

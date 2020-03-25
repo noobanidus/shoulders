@@ -1,16 +1,20 @@
-package noobanidus.mods.shoulders.common.info;
+package noobanidus.mods.shoulders.info;
 
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.*;
 
 import java.util.function.Supplier;
 
+@OnlyIn(Dist.CLIENT)
 public enum ShoulderEntity {
   BEETLE("beetle", BeetleModel::new),
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
   BAT("bat", BatModel::new),
   TURTLE("turtle", TurtleModel::new),
-  CHICKEN("chicken", ChickenModel::new);
+  CHICKEN("chicken", ChickenModel::new),
+  COW("cow", CowModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

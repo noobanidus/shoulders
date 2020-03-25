@@ -9,9 +9,9 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.IShoulderRidingModel;
-import noobanidus.mods.shoulders.common.info.Shoulder;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
-import noobanidus.mods.shoulders.common.info.ShoulderEntity;
+import noobanidus.mods.shoulders.info.Shoulder;
+import noobanidus.mods.shoulders.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderEntity;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.CHICKEN, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.COW, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -75,7 +75,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         //GlStateManager.translated(data.left() ? 0.375 : -0.375, player.shouldRenderSneaking() ? -0.5 : -0.68, -0.0);
         GlStateManager.translated(data.left() ? 0.85 : -0.85, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
         break;
-      case BAT:
+      case BAT: // TODO
         GlStateManager.rotated(180, 0, 0, 1);
         GlStateManager.rotated(180, 0, 1, 0);
         GlStateManager.scaled(0.26, 0.26, 0.26);
@@ -87,6 +87,13 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         }
         GlStateManager.scaled(0.25, 0.25, 0.25);
         GlStateManager.translated(data.left() ? 1.675 : -1.675, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, -0.3);
+        break;
+      case COW:
+        if (offsetArmor) {
+          armorOffset = -0.2;
+        }
+        GlStateManager.scaled(0.25, 0.25, 0.25);
+        GlStateManager.translated(data.left() ? 1.675 : -1.675, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
         break;
     }
     this.bindTexture(model.getTexture(data));

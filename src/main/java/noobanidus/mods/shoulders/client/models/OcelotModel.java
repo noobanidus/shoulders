@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderData;
 
 import java.util.Arrays;
 import java.util.List;

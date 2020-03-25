@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderData;
 
 @SuppressWarnings("WeakerAccess")
 @OnlyIn(Dist.CLIENT)

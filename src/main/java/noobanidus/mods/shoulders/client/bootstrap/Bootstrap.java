@@ -1,4 +1,4 @@
-package noobanidus.mods.shoulders.common.bootstrap;
+package noobanidus.mods.shoulders.client.bootstrap;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.PlayerRenderer;
@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.layers.NoobanidusShoulderLayer;
-import noobanidus.mods.shoulders.common.data.ShoulderList;
+import noobanidus.mods.shoulders.data.ShoulderList;
 
 import java.util.Map;
 

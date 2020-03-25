@@ -1,4 +1,4 @@
-package noobanidus.mods.shoulders.common.gen;
+package noobanidus.mods.shoulders.gen;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -6,9 +6,9 @@ import com.google.gson.JsonArray;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DirectoryCache;
 import net.minecraft.data.IDataProvider;
-import noobanidus.mods.shoulders.common.info.Shoulder;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
-import noobanidus.mods.shoulders.common.info.ShoulderEntity;
+import noobanidus.mods.shoulders.info.Shoulder;
+import noobanidus.mods.shoulders.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderEntity;
 
 import java.io.IOException;
 import java.nio.file.Path;

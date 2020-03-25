@@ -1,21 +1,11 @@
 package noobanidus.mods.shoulders.client.models;
 
-import com.mojang.blaze3d.platform.GlStateManager;
-import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
-import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderData;
 
-public class TurtleModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel headModel;
-  private final RendererModel body;
-  private final RendererModel legBackRight;
-  private final RendererModel legBackLeft;
-  private final RendererModel legFrontRight;
-  private final RendererModel legFrontLeft;
-
+public class TurtleModel extends AbstractQuadrupedShoulderModel {
   public TurtleModel () {
     this.textureWidth = 128;
     this.textureHeight = 64;
@@ -38,19 +28,6 @@ public class TurtleModel extends EntityModel<Entity> implements IShoulderRidingM
     this.legFrontLeft = new RendererModel(this, 27, 24);
     this.legFrontLeft.addBox(0.0F, 0.0F, -2.0F, 13, 1, 5, 0.0F);
     this.legFrontLeft.setRotationPoint(5.0F, 21.0F, -4.0F);
-  }
-
-  public void render(float scale) {
-    GlStateManager.pushMatrix();
-    this.headModel.render(scale);
-    this.body.render(scale);
-    GlStateManager.pushMatrix();
-    this.legBackRight.render(scale);
-    this.legBackLeft.render(scale);
-    GlStateManager.popMatrix();
-    this.legFrontRight.render(scale);
-    this.legFrontLeft.render(scale);
-    GlStateManager.popMatrix();
   }
 
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

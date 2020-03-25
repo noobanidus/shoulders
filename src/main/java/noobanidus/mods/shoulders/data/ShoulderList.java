@@ -1,9 +1,9 @@
-package noobanidus.mods.shoulders.common.data;
+package noobanidus.mods.shoulders.data;
 
 import com.google.gson.*;
 import net.minecraft.entity.player.PlayerEntity;
 import noobanidus.mods.shoulders.Constants;
-import noobanidus.mods.shoulders.common.info.ShoulderData;
+import noobanidus.mods.shoulders.info.ShoulderData;
 import org.apache.commons.io.IOUtils;
 
 import javax.annotation.Nullable;
