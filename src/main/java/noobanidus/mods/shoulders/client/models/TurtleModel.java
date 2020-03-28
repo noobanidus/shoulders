@@ -7,6 +7,7 @@ import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class TurtleModel extends AbstractQuadrupedShoulderModel {
   public TurtleModel () {
+    super(12, 0.0f);
     this.textureWidth = 128;
     this.textureHeight = 64;
     this.headModel = new RendererModel(this, 3, 0);

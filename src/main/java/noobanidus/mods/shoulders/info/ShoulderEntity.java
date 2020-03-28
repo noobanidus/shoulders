@@ -14,7 +14,12 @@ public enum ShoulderEntity {
   BAT("bat", BatModel::new),
   TURTLE("turtle", TurtleModel::new),
   CHICKEN("chicken", ChickenModel::new),
-  COW("cow", CowModel::new);
+  COW("cow", CowModel::new),
+  HORSE("horse", HorseModel::new),
+  PIG("pig", PigModel::new),
+  SHEEP("sheep", SheepModel::new),
+  DOLPHIN("dolphin", DolphinModel::new),
+  COD("cod", CodModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

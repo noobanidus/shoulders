@@ -5,6 +5,7 @@ import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class CowModel extends AbstractQuadrupedShoulderModel {
   public CowModel() {
+    super(12, 0.0f);
     --this.legBackRight.rotationPointX;
     ++this.legBackLeft.rotationPointX;
     this.legBackRight.rotationPointZ += 0.0F;
