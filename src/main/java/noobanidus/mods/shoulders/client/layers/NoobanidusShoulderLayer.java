@@ -3,6 +3,7 @@ package noobanidus.mods.shoulders.client.layers;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
+import net.minecraft.client.renderer.entity.model.LlamaModel;
 import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -34,7 +35,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.FOX, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.LLAMA, Shoulder.RIGHT, 2); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -136,6 +137,13 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         }
         GlStateManager.scaled(0.2, 0.2, 0.2);
         GlStateManager.translated(data.left() ? 1.875 : -1.875, player.shouldRenderSneaking() ? -0.83 + armorOffset : -1.50 + armorOffset, -0.2);
+        break;
+      case LLAMA:
+        if (offsetArmor) {
+          armorOffset = -0.2;
+        }
+        GlStateManager.scaled(0.15, 0.15, 0.15);
+        GlStateManager.translated(data.left() ? 2.47 : -2.47, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
         break;
     }
     this.bindTexture(model.getTexture(data));
