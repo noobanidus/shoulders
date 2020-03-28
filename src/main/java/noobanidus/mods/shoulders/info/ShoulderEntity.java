@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.info;
 
+import net.minecraft.client.renderer.entity.layers.MooshroomMushroomLayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.*;
@@ -21,7 +22,8 @@ public enum ShoulderEntity {
   DOLPHIN("dolphin", DolphinModel::new),
   COD("cod", CodModel::new),
   FOX("fox", FoxModel::new),
-  LLAMA("llama", LlamaModel::new);
+  LLAMA("llama", LlamaModel::new),
+  MOOSHROOM("mooshroom", MooshroomModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

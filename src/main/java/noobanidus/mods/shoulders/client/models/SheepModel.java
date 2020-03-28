@@ -23,7 +23,6 @@ public class SheepModel extends AbstractQuadrupedShoulderModel {
   public void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted) {
     this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, 0.0F, netHeadYaw, headPitch);
     this.render(scaleFactor);
-    // TODO: Render sheep wool
     if (data.getVariant() != -1) {
       Minecraft mc = Minecraft.getInstance();
       mc.getRenderManager().textureManager.bindTexture(this.wool.getTexture(data));

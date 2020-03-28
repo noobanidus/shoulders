@@ -35,7 +35,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.LLAMA, Shoulder.RIGHT, 2); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.MOOSHROOM, Shoulder.RIGHT, 1); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -89,12 +89,13 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         GlStateManager.scaled(0.25, 0.25, 0.25);
         GlStateManager.translated(data.left() ? 1.675 : -1.675, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, -0.3);
         break;
+      case MOOSHROOM:
       case COW:
         if (offsetArmor) {
           armorOffset = -0.2;
         }
-        GlStateManager.scaled(0.25, 0.25, 0.25);
-        GlStateManager.translated(data.left() ? 1.675 : -1.675, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
+        GlStateManager.scaled(0.2, 0.2, 0.2);
+        GlStateManager.translated(data.left() ? 1.875 : -1.875, player.shouldRenderSneaking() ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
         break;
       case HORSE:
         if (offsetArmor) {
