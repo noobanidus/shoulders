@@ -34,7 +34,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.COD, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.FOX, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -129,6 +129,13 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         }
         GlStateManager.scaled(0.35, 0.35, 0.35);
         GlStateManager.translated(data.left() ? 1.08 : -1.08, player.shouldRenderSneaking() ? -1.08 + armorOffset : -1.55 + armorOffset, -0.1);
+        break;
+      case FOX:
+        if (offsetArmor) {
+          armorOffset = -0.3;
+        }
+        GlStateManager.scaled(0.2, 0.2, 0.2);
+        GlStateManager.translated(data.left() ? 1.875 : -1.875, player.shouldRenderSneaking() ? -0.83 + armorOffset : -1.50 + armorOffset, -0.2);
         break;
     }
     this.bindTexture(model.getTexture(data));
