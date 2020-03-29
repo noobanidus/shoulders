@@ -22,14 +22,14 @@ public class SheepModel extends AbstractQuadrupedShoulderModel {
   @Override
   public void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted, float partialTicks) {
     this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, 0.0F, netHeadYaw, headPitch);
-    this.render(scaleFactor);
+    this.render(data, scaleFactor);
     if (data.getVariant() != -1) {
       Minecraft mc = Minecraft.getInstance();
       mc.getRenderManager().textureManager.bindTexture(this.wool.getTexture(data));
       GlStateManager.pushMatrix();
       this.wool.renderOnShoulder(data, limbSwing, limbSwingAmount, netHeadYaw, headPitch, scaleFactor, ticksExisted, partialTicks);
       GlStateManager.popMatrix();
-      GlStateManager.color4f(0f, 0f, 0f, 0f);
+      GlStateManager.color4f(1f, 1f, 1f, 1f);
     }
   }
 

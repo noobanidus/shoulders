@@ -11,6 +11,10 @@ import noobanidus.mods.shoulders.info.ShoulderData;
 public interface IShoulderRidingModel {
   void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch);
 
+  default void render (ShoulderData data, float scale) {
+    render(scale);
+  }
+
   void render(float scale);
 
   ResourceLocation getTexture(ShoulderData data);
@@ -31,6 +35,6 @@ public interface IShoulderRidingModel {
 
   default void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted, float partialTicks) {
     this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch);
-    this.render(scaleFactor);
+    this.render(data, scaleFactor);
   }
 }

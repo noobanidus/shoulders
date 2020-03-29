@@ -25,7 +25,8 @@ public enum ShoulderEntity {
   LLAMA("llama", LlamaModel::new),
   MOOSHROOM("mooshroom", MooshroomModel::new),
   PANDA("panda", PandaModel::new),
-  PARROT("parrot", ParrotModel::new);
+  PARROT("parrot", ParrotModel::new),
+  PUFFERFISH("pufferfish", PufferfishModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

@@ -3,8 +3,6 @@ package noobanidus.mods.shoulders.client.layers;
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.IEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
-import net.minecraft.client.renderer.entity.layers.ParrotVariantLayer;
-import net.minecraft.client.renderer.entity.model.LlamaModel;
 import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -36,7 +34,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.HORSE, Shoulder.RIGHT, 43); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.PUFFERFISH, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -156,6 +154,10 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
         break;
       case PARROT:
         GlStateManager.translatef(data.left() ? 0.4F : -0.4F, player.shouldRenderSneaking() ? -1.3F : -1.5F, 0.0F);
+        break;
+      case PUFFERFISH:
+        GlStateManager.scaled(0.35, 0.35, 0.35);
+        GlStateManager.translated(data.left() ? 1.05 : -1.05, player.shouldRenderSneaking() ? -0.9 + armorOffset : -1.455 + armorOffset, 0);
         break;
     }
     this.bindTexture(model.getTexture(data));
