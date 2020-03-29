@@ -28,7 +28,8 @@ public enum ShoulderEntity {
   PUFFERFISH("pufferfish", PufferfishModel::new),
   POLAR_BEAR("polar_bear", PolarBearModel::new),
   SALMON("salmon", SalmonModel::new),
-  SNOW_GOLEM("snow_golem", SnowGolemModel::new);
+  SNOW_GOLEM("snow_golem", SnowGolemModel::new),
+  SQUID("squid", SquidModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

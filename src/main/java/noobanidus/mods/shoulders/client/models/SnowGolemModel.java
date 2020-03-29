@@ -24,8 +24,6 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
   private final RendererModel rightHand;
   private final RendererModel leftHand;
 
-  private int var = 0;
-
   public SnowGolemModel() {
     this.head = (new RendererModel(this, 0, 0)).setTextureSize(64, 64);
     this.head.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, -0.5F);
@@ -122,13 +120,7 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
   public void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted, float partialTicks) {
     this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch);
     this.render(data, scaleFactor);
-    if (ticksExisted % (10 * 20) == 0) {
-      var++;
-    }
-    if (var > VARIANT_ITEMSTACKS.size()) {
-      var = 0;
-    }
-    int variant = var; //data.getVariant();
+    int variant = data.getVariant();
     if (variant != 0 && variant < VARIANT_ITEMSTACKS.size()) {
       GlStateManager.pushMatrix();
       head.postRender(0.0625F);

@@ -61,29 +61,6 @@ public class HorseModel extends EntityModel<Entity> implements IShoulderRidingMo
     this.tail.setRotationPoint(0.0F, -5.0F, 2.0F);
     this.tail.rotateAngleX = ((float) Math.PI / 6F);
     this.body.addChild(this.tail);
-/*    RendererModel renderermodel3 = new RendererModel(this, 26, 0);
-    renderermodel3.addBox(-5.0F, -8.0F, -9.0F, 10, 9, 9, 0.5F);
-    this.body.addChild(renderermodel3);
-    RendererModel renderermodel4 = new RendererModel(this, 29, 5);
-    renderermodel4.addBox(2.0F, -9.0F, -6.0F, 1, 2, 2, 0);
-    this.head.addChild(renderermodel4);
-    RendererModel renderermodel5 = new RendererModel(this, 29, 5);
-    renderermodel5.addBox(-3.0F, -9.0F, -6.0F, 1, 2, 2, 0);
-    this.head.addChild(renderermodel5);
-    RendererModel renderermodel6 = new RendererModel(this, 32, 2);
-    renderermodel6.addBox(3.1F, -6.0F, -8.0F, 0, 3, 16, 0);
-    renderermodel6.rotateAngleX = (-(float) Math.PI / 6F);
-    this.head.addChild(renderermodel6);
-    RendererModel renderermodel7 = new RendererModel(this, 32, 2);
-    renderermodel7.addBox(-3.1F, -6.0F, -8.0F, 0, 3, 16, 0);
-    renderermodel7.rotateAngleX = (-(float) Math.PI / 6F);
-    this.head.addChild(renderermodel7);
-    RendererModel renderermodel8 = new RendererModel(this, 1, 1);
-    renderermodel8.addBox(-3.0F, -11.0F, -1.9F, 6, 5, 6, 0.2F);
-    this.head.addChild(renderermodel8);
-    RendererModel renderermodel9 = new RendererModel(this, 19, 0);
-    renderermodel9.addBox(-2.0F, -11.0F, -4.0F, 4, 5, 2, 0.2F);
-    this.head.addChild(renderermodel9);*/
   }
 
   protected void func_199047_a(RendererModel p_199047_1_) {
