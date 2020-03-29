@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.LlamaRenderer;
 import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.client.renderer.entity.model.SquidModel;
+import net.minecraft.client.renderer.entity.model.WolfModel;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,7 +37,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.LARGE_TROPICAL_FISH, Shoulder.RIGHT, 331009); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.WOLF, Shoulder.RIGHT, 45); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -188,6 +189,13 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
       case SMALL_TROPICAL_FISH:
         GlStateManager.scaled(0.35, 0.35, 0.35);
         GlStateManager.translated(data.left() ? 1.05 : -1.05, player.shouldRenderSneaking() ? -0.9 + armorOffset : -1.455 + armorOffset, 0);
+        break;
+      case WOLF:
+        if (offsetArmor) {
+          armorOffset = -0.1;
+        }
+        GlStateManager.scaled(0.45, 0.45, 0.45);
+        GlStateManager.translated(data.left() ? 0.85 : -0.85, player.shouldRenderSneaking() ? -1.2 + armorOffset : -1.50 + armorOffset, 0.1);
         break;
     }
     this.bindTexture(model.getTexture(data));
