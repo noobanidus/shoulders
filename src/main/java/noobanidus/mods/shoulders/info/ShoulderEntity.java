@@ -29,7 +29,9 @@ public enum ShoulderEntity {
   POLAR_BEAR("polar_bear", PolarBearModel::new),
   SALMON("salmon", SalmonModel::new),
   SNOW_GOLEM("snow_golem", SnowGolemModel::new),
-  SQUID("squid", SquidModel::new);
+  SQUID("squid", SquidModel::new),
+  LARGE_TROPICAL_FISH("large_tropical_fish", LargeTropicalFishModel::new),
+  SMALL_TROPICAL_FISH("small_tropical_fish", SmallTropicalFishModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

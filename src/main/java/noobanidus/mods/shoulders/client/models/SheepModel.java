@@ -33,13 +33,6 @@ public class SheepModel extends AbstractQuadrupedShoulderModel {
     }
   }
 
-  @Override
-  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    super.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch);
-/*      this.headModel.rotationPointY = 6.0F + entityIn.getHeadRotationPointY(partialTick) * 9.0F;
-      this.headRotationAngleX = entityIn.getHeadRotationAngleX(partialTick);    */
-  }
-
   private static final ResourceLocation SHEARED_SHEEP_TEXTURES = new ResourceLocation("textures/entity/sheep/sheep.png");
 
   @Override
