@@ -1,0 +1,78 @@
+package noobanidus.mods.shoulders.client.models;
+
+import net.minecraft.client.renderer.entity.SalmonRenderer;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+import noobanidus.mods.shoulders.info.ShoulderData;
+
+public class SalmonModel extends EntityModel<Entity> implements IShoulderRidingModel {
+  private final RendererModel bodyFront;
+  private final RendererModel bodyRear;
+  private final RendererModel head;
+  private final RendererModel finTopFront;
+  private final RendererModel finTopRear;
+  private final RendererModel tail;
+  private final RendererModel finRight;
+  private final RendererModel finLeft;
+
+  public SalmonModel() {
+    this.textureWidth = 32;
+    this.textureHeight = 32;
+    this.bodyFront = new RendererModel(this, 0, 0);
+    this.bodyFront.addBox(-1.5F, -2.5F, 0.0F, 3, 5, 8);
+    this.bodyFront.setRotationPoint(0.0F, 20.0F, 0.0F);
+    this.bodyRear = new RendererModel(this, 0, 13);
+    this.bodyRear.addBox(-1.5F, -2.5F, 0.0F, 3, 5, 8);
+    this.bodyRear.setRotationPoint(0.0F, 20.0F, 8.0F);
+    this.head = new RendererModel(this, 22, 0);
+    this.head.addBox(-1.0F, -2.0F, -3.0F, 2, 4, 3);
+    this.head.setRotationPoint(0.0F, 20.0F, 0.0F);
+    this.tail = new RendererModel(this, 20, 10);
+    this.tail.addBox(0.0F, -2.5F, 0.0F, 0, 5, 6);
+    this.tail.setRotationPoint(0.0F, 0.0F, 8.0F);
+    this.bodyRear.addChild(this.tail);
+    this.finTopFront = new RendererModel(this, 2, 1);
+    this.finTopFront.addBox(0.0F, 0.0F, 0.0F, 0, 2, 3);
+    this.finTopFront.setRotationPoint(0.0F, -4.5F, 5.0F);
+    this.bodyFront.addChild(this.finTopFront);
+    this.finTopRear = new RendererModel(this, 0, 2);
+    this.finTopRear.addBox(0.0F, 0.0F, 0.0F, 0, 2, 4);
+    this.finTopRear.setRotationPoint(0.0F, -4.5F, -1.0F);
+    this.bodyRear.addChild(this.finTopRear);
+    this.finRight = new RendererModel(this, -4, 0);
+    this.finRight.addBox(-2.0F, 0.0F, 0.0F, 2, 0, 2);
+    this.finRight.setRotationPoint(-1.5F, 21.5F, 0.0F);
+    this.finRight.rotateAngleZ = (-(float) Math.PI / 4F);
+    this.finLeft = new RendererModel(this, 0, 0);
+    this.finLeft.addBox(0.0F, 0.0F, 0.0F, 2, 0, 2);
+    this.finLeft.setRotationPoint(1.5F, 21.5F, 0.0F);
+    this.finLeft.rotateAngleZ = ((float) Math.PI / 4F);
+  }
+
+  @Override
+  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    //this.bodyRear.rotateAngleY = 0.5f * 0.25F * MathHelper.sin(0.6f * 0.6F * ageInTicks);
+    this.head.rotateAngleX = ((headPitch * ((float) Math.PI / 180F)) * 0.5f) * 0.2f;
+    this.head.rotateAngleY = ((netHeadYaw * ((float) Math.PI / 180F)) * 0.5f) * 0.8f;
+    this.tail.rotateAngleY = -(((netHeadYaw * ((float) Math.PI / 180F)) * 0.5f) * 0.8f);
+  }
+
+  @Override
+  public void render(float scale) {
+    this.bodyFront.render(scale);
+    this.bodyRear.render(scale);
+    this.head.render(scale);
+    this.finRight.render(scale);
+    this.finLeft.render(scale);
+  }
+
+  private static final ResourceLocation SALMON_LOCATION = new ResourceLocation("textures/entity/fish/salmon.png");
+
+  @Override
+  public ResourceLocation getTexture(ShoulderData data) {
+    return SALMON_LOCATION;
+  }
+}

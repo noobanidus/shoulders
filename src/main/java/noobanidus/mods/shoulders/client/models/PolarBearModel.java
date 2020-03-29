@@ -1,0 +1,60 @@
+package noobanidus.mods.shoulders.client.models;
+
+import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.util.ResourceLocation;
+import noobanidus.mods.shoulders.info.ShoulderData;
+
+public class PolarBearModel extends AbstractQuadrupedShoulderModel {
+  public PolarBearModel() {
+    super(12, 0.0F);
+    this.textureWidth = 128;
+    this.textureHeight = 64;
+    this.headModel = new RendererModel(this, 0, 0);
+    this.headModel.addBox(-3.5F, -3.0F, -3.0F, 7, 7, 7, 0.0F);
+    this.headModel.setRotationPoint(0.0F, 10.0F, -16.0F);
+    this.headModel.setTextureOffset(0, 44).addBox(-2.5F, 1.0F, -6.0F, 5, 3, 3, 0.0F);
+    this.headModel.setTextureOffset(26, 0).addBox(-4.5F, -4.0F, -1.0F, 2, 2, 1, 0.0F);
+    RendererModel renderermodel = this.headModel.setTextureOffset(26, 0);
+    renderermodel.mirror = true;
+    renderermodel.addBox(2.5F, -4.0F, -1.0F, 2, 2, 1, 0.0F);
+    this.body = new RendererModel(this);
+    this.body.setTextureOffset(0, 19).addBox(-5.0F, -13.0F, -7.0F, 14, 14, 11, 0.0F);
+    this.body.setTextureOffset(39, 0).addBox(-4.0F, -25.0F, -7.0F, 12, 12, 10, 0.0F);
+    this.body.setRotationPoint(-2.0F, 9.0F, 12.0F);
+    int i = 10;
+    this.legBackRight = new RendererModel(this, 50, 22);
+    this.legBackRight.addBox(-2.0F, 0.0F, -2.0F, 4, 10, 8, 0.0F);
+    this.legBackRight.setRotationPoint(-3.5F, 14.0F, 6.0F);
+    this.legBackLeft = new RendererModel(this, 50, 22);
+    this.legBackLeft.addBox(-2.0F, 0.0F, -2.0F, 4, 10, 8, 0.0F);
+    this.legBackLeft.setRotationPoint(3.5F, 14.0F, 6.0F);
+    this.legFrontRight = new RendererModel(this, 50, 40);
+    this.legFrontRight.addBox(-2.0F, 0.0F, -2.0F, 4, 10, 6, 0.0F);
+    this.legFrontRight.setRotationPoint(-2.5F, 14.0F, -7.0F);
+    this.legFrontLeft = new RendererModel(this, 50, 40);
+    this.legFrontLeft.addBox(-2.0F, 0.0F, -2.0F, 4, 10, 6, 0.0F);
+    this.legFrontLeft.setRotationPoint(2.5F, 14.0F, -7.0F);
+    --this.legBackRight.rotationPointX;
+    ++this.legBackLeft.rotationPointX;
+    this.legBackRight.rotationPointZ += 0.0F;
+    this.legBackLeft.rotationPointZ += 0.0F;
+    --this.legFrontRight.rotationPointX;
+    ++this.legFrontLeft.rotationPointX;
+    --this.legFrontRight.rotationPointZ;
+    --this.legFrontLeft.rotationPointZ;
+  }
+
+  @Override
+  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    this.headModel.rotateAngleX = (headPitch * ((float) Math.PI / 180F)) * 0.5f;
+    this.headModel.rotateAngleY = (netHeadYaw * ((float) Math.PI / 180F)) * 0.5f;
+    this.body.rotateAngleX = ((float) Math.PI / 2F);
+  }
+
+  private static final ResourceLocation POLAR_BEAR_TEXTURE = new ResourceLocation("textures/entity/bear/polarbear.png");
+
+  @Override
+  public ResourceLocation getTexture(ShoulderData data) {
+    return POLAR_BEAR_TEXTURE;
+  }
+}

@@ -1,6 +1,5 @@
 package noobanidus.mods.shoulders.info;
 
-import net.minecraft.client.renderer.entity.layers.MooshroomMushroomLayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.*;
@@ -26,7 +25,10 @@ public enum ShoulderEntity {
   MOOSHROOM("mooshroom", MooshroomModel::new),
   PANDA("panda", PandaModel::new),
   PARROT("parrot", ParrotModel::new),
-  PUFFERFISH("pufferfish", PufferfishModel::new);
+  PUFFERFISH("pufferfish", PufferfishModel::new),
+  POLAR_BEAR("polar_bear", PolarBearModel::new),
+  SALMON("salmon", SalmonModel::new),
+  SNOW_GOLEM("snow_golem", SnowGolemModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

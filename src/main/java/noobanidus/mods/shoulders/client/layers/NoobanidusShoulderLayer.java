@@ -34,7 +34,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
     GlStateManager.enableRescaleNormal();
     GlStateManager.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.PUFFERFISH, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.SNOW_GOLEM, Shoulder.RIGHT, 0); //ShoulderList.getData(entityIn);
     if (data != null) {
       this.renderModel(entityIn, data, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn, getModelFor(data));
     }
@@ -158,6 +158,26 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
       case PUFFERFISH:
         GlStateManager.scaled(0.35, 0.35, 0.35);
         GlStateManager.translated(data.left() ? 1.05 : -1.05, player.shouldRenderSneaking() ? -0.9 + armorOffset : -1.455 + armorOffset, 0);
+        break;
+      case POLAR_BEAR:
+        GlStateManager.scaled(0.2, 0.2, 0.2);
+        GlStateManager.translated(data.left() ? 1.85 : -1.85, player.shouldRenderSneaking() ? -0.5 + armorOffset : -1.5 + armorOffset, 0);
+        break;
+      case SALMON:
+        // TODO
+        if (offsetArmor) {
+          armorOffset = -0.35;
+        }
+        GlStateManager.scaled(0.22, 0.22, 0.22);
+        GlStateManager.translated(data.left() ? 1.68 : -1.68, player.shouldRenderSneaking() ? -1.08 + armorOffset : -1.45 + armorOffset, -0.5);
+        break;
+      case SNOW_GOLEM:
+        // TODO
+        if (offsetArmor) {
+          armorOffset = -0.35;
+        }
+        GlStateManager.scaled(0.2, 0.2, 0.2);
+        GlStateManager.translated(data.left() ? 1.88 : -1.88, player.shouldRenderSneaking() ? -1.08 + armorOffset : -1.45 + armorOffset, -0.1);
         break;
     }
     this.bindTexture(model.getTexture(data));
