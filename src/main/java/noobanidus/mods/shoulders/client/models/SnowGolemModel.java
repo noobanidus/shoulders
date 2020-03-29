@@ -12,6 +12,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidingModel {
   private static final ResourceLocation SNOW_MAN_TEXTURES = new ResourceLocation("textures/entity/snow_golem.png");
 
@@ -20,6 +23,8 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
   private final RendererModel head;
   private final RendererModel rightHand;
   private final RendererModel leftHand;
+
+  private int var = 0;
 
   public SnowGolemModel() {
     this.head = (new RendererModel(this, 0, 0)).setTextureSize(64, 64);
@@ -65,18 +70,76 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
     this.leftHand.render(scale);
   }
 
+  public static List<ItemStack> VARIANT_ITEMSTACKS = Arrays.asList(
+      ItemStack.EMPTY,
+      new ItemStack(Blocks.CARVED_PUMPKIN),
+      new ItemStack(Blocks.JACK_O_LANTERN),
+      new ItemStack(Blocks.TNT),
+      new ItemStack(Blocks.BEDROCK),
+      new ItemStack(Blocks.BOOKSHELF),
+      new ItemStack(Blocks.CRAFTING_TABLE),
+      new ItemStack(Blocks.FURNACE),
+      new ItemStack(Blocks.JUKEBOX),
+      new ItemStack(Blocks.CACTUS),
+      new ItemStack(Blocks.BEACON),
+      new ItemStack(Blocks.EMERALD_BLOCK),
+      new ItemStack(Blocks.REDSTONE_LAMP),
+      new ItemStack(Blocks.GOLD_BLOCK),
+      new ItemStack(Blocks.IRON_BLOCK),
+      new ItemStack(Blocks.DIAMOND_BLOCK),
+      new ItemStack(Blocks.CHORUS_FLOWER),
+      new ItemStack(Blocks.CHORUS_PLANT),
+      new ItemStack(Blocks.MELON),
+      new ItemStack(Blocks.DROPPER),
+      new ItemStack(Blocks.DISPENSER),
+      new ItemStack(Blocks.OBSERVER),
+      new ItemStack(Blocks.HAY_BLOCK),
+      new ItemStack(Blocks.REDSTONE_BLOCK),
+      new ItemStack(Blocks.SNOW_BLOCK),
+      new ItemStack(Blocks.ICE),
+      new ItemStack(Blocks.BLUE_ICE),
+      new ItemStack(Blocks.FROSTED_ICE),
+      new ItemStack(Blocks.PACKED_ICE),
+      new ItemStack(Blocks.SLIME_BLOCK),
+      new ItemStack(Blocks.SEA_LANTERN),
+      new ItemStack(Blocks.MAGMA_BLOCK),
+      new ItemStack(Blocks.COMPOSTER),
+      new ItemStack(Blocks.DRIED_KELP_BLOCK),
+      new ItemStack(Blocks.LOOM),
+      new ItemStack(Blocks.BARREL),
+      new ItemStack(Blocks.SMOKER),
+      new ItemStack(Blocks.BLAST_FURNACE),
+      new ItemStack(Blocks.CARTOGRAPHY_TABLE),
+      new ItemStack(Blocks.FLETCHING_TABLE),
+      new ItemStack(Blocks.SMITHING_TABLE),
+      new ItemStack(Blocks.STONECUTTER),
+      new ItemStack(Blocks.LECTERN),
+      new ItemStack(Blocks.GRINDSTONE)
+  );
+
+  @SuppressWarnings("deprecation")
   @Override
   public void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted, float partialTicks) {
     this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch);
     this.render(data, scaleFactor);
-    GlStateManager.pushMatrix();
-    head.postRender(0.0625F);
-    GlStateManager.translatef(0.0F, -0.34375F, 0.0F);
-    GlStateManager.rotatef(180.0F, 0.0F, 1.0F, 0.0F);
-    GlStateManager.scalef(0.625F, -0.625F, -0.625F);
-    // TODO:
-    // Minecraft.getInstance().getFirstPersonRenderer().renderItem(entityIn, new ItemStack(Blocks.CARVED_PUMPKIN), ItemCameraTransforms.TransformType.HEAD);
-    GlStateManager.popMatrix();
+    if (ticksExisted % (10 * 20) == 0) {
+      var++;
+    }
+    if (var > VARIANT_ITEMSTACKS.size()) {
+      var = 0;
+    }
+    int variant = var; //data.getVariant();
+    if (variant != 0 && variant < VARIANT_ITEMSTACKS.size()) {
+      GlStateManager.pushMatrix();
+      head.postRender(0.0625F);
+      GlStateManager.translatef(0.0F, -0.34375F, 0.0F);
+      GlStateManager.rotatef(180.0F, 0.0F, 1.0F, 0.0F);
+      GlStateManager.scalef(0.625F, -0.625F, -0.625F);
+      Minecraft mc = Minecraft.getInstance();
+      ItemStack item = VARIANT_ITEMSTACKS.get(variant);
+      mc.getFirstPersonRenderer().renderItem(mc.player, item, ItemCameraTransforms.TransformType.HEAD);
+      GlStateManager.popMatrix();
+    }
   }
 
   @Override
