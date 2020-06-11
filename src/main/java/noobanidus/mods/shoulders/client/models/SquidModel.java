@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -33,7 +34,7 @@ public class SquidModel extends EntityModel<Entity> implements IShoulderRidingMo
   @Override
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     for (RendererModel renderermodel : this.legs) {
-      renderermodel.rotateAngleX = ageInTicks;
+      renderermodel.rotateAngleX = getBobble(45 / 360.0f, ageInTicks);
     }
   }
 
@@ -51,5 +52,12 @@ public class SquidModel extends EntityModel<Entity> implements IShoulderRidingMo
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return SQUID_TEXTURES;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    GlStateManager.scaled(0.2, 0.2, 0.2);
+    GlStateManager.translated(data.left() ? 2.275 : -2.275, isSneaking ? -1.8 + armorOffset : -2.48 + armorOffset, 0);
   }
 }

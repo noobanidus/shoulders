@@ -43,9 +43,14 @@ public class SheepWoolModel extends AbstractQuadrupedShoulderModel {
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     float[] afloat = SheepEntity.getDyeRgb(DyeColor.byId(data.getVariant()));
+    //noinspection ConstantConditions
     if (afloat != null) {
       GlStateManager.color3f(afloat[0], afloat[1], afloat[2]);
     }
     return TEXTURE;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
   }
 }

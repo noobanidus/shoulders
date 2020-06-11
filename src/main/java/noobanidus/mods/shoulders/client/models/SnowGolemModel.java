@@ -135,6 +135,16 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
   }
 
   @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.35;
+    }
+    GlStateManager.scaled(0.2, 0.2, 0.2);
+    GlStateManager.translated(data.left() ? 1.88 : -1.88, isSneaking ? -1.08 + armorOffset : -1.45 + armorOffset, -0.1);
+  }
+
+  @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return SNOW_MAN_TEXTURES;
   }

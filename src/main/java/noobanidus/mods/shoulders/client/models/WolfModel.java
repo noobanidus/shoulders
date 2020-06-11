@@ -7,7 +7,6 @@ import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 import javax.annotation.Nullable;
@@ -57,7 +56,6 @@ public class WolfModel extends EntityModel<Entity> implements IShoulderRidingMod
 
   @Override
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.tail.rotateAngleY = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
     this.mane.setRotationPoint(-1.0F, 16.0F, -3.0F);
     this.mane.rotateAngleX = 1.2566371F;
     this.mane.rotateAngleY = 0.0F;
@@ -72,13 +70,12 @@ public class WolfModel extends EntityModel<Entity> implements IShoulderRidingMod
     this.legFrontRight.setRotationPoint(-2.49F, 17.0F, -4.0F);
     this.legFrontLeft.rotateAngleX = 5.811947F;
     this.legFrontLeft.setRotationPoint(0.51F, 17.0F, -4.0F);
-/*      this.head.rotateAngleZ = entityIn.getInterestedAngle(partialTick) + entityIn.getShakeAngle(partialTick, 0.0F);
-      this.mane.rotateAngleZ = entityIn.getShakeAngle(partialTick, -0.08F);
-      this.body.rotateAngleZ = entityIn.getShakeAngle(partialTick, -0.16F);
-      this.tail.rotateAngleZ = entityIn.getShakeAngle(partialTick, -0.2F);*/
     this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
     this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-    this.tail.rotateAngleX = ageInTicks;
+    //this.tail.rotateAngleZ = (float) Math.sin(ageInTicks * 0.15f);
+
+    //this.tail.rotateAngleX = 0; // = ageInTicks % 3;
+    //this.tail.rotateAngleZ = getSwing(45 / 360.0f, ageInTicks);
   }
 
   @Override
@@ -105,6 +102,16 @@ public class WolfModel extends EntityModel<Entity> implements IShoulderRidingMod
       this.render(data, scaleFactor);
       GlStateManager.color3f(1f, 1f, 1f);
     }
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.1;
+    }
+    GlStateManager.scaled(0.45, 0.45, 0.45);
+    GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, 0.1);
   }
 
   private static final List<ResourceLocation> TEXTURES = Arrays.asList(

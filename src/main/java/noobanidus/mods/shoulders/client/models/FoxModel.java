@@ -1,11 +1,10 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.FoxEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class FoxModel extends EntityModel<Entity> implements IShoulderRidingModel {
@@ -95,5 +94,15 @@ public class FoxModel extends EntityModel<Entity> implements IShoulderRidingMode
     } else {
       return SNOW_FOX;
     }
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.3;
+    }
+    GlStateManager.scaled(0.2, 0.2, 0.2);
+    GlStateManager.translated(data.left() ? 1.875 : -1.875, isSneaking ? -0.83 + armorOffset : -1.50 + armorOffset, -0.2);
   }
 }

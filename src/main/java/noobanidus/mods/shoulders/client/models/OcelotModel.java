@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -106,6 +107,16 @@ public class OcelotModel extends EntityModel<Entity> implements IShoulderRidingM
     }
 
     return TEXTURES.get(index);
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.1;
+    }
+    GlStateManager.scaled(0.45, 0.45, 0.45);
+    GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
   }
 
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {

@@ -145,4 +145,14 @@ public class RabbitModel extends EntityModel<Entity> implements IShoulderRidingM
 
     return TEXTURES.get(0);
   }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.1;
+    }
+    GlStateManager.scaled(0.65, 0.65, 0.65);
+    GlStateManager.translated(data.left() ? 0.6 : -0.6, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
+  }
 }

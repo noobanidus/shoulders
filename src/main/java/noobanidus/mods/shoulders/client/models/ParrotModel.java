@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -126,5 +127,10 @@ public class ParrotModel extends EntityModel<Entity> implements IShoulderRidingM
     }
 
     return TEXTURES.get(0);
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    GlStateManager.translatef(data.left() ? 0.4F : -0.4F, isSneaking ? -1.3F : -1.5F, 0.0F);
   }
 }

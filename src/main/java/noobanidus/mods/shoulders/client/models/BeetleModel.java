@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -121,5 +122,15 @@ public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingM
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return new ResourceLocation(Constants.MODID + ":textures/entity/beetle_blue.png");
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.2;
+    }
+    GlStateManager.scaled(0.3, 0.3, 0.3);
+    GlStateManager.translated(data.left() ? 1.275 : -1.275, isSneaking ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
   }
 }

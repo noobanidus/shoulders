@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
@@ -56,5 +57,12 @@ public class PolarBearModel extends AbstractQuadrupedShoulderModel {
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return POLAR_BEAR_TEXTURE;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    GlStateManager.scaled(0.2, 0.2, 0.2);
+    GlStateManager.translated(data.left() ? 1.85 : -1.85, isSneaking ? -0.5 + armorOffset : -1.5 + armorOffset, 0);
   }
 }

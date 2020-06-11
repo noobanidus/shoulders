@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -70,5 +71,15 @@ public class DolphinModel extends EntityModel<Entity> implements IShoulderRiding
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return DOLPHIN_LOCATION;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.35;
+    }
+    GlStateManager.scaled(0.2, 0.2, 0.2);
+    GlStateManager.translated(data.left() ? 1.875 : -1.875, isSneaking ? -0.88 + armorOffset : -1.55 + armorOffset, -0.1);
   }
 }

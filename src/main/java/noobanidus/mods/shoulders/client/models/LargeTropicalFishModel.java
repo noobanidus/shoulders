@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
@@ -70,5 +71,12 @@ public class LargeTropicalFishModel extends AbstractTropicalFishModel<LargeTropi
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return TEXTURE;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    GlStateManager.scaled(0.35, 0.35, 0.35);
+    GlStateManager.translated(data.left() ? 1.05 : -1.05, isSneaking ? -0.9 + armorOffset : -1.455 + armorOffset, 0);
   }
 }

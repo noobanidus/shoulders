@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
@@ -128,6 +129,16 @@ public class HorseModel extends EntityModel<Entity> implements IShoulderRidingMo
     }
 
     return MAPPED_OVERLAYS.get(index);
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.2;
+    }
+    GlStateManager.scaled(0.17, 0.17, 0.17);
+    GlStateManager.translated(data.left() ? 2.15 : -2.15, isSneaking ? -0.5 + armorOffset : -1.50 + armorOffset, 0);
   }
 
   @Override

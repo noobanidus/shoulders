@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -60,6 +61,16 @@ public class ChickenModel extends EntityModel<Entity> implements IShoulderRiding
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return CHICKEN_TEXTURES;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    double armorOffset = 0;
+    if (offsetArmor) {
+      armorOffset = -0.15;
+    }
+    GlStateManager.scaled(0.4, 0.4, 0.4);
+    GlStateManager.translated(data.left() ? 0.95 : -0.95, isSneaking ? -1.25 + armorOffset : -1.55 + armorOffset, -0.06);
   }
 
   @Override

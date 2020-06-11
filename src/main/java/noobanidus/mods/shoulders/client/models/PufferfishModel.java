@@ -1,6 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
-import net.minecraft.client.renderer.entity.PufferfishRenderer;
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -37,7 +37,12 @@ public class PufferfishModel extends EntityModel<Entity> implements IShoulderRid
     return modelForData(data).getTexture(data);
   }
 
-  private PufferfishBaseModel modelForData (ShoulderData data) {
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    modelForData(data).scaleAndTranslate(data, offsetArmor, isSneaking, limbSwing, limbSwingAmount, partialTicks, netHeadYaw, headPitch, scaleIn);
+  }
+
+  private PufferfishBaseModel modelForData(ShoulderData data) {
     switch (data.getVariant()) {
       default:
       case 0:
@@ -53,6 +58,13 @@ public class PufferfishModel extends EntityModel<Entity> implements IShoulderRid
     @Override
     public ResourceLocation getTexture(ShoulderData data) {
       return TEXTURE;
+    }
+
+    @Override
+    public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+      double armorOffset = 0;
+      GlStateManager.scaled(0.35, 0.35, 0.35);
+      GlStateManager.translated(data.left() ? 1.05 : -1.05, isSneaking ? -0.9 + armorOffset : -1.455 + armorOffset, 0);
     }
   }
 
@@ -231,12 +243,12 @@ public class PufferfishModel extends EntityModel<Entity> implements IShoulderRid
   }
 
   public static class PufferfishSmallModel extends PufferfishBaseModel {
-   private final RendererModel field_203754_a;
-   private final RendererModel field_203755_b;
-   private final RendererModel field_203756_c;
-   private final RendererModel field_203757_d;
-   private final RendererModel field_203758_e;
-   private final RendererModel field_203759_f;
+    private final RendererModel field_203754_a;
+    private final RendererModel field_203755_b;
+    private final RendererModel field_203756_c;
+    private final RendererModel field_203757_d;
+    private final RendererModel field_203758_e;
+    private final RendererModel field_203759_f;
 
     public PufferfishSmallModel() {
       this.textureWidth = 32;

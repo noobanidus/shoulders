@@ -32,7 +32,13 @@ public enum ShoulderEntity {
   SQUID("squid", SquidModel::new),
   LARGE_TROPICAL_FISH("large_tropical_fish", LargeTropicalFishModel::new),
   SMALL_TROPICAL_FISH("small_tropical_fish", SmallTropicalFishModel::new),
-  WOLF("wolf", WolfModel::new);
+  WOLF("wolf", WolfModel::new),
+  DEER("deer", DeerModel::new),
+  FROG("frog", FrogModel::new),
+  OWL("owl", OwlModel::new),
+  SILVER_FOX("silver_fox", SilverFoxModel::new),
+  SPROUT("sprout", SproutModel::new),
+  SILKWORM("silkworm", SilkwormModel::new);
 
   private String entity;
   private Supplier<IShoulderRidingModel> model;

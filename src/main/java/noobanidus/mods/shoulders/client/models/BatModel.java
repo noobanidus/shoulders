@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.entity.Entity;
@@ -57,6 +58,14 @@ public class BatModel extends EntityModel<Entity> implements IShoulderRidingMode
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     return BAT_TEXTURES;
+  }
+
+  @Override
+  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
+    GlStateManager.rotated(180, 0, 0, 1);
+    GlStateManager.rotated(180, 0, 1, 0);
+    GlStateManager.scaled(0.26, 0.26, 0.26);
+    GlStateManager.translated(data.left() ? 1.575 : -1.575, isSneaking ? 0 : 1.5, 0);
   }
 
   @Override
