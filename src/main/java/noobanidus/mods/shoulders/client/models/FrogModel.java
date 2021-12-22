@@ -78,15 +78,15 @@ public class FrogModel extends EntityModel<Entity> implements IShoulderRidingMod
   public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
     double armorOffset = 0;
     if (offsetArmor) {
-      armorOffset = -0.1;
+      armorOffset = -0.3;
     }
     GlStateManager.scaled(0.45, 0.45, 0.45);
-    GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
+    GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.5 + armorOffset : -1.55 + armorOffset, -0.06);
   }
 
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.backL.rotateAngleX = -0.6981317007977318F + 1.5f;
-    this.backR.rotateAngleX = -0.6981317007977318F + 1.5f;
+    this.backL.rotateAngleX = 0;
+    this.backR.rotateAngleX = 0;
     this.head.rotateAngleX = headPitch * 0.017453292F;
     this.head.rotateAngleY = netHeadYaw * 0.017453292F;
   }

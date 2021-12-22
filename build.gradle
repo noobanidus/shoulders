@@ -1,172 +1,53 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        maven { url = 'http://files.minecraftforge.net/maven' }
-        jcenter()
-        mavenCentral()
-        maven {
-            url 'https://dogforce-games.com/maven'
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
-        }
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.0.165-run-configs-rework', changing: true
-    }
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'maven-publish'
+
+apply plugin: 'java'
 apply plugin: 'eclipse'
+apply from: 'gradle/property_helper.gradle'
+apply from: 'gradle/property_loader.gradle'
 
-version = "${minecraft_version}-${mod_version}"
-if (System.getenv('BUILD_NUMBER') != null) {
-    version = "${minecraft_version}-${mod_version}-" + System.getenv('BUILD_NUMBER')
-}
-group = "noobanidus.mods.shoulders"
-archivesBaseName = "shoulders"
+// Load mod related properties
+ext.modName = getRequiredString('mod_name')
+ext.modAuthor = getRequiredString('mod_author')
+ext.modId = getRequiredString('mod_id')
+ext.modCredits = getDefaultString('mod_credits', ext.modAuthor)
+ext.modDescription = getOptionalString('mod_description')
+ext.modChangelog = getOptionalString('mod_changelog')
+ext.modHomepage = getOptionalString('mod_homepage')
+ext.modSource = getOptionalString('mod_source')
+ext.modIssues = getOptionalString('mod_issues')
+ext.modLicense = getOptionalString('mod_license')
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+// Load Minecraft specific properties
+ext.mcVersion = getRequiredString('minecraft_version')
 
-minecraft {
-    mappings channel: 'snapshot', version: "${mcp_mappings}"
+// Load build-time modules
+apply from: 'gradle/build_number.gradle'
+apply from: 'gradle/git_changelog.gradle'
+apply from: 'gradle/patreon.gradle'
+apply from: 'gradle/java.gradle'
+apply from: 'gradle/forge.gradle'
+apply from: 'gradle/dependencies.gradle'
+apply from: 'gradle/aequivaleo.gradle'
+apply from: 'gradle/api.gradle'
+apply from: 'gradle/blame.gradle'
+apply from: 'gradle/carrier_bees.gradle'
+apply from: 'gradle/curios.gradle'
+apply from: 'gradle/dynamic_trees.gradle'
+apply from: 'gradle/geckolib.gradle'
+apply from: 'gradle/jade.gradle'
+apply from: 'gradle/jei.gradle'
+apply from: 'gradle/mana_and_artifice.gradle'
+apply from: 'gradle/mysticalworld.gradle'
+apply from: 'gradle/patchouli.gradle'
+apply from: 'gradle/registrate.gradle'
+apply from: 'gradle/stables.gradle'
+apply from: 'gradle/top.gradle'
+apply from: 'gradle/minify_jsons.gradle'
 
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    runs {
-        client {
-            taskName 'runClient'
-
-            workingDirectory project.file('run')
-
-            //property 'forge.logging.markers', 'CORE,REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                shoulders {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            taskName 'runServer'
-
-            workingDirectory project.file('run')
-
-            //property 'forge.logging.markers', 'CORE,REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                shoulders {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            taskName 'runData'
-
-            workingDirectory project.file('run')
-
-            environment 'target', 'fmluserdevdata'
-
-            //property 'forge.logging.markers', 'CORE,REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                shoulders {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-
-sourceSets.main.resources {
-    srcDir 'src/generated/resources'
-}
-
-repositories {
-}
-
-dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-}
-
-jar {
-    manifest {
-        attributes(
-            'FMLModType': 'LIBRARY'
-        )
-    }
-}
-
-task deobfJar(type: Jar) {
-    from(sourceSets.main.output)
-    exclude "data/**"
-    exclude "META-INF/mods.toml"
-    exclude "META-INF/accesstransformer.cfg"
-    exclude ".cache"
-    exclude "noobanidus/mods/shoulders/Shoulders**"
-    exclude "noobanidus/mods/shoulders/gen/**"
-    classifier = "deobf"
-    manifest {
-        attributes(
-            'FMLModType': 'LIBRARY'
-        )
-    }
-}
-
-task embedJar(type: Jar) {
-    from(sourceSets.main.output)
-    exclude "META-INF/mods.toml"
-    exclude "META-INF/accesstransformer.cfg"
-    exclude "data/**"
-    exclude ".cache"
-    exclude "noobanidus/mods/shoulders/Shoulders**"
-    exclude "noobanidus/mods/shoulders/gen/**"
-    classifier = "embed"
-    manifest {
-        attributes(
-            'FMLModType': 'LIBRARY'
-        )
-    }
-}
-
-embedJar.finalizedBy reobf
-
-build.dependsOn embedJar
-build.dependsOn deobfJar
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId project.group
-            artifactId project.archivesBaseName
-            version project.version
-            from components.java
-
-            artifact embedJar {
-                classifier "embed"
-            }
-
-            artifact deobfJar {
-                classifier "deobf"
-            }
-
-            pom.withXml {
-                asNode().dependencies.dependency.each {
-                    dep -> dep.parent().remove(dep)
-                }
-            }
-        }
-    }
-    repositories {
-        maven {
-            url "file:///" + System.getenv("local_maven")
-        }
-    }
-}
+// Load publishing modules
+apply from: 'gradle/maven2.gradle'
+apply from: 'gradle/signing.gradle'
+apply from: 'gradle/curseforge.gradle'
+apply from: 'gradle/version_checker.gradle'

@@ -132,6 +132,7 @@ public class SilverFoxModel extends EntityModel<Entity> implements IShoulderRidi
   }
 
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    // TODO: HEAD
     this.setRotation(backL, -0.8196066167365371F, -0.31869712141416456F, 0.0F);
     this.setRotation(backR, -0.8196066167365371F, 0.36425021489121656F, 0.0F);
     this.setRotation(body1, -0.6829473363053812F, 0.0F, 0.0F);

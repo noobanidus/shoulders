@@ -32,7 +32,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
 
   @Override
   public void render(T entityIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scaleIn) {
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.WOLF, Shoulder.RIGHT, 45); //ShoulderList.getData(entityIn);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.SPROUT, Shoulder.RIGHT, 4); //ShoulderList.getData(entityIn);
     //noinspection ConstantConditions
     if (data != null) {
       IShoulderRidingModel model = getModelFor(data);

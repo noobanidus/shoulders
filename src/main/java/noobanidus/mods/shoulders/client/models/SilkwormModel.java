@@ -53,6 +53,7 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
       armorOffset = -0.1;
     }
     GlStateManager.scaled(0.45, 0.45, 0.45);
+    GlStateManager.scalef(0.9F, 1.1F, 1.5F);
     GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
   }
 
