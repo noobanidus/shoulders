@@ -1,8 +1,9 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.Constants;
@@ -12,39 +13,39 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FrogModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private RendererModel body;
-  private RendererModel backR;
-  private RendererModel backL;
-  private RendererModel frontR;
-  private RendererModel frontL;
-  private RendererModel head;
+  private ModelRenderer body;
+  private ModelRenderer backR;
+  private ModelRenderer backL;
+  private ModelRenderer frontR;
+  private ModelRenderer frontL;
+  private ModelRenderer head;
 
   public FrogModel() {
     this.textureWidth = 16;
     this.textureHeight = 16;
-    this.head = new RendererModel(this, 4, 3);
+    this.head = new ModelRenderer(this, 4, 3);
     this.head.setRotationPoint(0.0F, 0.0F, -3.0F);
     this.head.addBox(-1.5F, -1.0F, -3.0F, 3, 2, 3, 0.0F);
     this.setRotation(head, 0.39269908169872414F, 0.0F, 0.0F);
-    this.backL = new RendererModel(this, 0, 0);
+    this.backL = new ModelRenderer(this, 0, 0);
     this.backL.setRotationPoint(1.0F, 0.5F, 1.5F);
     this.backL.addBox(-1.0F, 0.0F, -0.5F, 2, 4, 1, 0.0F);
     this.setRotation(backL, -0.6981317007977318F, -0.5235987755982988F, -0.5235987755982988F);
-    this.frontL = new RendererModel(this, 0, 5);
+    this.frontL = new ModelRenderer(this, 0, 5);
     this.frontL.mirror = true;
     this.frontL.setRotationPoint(1.0F, -0.25F, -2.5F);
     this.frontL.addBox(-0.5F, 0.0F, -0.5F, 1, 4, 1, 0.0F);
     this.setRotation(frontL, 0.2617993877991494F, 0.0F, -0.2617993877991494F);
-    this.body = new RendererModel(this, 0, 9);
+    this.body = new ModelRenderer(this, 0, 9);
     this.body.setRotationPoint(0.0F, 22.0F, 0.0F);
     this.body.addBox(-1.5F, -1.0F, -3.0F, 3, 2, 5, 0.0F);
     this.setRotation(body, -0.5235987755982988F, 0.0F, 0.0F);
-    this.backR = new RendererModel(this, 0, 0);
+    this.backR = new ModelRenderer(this, 0, 0);
     this.backR.mirror = true;
     this.backR.setRotationPoint(-1.0F, 0.5F, 1.5F);
     this.backR.addBox(-1.0F, 0.0F, -0.5F, 2, 4, 1, 0.0F);
     this.setRotation(backR, -0.6981317007977318F, 0.5235987755982988F, 0.5235987755982988F);
-    this.frontR = new RendererModel(this, 0, 5);
+    this.frontR = new ModelRenderer(this, 0, 5);
     this.frontR.mirror = true;
     this.frontR.setRotationPoint(-1.0F, -0.25F, -2.5F);
     this.frontR.addBox(-0.5F, 0.0F, -0.5F, 1, 4, 1, 0.0F);
@@ -91,3 +92,4 @@ public class FrogModel extends EntityModel<Entity> implements IShoulderRidingMod
     this.head.rotateAngleY = netHeadYaw * 0.017453292F;
   }
 }
+*/

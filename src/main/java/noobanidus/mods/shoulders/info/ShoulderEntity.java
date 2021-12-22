@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.info;
 
+import net.minecraft.client.renderer.entity.model.CowModel;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.client.models.*;
@@ -8,7 +9,8 @@ import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 public enum ShoulderEntity {
-  BEETLE("beetle", BeetleModel::new),
+  BEETLE;
+/*  BEETLE("beetle", BeetleModel::new),
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
   BAT("bat", BatModel::new),
@@ -38,19 +40,19 @@ public enum ShoulderEntity {
   OWL("owl", OwlModel::new),
   SILVER_FOX("silver_fox", SilverFoxModel::new),
   SPROUT("sprout", SproutModel::new),
-  SILKWORM("silkworm", SilkwormModel::new);
+  SILKWORM("silkworm", SilkwormModel::new);*/
 
   private String entity;
-  private Supplier<IShoulderRidingModel> model;
+/*  private Supplier<IShoulderRidingModel> model;
 
   ShoulderEntity(String entity, Supplier<IShoulderRidingModel> model) {
     this.entity = entity;
     this.model = model;
-  }
+  }*/
 
-  public Supplier<IShoulderRidingModel> getModel() {
+/*  public Supplier<IShoulderRidingModel> getModel() {
     return model;
-  }
+  }*/
 
   public String getName() {
     return this.entity;

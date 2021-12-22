@@ -1,8 +1,9 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
@@ -11,8 +12,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LlamaModel extends AbstractQuadrupedShoulderModel {
-  private final RendererModel chest1;
-  private final RendererModel chest2;
+  private final ModelRenderer chest1;
+  private final ModelRenderer chest2;
 
   private static final LlamaModel decoLlama = new LlamaModel(0.5f);
 
@@ -24,33 +25,33 @@ public class LlamaModel extends AbstractQuadrupedShoulderModel {
     super(15, scale);
     this.textureWidth = 128;
     this.textureHeight = 64;
-    this.headModel = new RendererModel(this, 0, 0);
+    this.headModel = new ModelRenderer(this, 0, 0);
     this.headModel.addBox(-2.0F, -14.0F, -10.0F, 4, 4, 9, scale);
     this.headModel.setRotationPoint(0.0F, 7.0F, -6.0F);
     this.headModel.setTextureOffset(0, 14).addBox(-4.0F, -16.0F, -6.0F, 8, 18, 6, scale);
     this.headModel.setTextureOffset(17, 0).addBox(-4.0F, -19.0F, -4.0F, 3, 3, 2, scale);
     this.headModel.setTextureOffset(17, 0).addBox(1.0F, -19.0F, -4.0F, 3, 3, 2, scale);
-    this.body = new RendererModel(this, 29, 0);
+    this.body = new ModelRenderer(this, 29, 0);
     this.body.addBox(-6.0F, -10.0F, -7.0F, 12, 18, 10, scale);
     this.body.setRotationPoint(0.0F, 5.0F, 2.0F);
-    this.chest1 = new RendererModel(this, 45, 28);
+    this.chest1 = new ModelRenderer(this, 45, 28);
     this.chest1.addBox(-3.0F, 0.0F, 0.0F, 8, 8, 3, scale);
     this.chest1.setRotationPoint(-8.5F, 3.0F, 3.0F);
     this.chest1.rotateAngleY = ((float) Math.PI / 2F);
-    this.chest2 = new RendererModel(this, 45, 41);
+    this.chest2 = new ModelRenderer(this, 45, 41);
     this.chest2.addBox(-3.0F, 0.0F, 0.0F, 8, 8, 3, scale);
     this.chest2.setRotationPoint(5.5F, 3.0F, 3.0F);
     this.chest2.rotateAngleY = ((float) Math.PI / 2F);
-    this.legBackRight = new RendererModel(this, 29, 29);
+    this.legBackRight = new ModelRenderer(this, 29, 29);
     this.legBackRight.addBox(-2.0F, 0.0F, -2.0F, 4, 14, 4, scale);
     this.legBackRight.setRotationPoint(-2.5F, 10.0F, 6.0F);
-    this.legBackLeft = new RendererModel(this, 29, 29);
+    this.legBackLeft = new ModelRenderer(this, 29, 29);
     this.legBackLeft.addBox(-2.0F, 0.0F, -2.0F, 4, 14, 4, scale);
     this.legBackLeft.setRotationPoint(2.5F, 10.0F, 6.0F);
-    this.legFrontRight = new RendererModel(this, 29, 29);
+    this.legFrontRight = new ModelRenderer(this, 29, 29);
     this.legFrontRight.addBox(-2.0F, 0.0F, -2.0F, 4, 14, 4, scale);
     this.legFrontRight.setRotationPoint(-2.5F, 10.0F, -4.0F);
-    this.legFrontLeft = new RendererModel(this, 29, 29);
+    this.legFrontLeft = new ModelRenderer(this, 29, 29);
     this.legFrontLeft.addBox(-2.0F, 0.0F, -2.0F, 4, 14, 4, scale);
     this.legFrontLeft.setRotationPoint(2.5F, 10.0F, -4.0F);
     --this.legBackRight.rotationPointX;
@@ -138,3 +139,4 @@ public class LlamaModel extends AbstractQuadrupedShoulderModel {
     return LLAMA_TEXTURES.get(0);
   }
 }
+*/

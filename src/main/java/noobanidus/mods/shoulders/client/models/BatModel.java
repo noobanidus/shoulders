@@ -1,44 +1,45 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class BatModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel batHead;
-  private final RendererModel batBody;
-  private final RendererModel batRightWing;
-  private final RendererModel batLeftWing;
-  private final RendererModel batOuterRightWing;
-  private final RendererModel batOuterLeftWing;
+  private final ModelRenderer batHead;
+  private final ModelRenderer batBody;
+  private final ModelRenderer batRightWing;
+  private final ModelRenderer batLeftWing;
+  private final ModelRenderer batOuterRightWing;
+  private final ModelRenderer batOuterLeftWing;
 
   public BatModel() {
     this.textureWidth = 64;
     this.textureHeight = 64;
-    this.batHead = new RendererModel(this, 0, 0);
+    this.batHead = new ModelRenderer(this, 0, 0);
     this.batHead.addBox(-3.0F, -3.0F, -3.0F, 6, 6, 6);
-    RendererModel renderermodel = new RendererModel(this, 24, 0);
-    renderermodel.addBox(-4.0F, -6.0F, -2.0F, 3, 4, 1);
-    this.batHead.addChild(renderermodel);
-    RendererModel renderermodel1 = new RendererModel(this, 24, 0);
-    renderermodel1.mirror = true;
-    renderermodel1.addBox(1.0F, -6.0F, -2.0F, 3, 4, 1);
-    this.batHead.addChild(renderermodel1);
-    this.batBody = new RendererModel(this, 0, 16);
+    ModelRenderer ModelRenderer = new ModelRenderer(this, 24, 0);
+    ModelRenderer.addBox(-4.0F, -6.0F, -2.0F, 3, 4, 1);
+    this.batHead.addChild(ModelRenderer);
+    ModelRenderer ModelRenderer1 = new ModelRenderer(this, 24, 0);
+    ModelRenderer1.mirror = true;
+    ModelRenderer1.addBox(1.0F, -6.0F, -2.0F, 3, 4, 1);
+    this.batHead.addChild(ModelRenderer1);
+    this.batBody = new ModelRenderer(this, 0, 16);
     this.batBody.addBox(-3.0F, 4.0F, -3.0F, 6, 12, 6);
     this.batBody.setTextureOffset(0, 34).addBox(-5.0F, 16.0F, 0.0F, 10, 6, 1);
-    this.batRightWing = new RendererModel(this, 42, 0);
+    this.batRightWing = new ModelRenderer(this, 42, 0);
     this.batRightWing.addBox(-12.0F, 1.0F, 1.5F, 10, 16, 1);
-    this.batOuterRightWing = new RendererModel(this, 24, 16);
+    this.batOuterRightWing = new ModelRenderer(this, 24, 16);
     this.batOuterRightWing.setRotationPoint(-12.0F, 1.0F, 1.5F);
     this.batOuterRightWing.addBox(-8.0F, 1.0F, 0.0F, 8, 12, 1);
-    this.batLeftWing = new RendererModel(this, 42, 0);
+    this.batLeftWing = new ModelRenderer(this, 42, 0);
     this.batLeftWing.mirror = true;
     this.batLeftWing.addBox(2.0F, 1.0F, 1.5F, 10, 16, 1);
-    this.batOuterLeftWing = new RendererModel(this, 24, 16);
+    this.batOuterLeftWing = new ModelRenderer(this, 24, 16);
     this.batOuterLeftWing.mirror = true;
     this.batOuterLeftWing.setRotationPoint(12.0F, 1.0F, 1.5F);
     this.batOuterLeftWing.addBox(0.0F, 1.0F, 0.0F, 8, 12, 1);
@@ -85,3 +86,4 @@ public class BatModel extends EntityModel<Entity> implements IShoulderRidingMode
     this.batOuterLeftWing.rotateAngleY = -this.batOuterRightWing.rotateAngleY;
   }
 }
+*/

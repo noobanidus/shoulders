@@ -1,19 +1,20 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
-public abstract class AbstractTropicalFishModel<T extends EntityModel<Entity> & IShoulderRidingModel> extends EntityModel<Entity> implements IShoulderRidingModel, ITropicalFish {
-  protected RendererModel body;
-  protected RendererModel tail;
-  protected RendererModel finRight;
-  protected RendererModel finLeft;
-  protected RendererModel finTop;
+public abstract class AbstractTropicalFishModel<T extends EntityModel<Entity>> extends EntityModel<Entity> implements ITropicalFish {
+  protected ModelRenderer body;
+  protected ModelRenderer tail;
+  protected ModelRenderer finRight;
+  protected ModelRenderer finLeft;
+  protected ModelRenderer finTop;
   protected T pattern;
 
   public AbstractTropicalFishModel(T pattern) {
@@ -47,3 +48,4 @@ public abstract class AbstractTropicalFishModel<T extends EntityModel<Entity> & 
     this.finTop.render(scale);
   }
 }
+*/

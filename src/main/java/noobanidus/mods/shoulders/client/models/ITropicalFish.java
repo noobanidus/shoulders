@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface ITropicalFish {
   default float[] getBodyColour(ShoulderData data) {
-    return DyeColor.byId((data.getVariant() >> 8) & 255).getColorComponentValues();
+    return DyeColor.byId((data.getVariant() >> 8) & 255).getTextureDiffuseColors();
   }
 
   default float[] getPatternColour(ShoulderData data) {
-    return DyeColor.byId(data.getVariant() & 255).getColorComponentValues();
+    return DyeColor.byId(data.getVariant() & 255).getTextureDiffuseColors();
   }
 
   @Nullable

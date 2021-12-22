@@ -1,9 +1,10 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.DyeColor;
 import net.minecraft.util.ResourceLocation;
@@ -14,39 +15,39 @@ import java.util.Arrays;
 import java.util.List;
 
 public class WolfModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel head;
-  private final RendererModel body;
-  private final RendererModel legBackRight;
-  private final RendererModel legBackLeft;
-  private final RendererModel legFrontRight;
-  private final RendererModel legFrontLeft;
-  private final RendererModel tail;
-  private final RendererModel mane;
+  private final ModelRenderer head;
+  private final ModelRenderer body;
+  private final ModelRenderer legBackRight;
+  private final ModelRenderer legBackLeft;
+  private final ModelRenderer legFrontRight;
+  private final ModelRenderer legFrontLeft;
+  private final ModelRenderer tail;
+  private final ModelRenderer mane;
 
 
   public WolfModel() {
-    this.head = new RendererModel(this, 0, 0);
+    this.head = new ModelRenderer(this, 0, 0);
     this.head.addBox(-2.0F, -3.0F, -2.0F, 6, 6, 4, 0.0F);
     this.head.setRotationPoint(-1.0F, 13.5F, -7.0F);
-    this.body = new RendererModel(this, 18, 14);
+    this.body = new ModelRenderer(this, 18, 14);
     this.body.addBox(-3.0F, -2.0F, -3.0F, 6, 9, 6, 0.0F);
     this.body.setRotationPoint(0.0F, 14.0F, 2.0F);
-    this.mane = new RendererModel(this, 21, 0);
+    this.mane = new ModelRenderer(this, 21, 0);
     this.mane.addBox(-3.0F, -3.0F, -3.0F, 8, 6, 7, 0.0F);
     this.mane.setRotationPoint(-1.0F, 14.0F, 2.0F);
-    this.legBackRight = new RendererModel(this, 0, 18);
+    this.legBackRight = new ModelRenderer(this, 0, 18);
     this.legBackRight.addBox(0.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
     this.legBackRight.setRotationPoint(-2.5F, 16.0F, 7.0F);
-    this.legBackLeft = new RendererModel(this, 0, 18);
+    this.legBackLeft = new ModelRenderer(this, 0, 18);
     this.legBackLeft.addBox(0.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
     this.legBackLeft.setRotationPoint(0.5F, 16.0F, 7.0F);
-    this.legFrontRight = new RendererModel(this, 0, 18);
+    this.legFrontRight = new ModelRenderer(this, 0, 18);
     this.legFrontRight.addBox(0.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
     this.legFrontRight.setRotationPoint(-2.5F, 16.0F, -4.0F);
-    this.legFrontLeft = new RendererModel(this, 0, 18);
+    this.legFrontLeft = new ModelRenderer(this, 0, 18);
     this.legFrontLeft.addBox(0.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
     this.legFrontLeft.setRotationPoint(0.5F, 16.0F, -4.0F);
-    this.tail = new RendererModel(this, 9, 18);
+    this.tail = new ModelRenderer(this, 9, 18);
     this.tail.addBox(0.0F, 0.0F, -1.0F, 2, 8, 2, 0.0F);
     this.tail.setRotationPoint(-1.0F, 12.0F, 8.0F);
     this.head.setTextureOffset(16, 14).addBox(-2.0F, -5.0F, 0.0F, 2, 2, 1, 0.0F);
@@ -141,3 +142,4 @@ public class WolfModel extends EntityModel<Entity> implements IShoulderRidingMod
     return TEXTURES.get(0);
   }
 }
+*/

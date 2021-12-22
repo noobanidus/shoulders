@@ -1,3 +1,4 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -71,3 +72,4 @@ public class MooshroomModel extends CowModel {
     }
   }
 }
+*/

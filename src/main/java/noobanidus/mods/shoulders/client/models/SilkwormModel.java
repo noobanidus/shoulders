@@ -1,29 +1,27 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.Constants;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidingModel {
   private static final int[][] BODY_SIZES = new int[][]{{4, 3, 2}, {6, 4, 5}, {3, 3, 1}, {1, 2, 1}};
   private static final int[][] BODY_TEXS = new int[][]{{0, 0}, {0, 5}, {0, 14}, {0, 18}};
   private static final int BODY_COUNT = BODY_SIZES.length;
-  private final RendererModel[] bodyParts;
+  private final ModelRenderer[] bodyParts;
 
   public SilkwormModel() {
-    this.bodyParts = new RendererModel[BODY_COUNT];
+    this.bodyParts = new ModelRenderer[BODY_COUNT];
     float f = -3.5F;
 
     for (int i = 0; i < this.bodyParts.length; ++i) {
-      this.bodyParts[i] = new RendererModel(this, BODY_TEXS[i][0], BODY_TEXS[i][1]);
+      this.bodyParts[i] = new ModelRenderer(this, BODY_TEXS[i][0], BODY_TEXS[i][1]);
       this.bodyParts[i].addBox((float) BODY_SIZES[i][0] * -0.5F, 0.0F, (float) BODY_SIZES[i][2] * -0.5F, BODY_SIZES[i][0], BODY_SIZES[i][1], BODY_SIZES[i][2]);
       this.bodyParts[i].setRotationPoint(0.0F, (float) (24 - BODY_SIZES[i][1]), f);
 
@@ -34,7 +32,7 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
   }
 
   public void render(float scale) {
-    for (RendererModel modelrenderer : this.bodyParts) {
+    for (ModelRenderer modelrenderer : this.bodyParts) {
       modelrenderer.render(scale);
     }
   }
@@ -64,3 +62,4 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
     }
   }
 }
+*/

@@ -1,7 +1,8 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.info.ShoulderData;
@@ -11,23 +12,23 @@ public class TurtleModel extends AbstractQuadrupedShoulderModel {
     super(12, 0.0f);
     this.textureWidth = 128;
     this.textureHeight = 64;
-    this.headModel = new RendererModel(this, 3, 0);
+    this.headModel = new ModelRenderer(this, 3, 0);
     this.headModel.addBox(-3.0F, -1.0F, -3.0F, 6, 5, 6, 0.0F);
     this.headModel.setRotationPoint(0.0F, 19.0F, -10.0F);
-    this.body = new RendererModel(this);
+    this.body = new ModelRenderer(this);
     this.body.setTextureOffset(7, 37).addBox(-9.5F, 3.0F, -10.0F, 19, 20, 6, 0.0F);
     this.body.setTextureOffset(31, 1).addBox(-5.5F, 3.0F, -13.0F, 11, 18, 3, 0.0F);
     this.body.setRotationPoint(0.0F, 11.0F, -10.0F);
-    this.legBackRight = new RendererModel(this, 1, 23);
+    this.legBackRight = new ModelRenderer(this, 1, 23);
     this.legBackRight.addBox(-2.0F, 0.0F, 0.0F, 4, 1, 10, 0.0F);
     this.legBackRight.setRotationPoint(-3.5F, 22.0F, 11.0F);
-    this.legBackLeft = new RendererModel(this, 1, 12);
+    this.legBackLeft = new ModelRenderer(this, 1, 12);
     this.legBackLeft.addBox(-2.0F, 0.0F, 0.0F, 4, 1, 10, 0.0F);
     this.legBackLeft.setRotationPoint(3.5F, 22.0F, 11.0F);
-    this.legFrontRight = new RendererModel(this, 27, 30);
+    this.legFrontRight = new ModelRenderer(this, 27, 30);
     this.legFrontRight.addBox(-13.0F, 0.0F, -2.0F, 13, 1, 5, 0.0F);
     this.legFrontRight.setRotationPoint(-5.0F, 21.0F, -4.0F);
-    this.legFrontLeft = new RendererModel(this, 27, 24);
+    this.legFrontLeft = new ModelRenderer(this, 27, 24);
     this.legFrontLeft.addBox(0.0F, 0.0F, -2.0F, 13, 1, 5, 0.0F);
     this.legFrontLeft.setRotationPoint(5.0F, 21.0F, -4.0F);
   }
@@ -69,3 +70,4 @@ public class TurtleModel extends AbstractQuadrupedShoulderModel {
     GlStateManager.translated(data.left() ? 1.675 : -1.675, isSneaking ? -0.8 + armorOffset : -1.48 + armorOffset, -0.3);
   }
 }
+*/

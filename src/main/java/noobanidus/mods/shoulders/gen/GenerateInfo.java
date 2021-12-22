@@ -25,11 +25,11 @@ public class GenerateInfo implements IDataProvider {
   }
 
   @Override
-  public void act(DirectoryCache cache) throws IOException {
+  public void run(DirectoryCache cache) throws IOException {
     Path path = this.generator.getOutputFolder();
 
     List<ShoulderData> patreonData = Arrays.asList(
-        new ShoulderData(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"), ShoulderEntity.RABBIT, Shoulder.RIGHT, 0) // Dev
+        new ShoulderData(UUID.fromString("380df991-f603-344c-a090-369bad2a924a"), ShoulderEntity.BEETLE, Shoulder.RIGHT, 0) // Dev
     );
 
     JsonArray dataArray = new JsonArray();

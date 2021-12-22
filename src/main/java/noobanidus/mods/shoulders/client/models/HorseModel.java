@@ -1,11 +1,11 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
-import net.minecraft.client.renderer.texture.LayeredTexture;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -16,61 +16,61 @@ import java.util.Arrays;
 import java.util.List;
 
 public class HorseModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  protected final RendererModel body;
-  protected final RendererModel head;
-  private final RendererModel legLeftBack;
-  private final RendererModel legRightBack;
-  private final RendererModel legLeftFront;
-  private final RendererModel legRightFront;
-  private final RendererModel tail;
+  protected final ModelRenderer body;
+  protected final ModelRenderer head;
+  private final ModelRenderer legLeftBack;
+  private final ModelRenderer legRightBack;
+  private final ModelRenderer legLeftFront;
+  private final ModelRenderer legRightFront;
+  private final ModelRenderer tail;
 
   public HorseModel() {
     this.textureWidth = 64;
     this.textureHeight = 64;
-    this.body = new RendererModel(this, 0, 32);
+    this.body = new ModelRenderer(this, 0, 32);
     this.body.addBox(-5.0F, -8.0F, -17.0F, 10, 10, 22, 0.05F);
     this.body.setRotationPoint(0.0F, 11.0F, 5.0F);
-    this.head = new RendererModel(this, 0, 35);
+    this.head = new ModelRenderer(this, 0, 35);
     this.head.addBox(-2.05F, -6.0F, -2.0F, 4, 12, 7);
     this.head.rotateAngleX = ((float) Math.PI / 6F);
-    RendererModel renderermodel = new RendererModel(this, 0, 13);
-    renderermodel.addBox(-3.0F, -11.0F, -2.0F, 6, 5, 7, 0);
-    RendererModel renderermodel1 = new RendererModel(this, 56, 36);
-    renderermodel1.addBox(-1.0F, -11.0F, 5.01F, 2, 16, 2, 0);
-    RendererModel renderermodel2 = new RendererModel(this, 0, 25);
-    renderermodel2.addBox(-2.0F, -11.0F, -7.0F, 4, 5, 5, 0);
-    this.head.addChild(renderermodel);
-    this.head.addChild(renderermodel1);
-    this.head.addChild(renderermodel2);
-    this.func_199047_a(this.head);
-    this.legLeftBack = new RendererModel(this, 48, 21);
+    ModelRenderer ModelRenderer = new ModelRenderer(this, 0, 13);
+    ModelRenderer.addBox(-3.0F, -11.0F, -2.0F, 6, 5, 7, 0);
+    ModelRenderer ModelRenderer1 = new ModelRenderer(this, 56, 36);
+    ModelRenderer1.addBox(-1.0F, -11.0F, 5.01F, 2, 16, 2, 0);
+    ModelRenderer ModelRenderer2 = new ModelRenderer(this, 0, 25);
+    ModelRenderer2.addBox(-2.0F, -11.0F, -7.0F, 4, 5, 5, 0);
+    this.head.addChild(ModelRenderer);
+    this.head.addChild(ModelRenderer1);
+    this.head.addChild(ModelRenderer2);
+    this.addEarModels(this.head);
+    this.legLeftBack = new ModelRenderer(this, 48, 21);
     this.legLeftBack.mirror = true;
     this.legLeftBack.addBox(-3.0F, -1.01F, -1.0F, 4, 11, 4, 0);
     this.legLeftBack.setRotationPoint(4.0F, 14.0F, 7.0F);
-    this.legRightBack = new RendererModel(this, 48, 21);
+    this.legRightBack = new ModelRenderer(this, 48, 21);
     this.legRightBack.addBox(-1.0F, -1.01F, -1.0F, 4, 11, 4, 0);
     this.legRightBack.setRotationPoint(-4.0F, 14.0F, 7.0F);
-    this.legLeftFront = new RendererModel(this, 48, 21);
+    this.legLeftFront = new ModelRenderer(this, 48, 21);
     this.legLeftFront.mirror = true;
     this.legLeftFront.addBox(-3.0F, -1.01F, -1.9F, 4, 11, 4, 0);
     this.legLeftFront.setRotationPoint(4.0F, 6.0F, -12.0F);
-    this.legRightFront = new RendererModel(this, 48, 21);
+    this.legRightFront = new ModelRenderer(this, 48, 21);
     this.legRightFront.addBox(-1.0F, -1.01F, -1.9F, 4, 11, 4, 0);
     this.legRightFront.setRotationPoint(-4.0F, 6.0F, -12.0F);
-    this.tail = new RendererModel(this, 42, 36);
+    this.tail = new ModelRenderer(this, 42, 36);
     this.tail.addBox(-1.5F, 0.0F, 0.0F, 3, 14, 4, 0);
     this.tail.setRotationPoint(0.0F, -5.0F, 2.0F);
     this.tail.rotateAngleX = ((float) Math.PI / 6F);
     this.body.addChild(this.tail);
   }
 
-  protected void func_199047_a(RendererModel p_199047_1_) {
-    RendererModel renderermodel = new RendererModel(this, 19, 16);
-    renderermodel.addBox(0.55F, -13.0F, 4.0F, 2, 3, 1, -0.001F);
-    RendererModel renderermodel1 = new RendererModel(this, 19, 16);
-    renderermodel1.addBox(-2.55F, -13.0F, 4.0F, 2, 3, 1, -0.001F);
-    p_199047_1_.addChild(renderermodel);
-    p_199047_1_.addChild(renderermodel1);
+  protected void addEarModels(ModelRenderer p_199047_1_) {
+    ModelRenderer ModelRenderer = new ModelRenderer(this, 19, 16);
+    ModelRenderer.addBox(0.55F, -13.0F, 4.0F, 2, 3, 1, -0.001F);
+    ModelRenderer ModelRenderer1 = new ModelRenderer(this, 19, 16);
+    ModelRenderer1.addBox(-2.55F, -13.0F, 4.0F, 2, 3, 1, -0.001F);
+    p_199047_1_.addChild(ModelRenderer);
+    p_199047_1_.addChild(ModelRenderer1);
   }
 
   public void render(float scale) {
@@ -170,3 +170,4 @@ public class HorseModel extends EntityModel<Entity> implements IShoulderRidingMo
     this.tail.rotateAngleY = 0.0F;
   }
 }
+*/

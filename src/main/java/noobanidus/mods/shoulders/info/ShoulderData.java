@@ -83,7 +83,7 @@ public class ShoulderData implements INBTSerializable<CompoundNBT> {
 
   @Override
   public void deserializeNBT(CompoundNBT nbt) {
-    this.player = nbt.getUniqueId("player");
+    this.player = nbt.getUUID("player");
     this.shoulder = Shoulder.getByName(nbt.getString("shoulder"));
     this.entity = ShoulderEntity.getByName(nbt.getString("entity"));
     this.variant = nbt.getInt("variant");

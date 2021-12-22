@@ -1,23 +1,24 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class SquidModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel body;
-  private final RendererModel[] legs = new RendererModel[8];
+  private final ModelRenderer body;
+  private final ModelRenderer[] legs = new ModelRenderer[8];
 
   public SquidModel() {
-    this.body = new RendererModel(this, 0, 0);
+    this.body = new ModelRenderer(this, 0, 0);
     this.body.addBox(-6.0F, -8.0F, -6.0F, 12, 16, 12);
     this.body.rotationPointY += 8.0F;
 
     for (int j = 0; j < this.legs.length; ++j) {
-      this.legs[j] = new RendererModel(this, 48, 0);
+      this.legs[j] = new ModelRenderer(this, 48, 0);
       double d0 = (double) j * Math.PI * 2.0D / (double) this.legs.length;
       float f = (float) Math.cos(d0) * 5.0F;
       float f1 = (float) Math.sin(d0) * 5.0F;
@@ -33,8 +34,8 @@ public class SquidModel extends EntityModel<Entity> implements IShoulderRidingMo
 
   @Override
   public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    for (RendererModel renderermodel : this.legs) {
-      renderermodel.rotateAngleX = getBobble(45 / 360.0f, ageInTicks);
+    for (ModelRenderer ModelRenderer : this.legs) {
+      ModelRenderer.rotateAngleX = getBobble(45 / 360.0f, ageInTicks);
     }
   }
 
@@ -42,8 +43,8 @@ public class SquidModel extends EntityModel<Entity> implements IShoulderRidingMo
   public void render(float scale) {
     this.body.render(scale);
 
-    for (RendererModel renderermodel : this.legs) {
-      renderermodel.render(scale);
+    for (ModelRenderer ModelRenderer : this.legs) {
+      ModelRenderer.render(scale);
     }
   }
 
@@ -61,3 +62,4 @@ public class SquidModel extends EntityModel<Entity> implements IShoulderRidingMo
     GlStateManager.translated(data.left() ? 2.275 : -2.275, isSneaking ? -1.8 + armorOffset : -2.48 + armorOffset, 0);
   }
 }
+*/

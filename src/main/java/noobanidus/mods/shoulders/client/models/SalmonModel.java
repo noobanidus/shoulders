@@ -1,51 +1,52 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 public class SalmonModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel bodyFront;
-  private final RendererModel bodyRear;
-  private final RendererModel head;
-  private final RendererModel finTopFront;
-  private final RendererModel finTopRear;
-  private final RendererModel tail;
-  private final RendererModel finRight;
-  private final RendererModel finLeft;
+  private final ModelRenderer bodyFront;
+  private final ModelRenderer bodyRear;
+  private final ModelRenderer head;
+  private final ModelRenderer finTopFront;
+  private final ModelRenderer finTopRear;
+  private final ModelRenderer tail;
+  private final ModelRenderer finRight;
+  private final ModelRenderer finLeft;
 
   public SalmonModel() {
     this.textureWidth = 32;
     this.textureHeight = 32;
-    this.bodyFront = new RendererModel(this, 0, 0);
+    this.bodyFront = new ModelRenderer(this, 0, 0);
     this.bodyFront.addBox(-1.5F, -2.5F, 0.0F, 3, 5, 8);
     this.bodyFront.setRotationPoint(0.0F, 20.0F, 0.0F);
-    this.bodyRear = new RendererModel(this, 0, 13);
+    this.bodyRear = new ModelRenderer(this, 0, 13);
     this.bodyRear.addBox(-1.5F, -2.5F, 0.0F, 3, 5, 8);
     this.bodyRear.setRotationPoint(0.0F, 20.0F, 8.0F);
-    this.head = new RendererModel(this, 22, 0);
+    this.head = new ModelRenderer(this, 22, 0);
     this.head.addBox(-1.0F, -2.0F, -3.0F, 2, 4, 3);
     this.head.setRotationPoint(0.0F, 20.0F, 0.0F);
-    this.tail = new RendererModel(this, 20, 10);
+    this.tail = new ModelRenderer(this, 20, 10);
     this.tail.addBox(0.0F, -2.5F, 0.0F, 0, 5, 6);
     this.tail.setRotationPoint(0.0F, 0.0F, 8.0F);
     this.bodyRear.addChild(this.tail);
-    this.finTopFront = new RendererModel(this, 2, 1);
+    this.finTopFront = new ModelRenderer(this, 2, 1);
     this.finTopFront.addBox(0.0F, 0.0F, 0.0F, 0, 2, 3);
     this.finTopFront.setRotationPoint(0.0F, -4.5F, 5.0F);
     this.bodyFront.addChild(this.finTopFront);
-    this.finTopRear = new RendererModel(this, 0, 2);
+    this.finTopRear = new ModelRenderer(this, 0, 2);
     this.finTopRear.addBox(0.0F, 0.0F, 0.0F, 0, 2, 4);
     this.finTopRear.setRotationPoint(0.0F, -4.5F, -1.0F);
     this.bodyRear.addChild(this.finTopRear);
-    this.finRight = new RendererModel(this, -4, 0);
+    this.finRight = new ModelRenderer(this, -4, 0);
     this.finRight.addBox(-2.0F, 0.0F, 0.0F, 2, 0, 2);
     this.finRight.setRotationPoint(-1.5F, 21.5F, 0.0F);
     this.finRight.rotateAngleZ = (-(float) Math.PI / 4F);
-    this.finLeft = new RendererModel(this, 0, 0);
+    this.finLeft = new ModelRenderer(this, 0, 0);
     this.finLeft.addBox(0.0F, 0.0F, 0.0F, 2, 0, 2);
     this.finLeft.setRotationPoint(1.5F, 21.5F, 0.0F);
     this.finLeft.rotateAngleZ = ((float) Math.PI / 4F);
@@ -85,3 +86,4 @@ public class SalmonModel extends EntityModel<Entity> implements IShoulderRidingM
     GlStateManager.translated(data.left() ? 1.68 : -1.68, isSneaking ? -1.08 + armorOffset : -1.45 + armorOffset, -0.5);
   }
 }
+*/

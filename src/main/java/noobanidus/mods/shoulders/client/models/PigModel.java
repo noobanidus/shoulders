@@ -1,3 +1,4 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -29,3 +30,4 @@ public class PigModel extends AbstractQuadrupedShoulderModel {
     GlStateManager.translated(data.left() ? 1.875 : -1.875, isSneaking ? -0.83 + armorOffset : -1.50 + armorOffset, -0.1);
   }
 }
+*/

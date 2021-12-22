@@ -1,8 +1,9 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
@@ -12,56 +13,56 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ParrotModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private final RendererModel body;
-  private final RendererModel tail;
-  private final RendererModel wingLeft;
-  private final RendererModel wingRight;
-  private final RendererModel head;
-  private final RendererModel head2;
-  private final RendererModel beak1;
-  private final RendererModel beak2;
-  private final RendererModel feather;
-  private final RendererModel legLeft;
-  private final RendererModel legRight;
+  private final ModelRenderer body;
+  private final ModelRenderer tail;
+  private final ModelRenderer wingLeft;
+  private final ModelRenderer wingRight;
+  private final ModelRenderer head;
+  private final ModelRenderer head2;
+  private final ModelRenderer beak1;
+  private final ModelRenderer beak2;
+  private final ModelRenderer feather;
+  private final ModelRenderer legLeft;
+  private final ModelRenderer legRight;
 
   public ParrotModel() {
     this.textureWidth = 32;
     this.textureHeight = 32;
-    this.body = new RendererModel(this, 2, 8);
+    this.body = new ModelRenderer(this, 2, 8);
     this.body.addBox(-1.5F, 0.0F, -1.5F, 3, 6, 3);
     this.body.setRotationPoint(0.0F, 16.5F, -3.0F);
-    this.tail = new RendererModel(this, 22, 1);
+    this.tail = new ModelRenderer(this, 22, 1);
     this.tail.addBox(-1.5F, -1.0F, -1.0F, 3, 4, 1);
     this.tail.setRotationPoint(0.0F, 21.07F, 1.16F);
-    this.wingLeft = new RendererModel(this, 19, 8);
+    this.wingLeft = new ModelRenderer(this, 19, 8);
     this.wingLeft.addBox(-0.5F, 0.0F, -1.5F, 1, 5, 3);
     this.wingLeft.setRotationPoint(1.5F, 16.94F, -2.76F);
-    this.wingRight = new RendererModel(this, 19, 8);
+    this.wingRight = new ModelRenderer(this, 19, 8);
     this.wingRight.addBox(-0.5F, 0.0F, -1.5F, 1, 5, 3);
     this.wingRight.setRotationPoint(-1.5F, 16.94F, -2.76F);
-    this.head = new RendererModel(this, 2, 2);
+    this.head = new ModelRenderer(this, 2, 2);
     this.head.addBox(-1.0F, -1.5F, -1.0F, 2, 3, 2);
     this.head.setRotationPoint(0.0F, 15.69F, -2.76F);
-    this.head2 = new RendererModel(this, 10, 0);
+    this.head2 = new ModelRenderer(this, 10, 0);
     this.head2.addBox(-1.0F, -0.5F, -2.0F, 2, 1, 4);
     this.head2.setRotationPoint(0.0F, -2.0F, -1.0F);
     this.head.addChild(this.head2);
-    this.beak1 = new RendererModel(this, 11, 7);
+    this.beak1 = new ModelRenderer(this, 11, 7);
     this.beak1.addBox(-0.5F, -1.0F, -0.5F, 1, 2, 1);
     this.beak1.setRotationPoint(0.0F, -0.5F, -1.5F);
     this.head.addChild(this.beak1);
-    this.beak2 = new RendererModel(this, 16, 7);
+    this.beak2 = new ModelRenderer(this, 16, 7);
     this.beak2.addBox(-0.5F, 0.0F, -0.5F, 1, 2, 1);
     this.beak2.setRotationPoint(0.0F, -1.75F, -2.45F);
     this.head.addChild(this.beak2);
-    this.feather = new RendererModel(this, 2, 18);
+    this.feather = new ModelRenderer(this, 2, 18);
     this.feather.addBox(0.0F, -4.0F, -2.0F, 0, 5, 4);
     this.feather.setRotationPoint(0.0F, -2.15F, 0.15F);
     this.head.addChild(this.feather);
-    this.legLeft = new RendererModel(this, 14, 18);
+    this.legLeft = new ModelRenderer(this, 14, 18);
     this.legLeft.addBox(-0.5F, 0.0F, -0.5F, 1, 2, 1);
     this.legLeft.setRotationPoint(1.0F, 22.0F, -1.05F);
-    this.legRight = new RendererModel(this, 14, 18);
+    this.legRight = new ModelRenderer(this, 14, 18);
     this.legRight.addBox(-0.5F, 0.0F, -0.5F, 1, 2, 1);
     this.legRight.setRotationPoint(-1.0F, 22.0F, -1.05F);
   }
@@ -134,3 +135,4 @@ public class ParrotModel extends EntityModel<Entity> implements IShoulderRidingM
     GlStateManager.translatef(data.left() ? 0.4F : -0.4F, isSneaking ? -1.3F : -1.5F, 0.0F);
   }
 }
+*/

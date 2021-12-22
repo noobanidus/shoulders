@@ -1,11 +1,12 @@
+/*
 package noobanidus.mods.shoulders.client.models;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.entity.model.RendererModel;
 import net.minecraft.client.renderer.model.ItemCameraTransforms;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -18,26 +19,26 @@ import java.util.List;
 public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidingModel {
   private static final ResourceLocation SNOW_MAN_TEXTURES = new ResourceLocation("textures/entity/snow_golem.png");
 
-  private final RendererModel body;
-  private final RendererModel bottomBody;
-  private final RendererModel head;
-  private final RendererModel rightHand;
-  private final RendererModel leftHand;
+  private final ModelRenderer body;
+  private final ModelRenderer bottomBody;
+  private final ModelRenderer head;
+  private final ModelRenderer rightHand;
+  private final ModelRenderer leftHand;
 
   public SnowGolemModel() {
-    this.head = (new RendererModel(this, 0, 0)).setTextureSize(64, 64);
+    this.head = (new ModelRenderer(this, 0, 0)).setTextureSize(64, 64);
     this.head.addBox(-4.0F, -8.0F, -4.0F, 8, 8, 8, -0.5F);
     this.head.setRotationPoint(0.0F, 4.0F, 0.0F);
-    this.rightHand = (new RendererModel(this, 32, 0)).setTextureSize(64, 64);
+    this.rightHand = (new ModelRenderer(this, 32, 0)).setTextureSize(64, 64);
     this.rightHand.addBox(-1.0F, 0.0F, -1.0F, 12, 2, 2, -0.5F);
     this.rightHand.setRotationPoint(0.0F, 6.0F, 0.0F);
-    this.leftHand = (new RendererModel(this, 32, 0)).setTextureSize(64, 64);
+    this.leftHand = (new ModelRenderer(this, 32, 0)).setTextureSize(64, 64);
     this.leftHand.addBox(-1.0F, 0.0F, -1.0F, 12, 2, 2, -0.5F);
     this.leftHand.setRotationPoint(0.0F, 6.0F, 0.0F);
-    this.body = (new RendererModel(this, 0, 16)).setTextureSize(64, 64);
+    this.body = (new ModelRenderer(this, 0, 16)).setTextureSize(64, 64);
     this.body.addBox(-5.0F, -10.0F, -5.0F, 10, 10, 10, -0.5F);
     this.body.setRotationPoint(0.0F, 13.0F, 0.0F);
-    this.bottomBody = (new RendererModel(this, 0, 36)).setTextureSize(64, 64);
+    this.bottomBody = (new ModelRenderer(this, 0, 36)).setTextureSize(64, 64);
     this.bottomBody.addBox(-6.0F, -12.0F, -6.0F, 12, 12, 12, -0.5F);
     this.bottomBody.setRotationPoint(0.0F, 24.0F, 0.0F);
   }
@@ -149,3 +150,4 @@ public class SnowGolemModel extends EntityModel<Entity> implements IShoulderRidi
     return SNOW_MAN_TEXTURES;
   }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package noobanidus.mods.shoulders.client.layers;
 
 import com.mojang.blaze3d.platform.GlStateManager;
@@ -59,3 +60,4 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
     return false;
   }
 }
+*/

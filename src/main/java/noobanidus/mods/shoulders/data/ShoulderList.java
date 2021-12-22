@@ -44,6 +44,6 @@ public class ShoulderList {
 
   @Nullable
   public static ShoulderData getData (PlayerEntity player) {
-    return dataMap.get(player.getUniqueID());
+    return dataMap.get(player.getUUID());
   }
 }

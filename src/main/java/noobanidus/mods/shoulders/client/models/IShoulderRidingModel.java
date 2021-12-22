@@ -1,6 +1,6 @@
 package noobanidus.mods.shoulders.client.models;
 
-import net.minecraft.client.renderer.entity.model.RendererModel;
+import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,10 +21,10 @@ public interface IShoulderRidingModel {
 
   ResourceLocation getTexture(ShoulderData data);
 
-  default void setRotationOffset(RendererModel renderer, float x, float y, float z) {
-    renderer.rotateAngleX = x;
-    renderer.rotateAngleY = y;
-    renderer.rotateAngleZ = z;
+  default void setRotationOffset(ModelRenderer renderer, float x, float y, float z) {
+    renderer.xRot = x;
+    renderer.yRot = y;
+    renderer.zRot = z;
   }
 
   default float getSwing(float deg, float ageInTicks) {
@@ -42,9 +42,9 @@ public interface IShoulderRidingModel {
 
   void scaleAndTranslate (ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn);
 
-  default void setRotation(@Nonnull RendererModel model, float x, float y, float z) {
-    model.rotateAngleX = x;
-    model.rotateAngleY = y;
-    model.rotateAngleZ = z;
+  default void setRotation(@Nonnull ModelRenderer model, float x, float y, float z) {
+    model.xRot = x;
+    model.yRot = y;
+    model.zRot = z;
   }
 }
