@@ -2,13 +2,10 @@ package noobanidus.mods.shoulders.info;
 
 import com.google.gson.JsonObject;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.util.INBTSerializable;
 
 import java.util.UUID;
 
-@OnlyIn(Dist.CLIENT)
 public class ShoulderData implements INBTSerializable<CompoundNBT> {
   private UUID player;
   private ShoulderEntity entity;

@@ -1,16 +1,20 @@
 package noobanidus.mods.shoulders.info;
 
-import net.minecraft.client.renderer.entity.model.CowModel;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import noobanidus.mods.shoulders.client.models.*;
+import noobanidus.mods.shoulders.client.models.BeetleModel;
+import noobanidus.mods.shoulders.client.models.IShoulderRidingModel;
+import noobanidus.mods.shoulders.client.transforms.ModelTransformer;
 
 import java.util.function.Supplier;
 
-@OnlyIn(Dist.CLIENT)
 public enum ShoulderEntity {
-  BEETLE;
-/*  BEETLE("beetle", BeetleModel::new),
+  BEETLE("beetle",
+      BeetleModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.375, p.isCrouching() ? -0.3 : -0.5, 0))
+          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
+  );
+  /*
   RABBIT("rabbit", RabbitModel::new),
   OCELOT("ocelot", OcelotModel::new),
   BAT("bat", BatModel::new),
@@ -42,17 +46,29 @@ public enum ShoulderEntity {
   SPROUT("sprout", SproutModel::new),
   SILKWORM("silkworm", SilkwormModel::new);*/
 
-  private String entity;
-/*  private Supplier<IShoulderRidingModel> model;
+  private final String entity;
+  private final Supplier<IShoulderRidingModel> model;
+  private final ModelTransformer transforms;
 
   ShoulderEntity(String entity, Supplier<IShoulderRidingModel> model) {
     this.entity = entity;
     this.model = model;
-  }*/
+    this.transforms = ModelTransformer.EMPTY;
+  }
 
-/*  public Supplier<IShoulderRidingModel> getModel() {
+  ShoulderEntity(String entity, Supplier<IShoulderRidingModel> model, ModelTransformer transforms) {
+    this.entity = entity;
+    this.model = model;
+    this.transforms = transforms;
+  }
+
+  public Supplier<IShoulderRidingModel> getModel() {
     return model;
-  }*/
+  }
+
+  public ModelTransformer getTransformers() {
+    return transforms;
+  }
 
   public String getName() {
     return this.entity;

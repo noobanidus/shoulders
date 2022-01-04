@@ -1,31 +1,28 @@
 package noobanidus.mods.shoulders.client.models;
 
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
 import javax.annotation.Nonnull;
 
-@SuppressWarnings("WeakerAccess")
-@OnlyIn(Dist.CLIENT)
 public interface IShoulderRidingModel {
-  void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch);
+  void setupAnim(ShoulderData data, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch);
 
-  default void render (ShoulderData data, float scale) {
-    render(scale);
-  }
+  void prepare(ShoulderData data);
 
-  void render(float scale);
+  RenderType getRenderType(ShoulderData data);
 
   ResourceLocation getTexture(ShoulderData data);
 
-  default void setRotationOffset(ModelRenderer renderer, float x, float y, float z) {
-    renderer.xRot = x;
-    renderer.yRot = y;
-    renderer.zRot = z;
-  }
+  EntityModel<LivingEntity> getModel();
+
+  Iterable<ModelRenderer> getParts();
 
   default float getSwing(float deg, float ageInTicks) {
     return (float) Math.sin(ageInTicks * 0.125f * (Math.PI * 2.0f) + Math.toRadians(deg));
@@ -35,16 +32,19 @@ public interface IShoulderRidingModel {
     return (float) Math.sin(ageInTicks * 0.03125f * (Math.PI * 2.0f) + Math.toRadians(deg));
   }
 
-  default void renderOnShoulder(ShoulderData data, float limbSwing, float limbSwingAmount, float netHeadYaw, float headPitch, float scaleFactor, int ticksExisted, float partialTicks) {
-    this.setRotationAngles(data, ticksExisted, limbSwing, limbSwingAmount, ticksExisted + partialTicks, netHeadYaw, headPitch);
-    this.render(data, scaleFactor);
-  }
-
-  void scaleAndTranslate (ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn);
-
   default void setRotation(@Nonnull ModelRenderer model, float x, float y, float z) {
     model.xRot = x;
     model.yRot = y;
     model.zRot = z;
+  }
+
+  default void setRotateAngle(@Nonnull ModelRenderer model, float x, float y, float z) {
+    setRotation(model, x, y, z);
+  }
+
+  default void renderOnShoulder(MatrixStack pMatrixStack, ShoulderData data, IVertexBuilder pBuffer, int pPackedLight, int pPackedOverlay, float pLimbSwing, float pLimbSwingAmount, float pNetHeadYaw, float pHeadPitch, int ticks) {
+    this.prepare(data);
+    this.setupAnim(data, ticks, pLimbSwing, pLimbSwingAmount, 0.0F, pNetHeadYaw, pHeadPitch);
+    this.getParts().forEach((part) -> part.render(pMatrixStack, pBuffer, pPackedLight, pPackedOverlay));
   }
 }

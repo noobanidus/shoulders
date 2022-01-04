@@ -15,22 +15,21 @@ import java.util.Map;
 import java.util.UUID;
 
 public class ShoulderList {
-  private static Map<UUID, ShoulderData> dataMap = new HashMap<>();
-  private static String shoulderUrl = "https://raw.githubusercontent.com/noobanidus/shoulders/1.14/src/generated/resources/data/info/shoulders.json";
+  private static final Map<UUID, ShoulderData> dataMap = new HashMap<>();
   private static final Gson GSON = (new GsonBuilder()).setPrettyPrinting().create();
 
-  public static boolean load () {
+  public static void load () {
     dataMap.clear();
 
     JsonArray data;
     try {
       Constants.LOG.info("Fetching Patreon supporter information from GitHub...");
-      final String response = IOUtils.toString(new URL(shoulderUrl), StandardCharsets.UTF_8);
+      final String response = IOUtils.toString(new URL(Constants.shoulderUrl), StandardCharsets.UTF_8);
 
       data = GSON.fromJson(response, JsonArray.class);
     } catch (IOException e) {
       Constants.LOG.error("Unable to load Patreon information!");
-      return false;
+      return;
     }
 
     for (JsonElement element : data) {
@@ -39,7 +38,6 @@ public class ShoulderList {
       dataMap.put(entry.getPlayer(), entry);
     }
 
-    return true;
   }
 
   @Nullable

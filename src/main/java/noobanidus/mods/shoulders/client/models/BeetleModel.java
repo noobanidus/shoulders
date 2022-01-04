@@ -1,89 +1,94 @@
-/*
 package noobanidus.mods.shoulders.client.models;
 
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.google.common.collect.ImmutableSet;
+import com.google.common.collect.Iterables;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.mods.shoulders.Constants;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
-public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingModel {
-  private ModelRenderer body;
-  private ModelRenderer wingL;
-  private ModelRenderer wingR;
-  private ModelRenderer head;
-  private ModelRenderer legL1;
-  private ModelRenderer legL2;
-  private ModelRenderer legL3;
-  private ModelRenderer legR1;
-  private ModelRenderer legR2;
-  private ModelRenderer legR3;
-  private ModelRenderer antennaR1;
-  private ModelRenderer antennaL1;
-  private ModelRenderer antennaR2;
-  private ModelRenderer antennaR2_1;
+import javax.annotation.Nonnull;
+
+public class BeetleModel extends AgeableModel<LivingEntity> implements IShoulderRidingModel {
+  private final ModelRenderer body;
+  private final ModelRenderer wingL;
+  private final ModelRenderer wingR;
+  private final ModelRenderer head;
+  private final ModelRenderer legL1;
+  private final ModelRenderer legL2;
+  private final ModelRenderer legL3;
+  private final ModelRenderer legR1;
+  private final ModelRenderer legR2;
+  private final ModelRenderer legR3;
+  private final ModelRenderer antennaR1;
+  private final ModelRenderer antennaL1;
+  private final ModelRenderer antennaR2;
+  private final ModelRenderer antennaR2_1;
 
   public BeetleModel() {
-    this.textureWidth = 32;
-    this.textureHeight = 32;
+    super(true, 5.0f, 2.0f);
+    this.texWidth = 32;
+    this.texHeight = 32;
     this.legL2 = new ModelRenderer(this, 18, 6);
-    this.legL2.setRotationPoint(2.0F, 1.0F, 3.5F);
+    this.legL2.setPos(2.0F, 1.0F, 3.5F);
     this.legL2.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legL2, 0.0F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(legL2, 0.0F, 0.0F, -0.2617993877991494F);
     this.antennaL1 = new ModelRenderer(this, 24, 6);
-    this.antennaL1.setRotationPoint(1.0F, 0.0F, -0.5F);
+    this.antennaL1.setPos(1.0F, 0.0F, -0.5F);
     this.antennaL1.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
-    this.setRotationOffset(antennaL1, 0.1308996938995747F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(antennaL1, 0.1308996938995747F, 0.0F, 0.2617993877991494F);
     this.wingL = new ModelRenderer(this, 0, 0);
-    this.wingL.setRotationPoint(1.5F, -0.5F, 1.0F);
+    this.wingL.setPos(1.5F, -0.5F, 1.0F);
     this.wingL.addBox(-2.5F, 0.0F, -1.0F, 5, 8, 3, 0.0F);
-    this.setRotationOffset(wingL, 1.7453292519943295F, 0.17453292519943295F, 0.2617993877991494F);
+    this.setRotateAngle(wingL, 1.7453292519943295F, 0.17453292519943295F, 0.2617993877991494F);
     this.wingR = new ModelRenderer(this, 0, 0);
     this.wingR.mirror = true;
-    this.wingR.setRotationPoint(-1.5F, -0.5F, 1.0F);
+    this.wingR.setPos(-1.5F, -0.5F, 1.0F);
     this.wingR.addBox(-2.5F, 0.0F, -1.0F, 5, 8, 3, 0.0F);
-    this.setRotationOffset(wingR, 1.7453292519943295F, -0.17453292519943295F, -0.2617993877991494F);
+    this.setRotateAngle(wingR, 1.7453292519943295F, -0.17453292519943295F, -0.2617993877991494F);
     this.legR1 = new ModelRenderer(this, 18, 6);
-    this.legR1.setRotationPoint(-1.5F, 1.0F, 1.0F);
+    this.legR1.setPos(-1.5F, 1.0F, 1.0F);
     this.legR1.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legR1, -0.2617993877991494F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legR1, -0.2617993877991494F, 0.0F, 0.2617993877991494F);
     this.body = new ModelRenderer(this, 0, 11);
-    this.body.setRotationPoint(0.0F, 16.0F, -4.0F);
+    this.body.setPos(0.0F, 16.0F, -4.0F);
     this.body.addBox(-2.5F, -2.0F, 0.0F, 5, 4, 8, 0.0F);
     this.antennaR1 = new ModelRenderer(this, 24, 6);
-    this.antennaR1.setRotationPoint(-1.0F, 0.0F, -0.5F);
+    this.antennaR1.setPos(-1.0F, 0.0F, -0.5F);
     this.antennaR1.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
-    this.setRotationOffset(antennaR1, 0.1308996938995747F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(antennaR1, 0.1308996938995747F, 0.0F, -0.2617993877991494F);
     this.legR2 = new ModelRenderer(this, 18, 6);
-    this.legR2.setRotationPoint(-2.0F, 1.0F, 3.5F);
+    this.legR2.setPos(-2.0F, 1.0F, 3.5F);
     this.legR2.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legR2, 0.0F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legR2, 0.0F, 0.0F, 0.2617993877991494F);
     this.head = new ModelRenderer(this, 16, 0);
-    this.head.setRotationPoint(0.0F, 0.0F, 0.0F);
+    this.head.setPos(0.0F, 0.0F, 0.0F);
     this.head.addBox(-2.0F, -1.25F, -3.0F, 4, 3, 3, 0.0F);
-    this.setRotationOffset(head, 0.17453292519943295F, 0.0F, 0.0F);
+    this.setRotateAngle(head, 0.17453292519943295F, 0.0F, 0.0F);
     this.antennaR2 = new ModelRenderer(this, 24, 6);
-    this.antennaR2.setRotationPoint(0.0F, -5.0F, 0.0F);
+    this.antennaR2.setPos(0.0F, -5.0F, 0.0F);
     this.antennaR2.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
-    this.setRotationOffset(antennaR2, 0.39269908169872414F, 0.0F, 0.0F);
+    this.setRotateAngle(antennaR2, 0.39269908169872414F, 0.0F, 0.0F);
     this.legL1 = new ModelRenderer(this, 18, 6);
-    this.legL1.setRotationPoint(1.5F, 1.0F, 1.0F);
+    this.legL1.setPos(1.5F, 1.0F, 1.0F);
     this.legL1.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legL1, -0.2617993877991494F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(legL1, -0.2617993877991494F, 0.0F, -0.2617993877991494F);
     this.legL3 = new ModelRenderer(this, 18, 6);
-    this.legL3.setRotationPoint(1.5F, 1.0F, 6.0F);
+    this.legL3.setPos(1.5F, 1.0F, 6.0F);
     this.legL3.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legL3, 0.2617993877991494F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(legL3, 0.2617993877991494F, 0.0F, -0.2617993877991494F);
     this.legR3 = new ModelRenderer(this, 18, 6);
-    this.legR3.setRotationPoint(-1.5F, 1.0F, 6.0F);
+    this.legR3.setPos(-1.5F, 1.0F, 6.0F);
     this.legR3.addBox(-0.5F, 0.0F, -0.5F, 1, 7, 1, 0.0F);
-    this.setRotationOffset(legR3, 0.2617993877991494F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legR3, 0.2617993877991494F, 0.0F, 0.2617993877991494F);
     this.antennaR2_1 = new ModelRenderer(this, 24, 6);
-    this.antennaR2_1.setRotationPoint(0.0F, -5.0F, 0.0F);
+    this.antennaR2_1.setPos(0.0F, -5.0F, 0.0F);
     this.antennaR2_1.addBox(-0.5F, -5.0F, -0.5F, 1, 5, 1, 0.0F);
-    this.setRotationOffset(antennaR2_1, 0.39269908169872414F, 0.0F, 0.0F);
+    this.setRotateAngle(antennaR2_1, 0.39269908169872414F, 0.0F, 0.0F);
     this.body.addChild(this.legL2);
     this.head.addChild(this.antennaL1);
     this.body.addChild(this.wingL);
@@ -100,39 +105,60 @@ public class BeetleModel extends EntityModel<Entity> implements IShoulderRidingM
   }
 
   @Override
-  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.head.rotateAngleX = headPitch * 0.017453292F;
-    this.head.rotateAngleY = netHeadYaw * 0.017453292F;
-    this.antennaR1.rotateAngleX = 0.1308996938995747F + getBobble(30, ageInTicks) * 0.2617993877991494F;
-    this.antennaL1.rotateAngleX = 0.1308996938995747F + getBobble(100, ageInTicks) * 0.2617993877991494F;
-    this.wingL.rotateAngleY = 0.17453292519943295F + 0.0872664626F * getBobble(45, ageInTicks);
-    this.wingR.rotateAngleY = -0.17453292519943295F - 0.0872664626F * getBobble(160, ageInTicks);
-    this.legL1.rotateAngleZ = limbSwingAmount * getSwing(0, ageInTicks) - 0.2617993877991494F;
-    this.legL2.rotateAngleZ = limbSwingAmount * getSwing(120, ageInTicks) - 0.2617993877991494F;
-    this.legL3.rotateAngleZ = limbSwingAmount * getSwing(240, ageInTicks) - 0.2617993877991494F;
-    this.legR1.rotateAngleZ = limbSwingAmount * getSwing(180, ageInTicks) + 0.2617993877991494F;
-    this.legR2.rotateAngleZ = limbSwingAmount * getSwing(300, ageInTicks) + 0.2617993877991494F;
-    this.legR3.rotateAngleZ = limbSwingAmount * getSwing(60, ageInTicks) + 0.2617993877991494F;
+  public void setupAnim(LivingEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+  }
+
+  @Nonnull
+  @Override
+  protected Iterable<ModelRenderer> headParts() {
+    return ImmutableSet.of();
+  }
+
+  @Nonnull
+  @Override
+  protected Iterable<ModelRenderer> bodyParts() {
+    return ImmutableSet.of(body);
   }
 
   @Override
-  public void render(float scale) {
-    this.body.render(scale);
+  public void setupAnim(ShoulderData state, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    this.head.xRot = headPitch * 0.017453292F;
+    this.head.yRot = netHeadYaw * 0.017453292F;
+    this.antennaR1.xRot = 0.1308996938995747F + getBobble(30, ageInTicks) * 0.2617993877991494F;
+    this.antennaL1.xRot = 0.1308996938995747F + getBobble(100, ageInTicks) * 0.2617993877991494F;
+    this.wingL.yRot = 0.17453292519943295F + 0.0872664626F * getBobble(45, ageInTicks);
+    this.wingR.yRot = -0.17453292519943295F - 0.0872664626F * getBobble(160, ageInTicks);
   }
 
   @Override
-  public ResourceLocation getTexture(ShoulderData data) {
-    return new ResourceLocation(Constants.MODID + ":textures/entity/beetle_blue.png");
+  public void prepare(ShoulderData state) {
+    this.body.setPos(0.0F, 16.0F, -4.0F);
+    this.setRotateAngle(legR1, -0.2617993877991494F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legR2, 0.0F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legR3, 0.2617993877991494F, 0.0F, 0.2617993877991494F);
+    this.setRotateAngle(legL1, -0.2617993877991494F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(legL2, 0.0F, 0.0F, -0.2617993877991494F);
+    this.setRotateAngle(legL3, 0.2617993877991494F, 0.0F, -0.2617993877991494F);
   }
 
   @Override
-  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
-    double armorOffset = 0;
-    if (offsetArmor) {
-      armorOffset = -0.2;
-    }
-    GlStateManager.scaled(0.3, 0.3, 0.3);
-    GlStateManager.translated(data.left() ? 1.275 : -1.275, isSneaking ? -0.8 + armorOffset : -1.48 + armorOffset, 0);
+  public RenderType getRenderType(ShoulderData data) {
+    return renderType(getTexture(data));
+  }
+
+  @Override
+  public ResourceLocation getTexture(ShoulderData state) {
+    return Constants.rl("textures/entity/beetle_blue.png");
+  }
+
+  @Override
+  public Iterable<ModelRenderer> getParts() {
+    return Iterables.concat(headParts(), bodyParts());
+  }
+
+  @Override
+  public EntityModel<LivingEntity> getModel () {
+    return this;
   }
 }
-*/
+

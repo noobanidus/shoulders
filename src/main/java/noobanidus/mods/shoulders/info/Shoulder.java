@@ -3,10 +3,10 @@ package noobanidus.mods.shoulders.info;
 public enum Shoulder {
   RIGHT("right"), LEFT("left"), HEAD("head");
 
-  private String shoulder;
+  private String position;
 
-  Shoulder(String shoulder) {
-    this.shoulder = shoulder;
+  Shoulder(String position) {
+    this.position = position;
   }
 
   public boolean left () {
@@ -22,7 +22,7 @@ public enum Shoulder {
   }
 
   public String getName() {
-    return this.shoulder;
+    return this.position;
   }
 
   public static Shoulder getByName(String name) {
