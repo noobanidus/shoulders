@@ -13,6 +13,9 @@ public enum ShoulderEntity {
           .left()
           .t((s, d, p) -> s.translate(0.375, p.isCrouching() ? -0.3 : -0.5, 0))
           .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.375, p.isCrouching() ? -0.3 : -0.5, 0))
+          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
   );
   /*
   RABBIT("rabbit", RabbitModel::new),
