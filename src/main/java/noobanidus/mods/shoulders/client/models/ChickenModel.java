@@ -1,60 +1,86 @@
-/*
 package noobanidus.mods.shoulders.client.models;
 
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
-public class ChickenModel extends EntityModel<Entity> implements IShoulderRidingModel {
+public class ChickenModel extends AgeableModel<LivingEntity> implements IShoulderRidingModel {
   private final ModelRenderer head;
   private final ModelRenderer body;
-  private final ModelRenderer rightLeg;
-  private final ModelRenderer leftLeg;
-  private final ModelRenderer rightWing;
-  private final ModelRenderer leftWing;
+  private final ModelRenderer leg0;
+  private final ModelRenderer leg1;
+  private final ModelRenderer wing0;
+  private final ModelRenderer wing1;
   private final ModelRenderer beak;
   private final ModelRenderer redThing;
 
   public ChickenModel() {
     this.head = new ModelRenderer(this, 0, 0);
-    this.head.addBox(-2.0F, -6.0F, -2.0F, 4, 6, 3, 0.0F);
-    this.head.setRotationPoint(0.0F, 15.0F, -4.0F);
+    this.head.addBox(-2.0F, -6.0F, -2.0F, 4.0F, 6.0F, 3.0F, 0.0F);
+    this.head.setPos(0.0F, 15.0F, -4.0F);
     this.beak = new ModelRenderer(this, 14, 0);
-    this.beak.addBox(-2.0F, -4.0F, -4.0F, 4, 2, 2, 0.0F);
-    this.beak.setRotationPoint(0.0F, 15.0F, -4.0F);
+    this.beak.addBox(-2.0F, -4.0F, -4.0F, 4.0F, 2.0F, 2.0F, 0.0F);
+    this.beak.setPos(0.0F, 15.0F, -4.0F);
     this.redThing = new ModelRenderer(this, 14, 4);
-    this.redThing.addBox(-1.0F, -2.0F, -3.0F, 2, 2, 2, 0.0F);
-    this.redThing.setRotationPoint(0.0F, 15.0F, -4.0F);
+    this.redThing.addBox(-1.0F, -2.0F, -3.0F, 2.0F, 2.0F, 2.0F, 0.0F);
+    this.redThing.setPos(0.0F, 15.0F, -4.0F);
     this.body = new ModelRenderer(this, 0, 9);
-    this.body.addBox(-3.0F, -4.0F, -3.0F, 6, 8, 6, 0.0F);
-    this.body.setRotationPoint(0.0F, 16.0F, 0.0F);
-    this.rightLeg = new ModelRenderer(this, 26, 0);
-    this.rightLeg.addBox(-1.0F, 0.0F, -3.0F, 3, 5, 3);
-    this.rightLeg.setRotationPoint(-2.0F, 19.0F, 1.0F);
-    this.leftLeg = new ModelRenderer(this, 26, 0);
-    this.leftLeg.addBox(-1.0F, 0.0F, -3.0F, 3, 5, 3);
-    this.leftLeg.setRotationPoint(1.0F, 19.0F, 1.0F);
-    this.rightWing = new ModelRenderer(this, 24, 13);
-    this.rightWing.addBox(0.0F, 0.0F, -3.0F, 1, 4, 6);
-    this.rightWing.setRotationPoint(-4.0F, 13.0F, 0.0F);
-    this.leftWing = new ModelRenderer(this, 24, 13);
-    this.leftWing.addBox(-1.0F, 0.0F, -3.0F, 1, 4, 6);
-    this.leftWing.setRotationPoint(4.0F, 13.0F, 0.0F);
+    this.body.addBox(-3.0F, -4.0F, -3.0F, 6.0F, 8.0F, 6.0F, 0.0F);
+    this.body.setPos(0.0F, 16.0F, 0.0F);
+    this.leg0 = new ModelRenderer(this, 26, 0);
+    this.leg0.addBox(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F);
+    this.leg0.setPos(-2.0F, 19.0F, 1.0F);
+    this.leg1 = new ModelRenderer(this, 26, 0);
+    this.leg1.addBox(-1.0F, 0.0F, -3.0F, 3.0F, 5.0F, 3.0F);
+    this.leg1.setPos(1.0F, 19.0F, 1.0F);
+    this.wing0 = new ModelRenderer(this, 24, 13);
+    this.wing0.addBox(0.0F, 0.0F, -3.0F, 1.0F, 4.0F, 6.0F);
+    this.wing0.setPos(-4.0F, 13.0F, 0.0F);
+    this.wing1 = new ModelRenderer(this, 24, 13);
+    this.wing1.addBox(-1.0F, 0.0F, -3.0F, 1.0F, 4.0F, 6.0F);
+    this.wing1.setPos(4.0F, 13.0F, 0.0F);
   }
 
-  public void render(float scale) {
-    this.head.render(scale);
-    this.beak.render(scale);
-    this.redThing.render(scale);
-    this.body.render(scale);
-    this.rightLeg.render(scale);
-    this.leftLeg.render(scale);
-    this.rightWing.render(scale);
-    this.leftWing.render(scale);
+  @Override
+  public void setupAnim(LivingEntity pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+
+  }
+
+  protected Iterable<ModelRenderer> headParts() {
+    return ImmutableList.of(this.head, this.beak, this.redThing);
+  }
+
+  protected Iterable<ModelRenderer> bodyParts() {
+    return ImmutableList.of(this.body, this.leg0, this.leg1, this.wing0, this.wing1);
+  }
+
+  @Override
+  public void setupAnim(ShoulderData data, int ticks, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+    this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+    this.beak.xRot = this.head.xRot;
+    this.beak.yRot = this.head.yRot;
+    this.redThing.xRot = this.head.xRot;
+    this.redThing.yRot = this.head.yRot;
+    this.body.xRot = ((float)Math.PI / 2F);
+    this.wing0.zRot = pAgeInTicks;
+    this.wing1.zRot = -pAgeInTicks;
+  }
+
+  @Override
+  public void prepare(ShoulderData data) {
+  }
+
+  @Override
+  public RenderType getRenderType(ShoulderData data) {
+    return renderType(getTexture(data));
   }
 
   private static final ResourceLocation CHICKEN_TEXTURES = new ResourceLocation("minecraft", "textures/entity/chicken.png");
@@ -65,28 +91,12 @@ public class ChickenModel extends EntityModel<Entity> implements IShoulderRiding
   }
 
   @Override
-  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
-    double armorOffset = 0;
-    if (offsetArmor) {
-      armorOffset = -0.15;
-    }
-    GlStateManager.scaled(0.4, 0.4, 0.4);
-    GlStateManager.translated(data.left() ? 0.95 : -0.95, isSneaking ? -1.25 + armorOffset : -1.55 + armorOffset, -0.06);
+  public EntityModel<LivingEntity> getModel() {
+    return this;
   }
 
   @Override
-  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.head.rotateAngleX = headPitch * ((float) Math.PI / 180F);
-    this.head.rotateAngleY = netHeadYaw * ((float) Math.PI / 180F);
-    this.beak.rotateAngleX = this.head.rotateAngleX;
-    this.beak.rotateAngleY = this.head.rotateAngleY;
-    this.redThing.rotateAngleX = this.head.rotateAngleX;
-    this.redThing.rotateAngleY = this.head.rotateAngleY;
-    this.body.rotateAngleX = ((float) Math.PI / 2F);
-    this.rightLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
-    this.leftLeg.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float) Math.PI) * 1.4F * limbSwingAmount;
-    this.rightWing.rotateAngleZ = ageInTicks;
-    this.leftWing.rotateAngleZ = -ageInTicks;
+  public Iterable<ModelRenderer> getParts() {
+    return Iterables.concat(headParts(), bodyParts());
   }
 }
-*/

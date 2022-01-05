@@ -30,10 +30,10 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
   }
 
   public void render(MatrixStack pMatrixStack, IRenderTypeBuffer pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.BEETLE, Shoulder.LEFT, 0);  //ShoulderList.getData(pLivingEntity);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.CHICKEN, Shoulder.LEFT, 0);  //ShoulderList.getData(pLivingEntity);
     //noinspection ConstantConditions
     if (data != null) {
-      if ((data.getShoulder().left() && pLivingEntity.getShoulderEntityLeft().isEmpty()) || data.getShoulder().right() && pLivingEntity.getShoulderEntityRight().isEmpty()) {
+      if ((data.getShoulder().left() && !pLivingEntity.getShoulderEntityLeft().isEmpty()) || data.getShoulder().right() && !pLivingEntity.getShoulderEntityRight().isEmpty()) {
         return;
       }
 

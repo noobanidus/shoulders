@@ -47,9 +47,9 @@ public class ModelTransformer {
   }
 
   public void transform(MatrixStack stack, ShoulderData data, PlayerEntity player) {
-    translations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(t -> t.transform(stack, data, player));
-    rotations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(r -> r.transform(stack, data, player));
     scales.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(s -> s.transform(stack, data, player));
+    rotations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(r -> r.transform(stack, data, player));
+    translations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(t -> t.transform(stack, data, player));
   }
 
   public static ModelTransformer transformer () {

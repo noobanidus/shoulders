@@ -1,6 +1,7 @@
 package noobanidus.mods.shoulders.info;
 
 import noobanidus.mods.shoulders.client.models.BeetleModel;
+import noobanidus.mods.shoulders.client.models.ChickenModel;
 import noobanidus.mods.shoulders.client.models.IShoulderRidingModel;
 import noobanidus.mods.shoulders.client.transforms.ModelTransformer;
 
@@ -11,11 +12,21 @@ public enum ShoulderEntity {
       BeetleModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p) -> s.translate(0.375, p.isCrouching() ? -0.3 : -0.5, 0))
-          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
+          .t((s, d, p) -> s.translate(1.275, p.isCrouching() ? -0.8 : -1.48, 0))
+          .s((s, d, p) -> s.scale(0.3f, 0.3f, 0.3f))
           .right()
-          .t((s, d, p) -> s.translate(-0.375, p.isCrouching() ? -0.3 : -0.5, 0))
-          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
+          .t((s, d, p) -> s.translate(-1.275, p.isCrouching() ? -0.8 : -1.48, 0))
+          .s((s, d, p) -> s.scale(0.3f, 0.3f, 0.3f))
+  ),
+  CHICKEN("chicken",
+      ChickenModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.95, p.isCrouching() ? -1 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
   );
   /*
   RABBIT("rabbit", RabbitModel::new),
@@ -86,4 +97,4 @@ public enum ShoulderEntity {
 
     return null;
   }
-}
+  }
