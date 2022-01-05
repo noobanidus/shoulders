@@ -1,5 +1,6 @@
 package noobanidus.mods.shoulders.info;
 
+import net.minecraft.util.math.vector.Vector3f;
 import noobanidus.mods.shoulders.client.models.*;
 import noobanidus.mods.shoulders.client.transforms.ModelTransformer;
 
@@ -97,6 +98,20 @@ public enum ShoulderEntity {
           .right()
           .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
           .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+  ),
+  BAT("bat",
+      BatModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.575, p.isCrouching() ? 0 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.26f, 0.26f, 0.26f))
+          .r((s, d, p) -> s.mulPose(Vector3f.ZP.rotationDegrees(180)))
+          .r((s, d, p) -> s.mulPose(Vector3f.YP.rotationDegrees(180)))
+          .right()
+          .t((s, d, p) -> s.translate(-1.575, p.isCrouching() ? 0 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.26f, 0.26f, 0.26f))
+          .r((s, d, p) -> s.mulPose(Vector3f.ZP.rotationDegrees(180)))
+          .r((s, d, p) -> s.mulPose(Vector3f.YP.rotationDegrees(180)))
   );
   /*
   RABBIT("rabbit", RabbitModel::new),
