@@ -13,6 +13,7 @@ import noobanidus.mods.shoulders.info.Shoulder;
 import noobanidus.mods.shoulders.info.ShoulderData;
 import noobanidus.mods.shoulders.info.ShoulderEntity;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.Map;
@@ -29,8 +30,9 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
     return modelMap.computeIfAbsent(data.getEntity(), (k) -> k.getModel().get());
   }
 
-  public void render(MatrixStack pMatrixStack, IRenderTypeBuffer pBuffer, int pPackedLight, T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.CHICKEN, Shoulder.LEFT, 0);  //ShoulderList.getData(pLivingEntity);
+  @Override
+  public void render(@Nonnull MatrixStack pMatrixStack, @Nonnull IRenderTypeBuffer pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.FOX, Shoulder.RIGHT, 1);  //ShoulderList.getData(pLivingEntity);
     //noinspection ConstantConditions
     if (data != null) {
       if ((data.getShoulder().left() && !pLivingEntity.getShoulderEntityLeft().isEmpty()) || data.getShoulder().right() && !pLivingEntity.getShoulderEntityRight().isEmpty()) {

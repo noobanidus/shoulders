@@ -3,7 +3,6 @@ package noobanidus.mods.shoulders.client.models;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.model.AgeableModel;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
@@ -40,6 +39,10 @@ public interface IShoulderRidingModel {
   }
 
   default void setRotateAngle(@Nonnull ModelRenderer model, float x, float y, float z) {
+    setRotation(model, x, y, z);
+  }
+
+  default void setRotationAngle(@Nonnull ModelRenderer model, float x, float y, float z) {
     setRotation(model, x, y, z);
   }
 

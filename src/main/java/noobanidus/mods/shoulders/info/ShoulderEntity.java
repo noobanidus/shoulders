@@ -1,8 +1,6 @@
 package noobanidus.mods.shoulders.info;
 
-import noobanidus.mods.shoulders.client.models.BeetleModel;
-import noobanidus.mods.shoulders.client.models.ChickenModel;
-import noobanidus.mods.shoulders.client.models.IShoulderRidingModel;
+import noobanidus.mods.shoulders.client.models.*;
 import noobanidus.mods.shoulders.client.transforms.ModelTransformer;
 
 import java.util.function.Supplier;
@@ -12,10 +10,10 @@ public enum ShoulderEntity {
       BeetleModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p) -> s.translate(1.275, p.isCrouching() ? -0.8 : -1.48, 0))
+          .t((s, d, p) -> s.translate(1.275, p.isCrouching() ? -0.8 : -1.48, -0.06))
           .s((s, d, p) -> s.scale(0.3f, 0.3f, 0.3f))
           .right()
-          .t((s, d, p) -> s.translate(-1.275, p.isCrouching() ? -0.8 : -1.48, 0))
+          .t((s, d, p) -> s.translate(-1.275, p.isCrouching() ? -0.8 : -1.48, -0.06))
           .s((s, d, p) -> s.scale(0.3f, 0.3f, 0.3f))
   ),
   CHICKEN("chicken",
@@ -27,6 +25,78 @@ public enum ShoulderEntity {
           .right()
           .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1 : -1.48, -0.06))
           .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+  ),
+  DEER("deer",
+      DeerModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.275, p.isCrouching() ? -0.8 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.3f, 00.3f, 0.3f))
+          .right()
+          .t((s, d, p) -> s.translate(-1.275, p.isCrouching() ? -0.8 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.3f, 0.3f, 0.3f))
+  ),
+  DUCK("duck",
+      DuckModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.95, p.isCrouching() ? -1.05 : -1.51, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1.05 : -1.51, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+  ),
+  FOX("fox",
+      SilverFoxModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+  ),
+  FROG("frog",
+      FrogModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.5 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.5 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+  ),
+  OWL("owl",
+      OwlModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.95, p.isCrouching() ? -1.25 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1.25 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+  ),
+  SILKWORM("silkworm",
+      SilkwormModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .s((s, d, p) -> s.scale(0.9f, 1.1f, 1.5f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.54f, 0.4f, 0.45f))
+          .s((s, d, p) -> s.scale(0.9f, 1.1f, 1.5f))
+  ),
+  SPROUT("sprout",
+      SproutModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
   );
   /*
   RABBIT("rabbit", RabbitModel::new),
@@ -97,4 +167,4 @@ public enum ShoulderEntity {
 
     return null;
   }
-  }
+}

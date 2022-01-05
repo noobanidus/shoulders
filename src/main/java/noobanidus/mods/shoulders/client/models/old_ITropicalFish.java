@@ -7,7 +7,7 @@ import noobanidus.mods.shoulders.info.ShoulderData;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public interface ITropicalFish {
+public interface old_ITropicalFish {
   default float[] getBodyColour(ShoulderData data) {
     return DyeColor.byId((data.getVariant() >> 8) & 255).getTextureDiffuseColors();
   }

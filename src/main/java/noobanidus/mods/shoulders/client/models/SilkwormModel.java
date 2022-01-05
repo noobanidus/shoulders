@@ -1,16 +1,19 @@
-/*
 package noobanidus.mods.shoulders.client.models;
 
-import com.mojang.blaze3d.platform.GlStateManager;
+import com.mojang.blaze3d.matrix.MatrixStack;
+import com.mojang.blaze3d.vertex.IVertexBuilder;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import noobanidus.mods.shoulders.Constants;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
-public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidingModel {
+import java.util.Arrays;
+
+public class SilkwormModel extends EntityModel<LivingEntity> implements IShoulderRidingModel {
   private static final int[][] BODY_SIZES = new int[][]{{4, 3, 2}, {6, 4, 5}, {3, 3, 1}, {1, 2, 1}};
   private static final int[][] BODY_TEXS = new int[][]{{0, 0}, {0, 5}, {0, 14}, {0, 18}};
   private static final int BODY_COUNT = BODY_SIZES.length;
@@ -23,7 +26,7 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
     for (int i = 0; i < this.bodyParts.length; ++i) {
       this.bodyParts[i] = new ModelRenderer(this, BODY_TEXS[i][0], BODY_TEXS[i][1]);
       this.bodyParts[i].addBox((float) BODY_SIZES[i][0] * -0.5F, 0.0F, (float) BODY_SIZES[i][2] * -0.5F, BODY_SIZES[i][0], BODY_SIZES[i][1], BODY_SIZES[i][2]);
-      this.bodyParts[i].setRotationPoint(0.0F, (float) (24 - BODY_SIZES[i][1]), f);
+      this.bodyParts[i].setPos(0.0F, (float) (24 - BODY_SIZES[i][1]), f);
 
       if (i < this.bodyParts.length - 1) {
         f += (float) (BODY_SIZES[i][2] + BODY_SIZES[i + 1][2]) * 0.5F;
@@ -31,13 +34,28 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
     }
   }
 
-  public void render(float scale) {
-    for (ModelRenderer modelrenderer : this.bodyParts) {
-      modelrenderer.render(scale);
+  @Override
+  public void setupAnim(LivingEntity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+  }
+
+  public void setupAnim(ShoulderData data, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    for (int i = 0; i < this.bodyParts.length; ++i) {
+      this.bodyParts[i].yRot = MathHelper.cos(ageInTicks * 0.25F + (float) i * 0.15F * (float) Math.PI) * (float) Math.PI * 0.01F * (float) (1 + Math.abs(i - 2));
+      this.bodyParts[i].x = MathHelper.sin(ageInTicks * 0.25F + (float) i * 0.15F * (float) Math.PI) * (float) Math.PI * 0.1F * (float) Math.abs(i - 2);
     }
   }
 
-  private static final ResourceLocation TEXTURE = new ResourceLocation(Constants.MODID, "textures/entity/silkworm.png");
+  @Override
+  public void prepare(ShoulderData data) {
+
+  }
+
+  @Override
+  public RenderType getRenderType(ShoulderData data) {
+    return renderType(getTexture(data));
+  }
+
+  private static final ResourceLocation TEXTURE = Constants.rl("textures/entity/silkworm.png");
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
@@ -45,21 +63,16 @@ public class SilkwormModel extends EntityModel<Entity> implements IShoulderRidin
   }
 
   @Override
-  public void scaleAndTranslate(ShoulderData data, boolean offsetArmor, boolean isSneaking, float limbSwing, float limbSwingAmount, float partialTicks, float netHeadYaw, float headPitch, float scaleIn) {
-    double armorOffset = 0;
-    if (offsetArmor) {
-      armorOffset = -0.1;
-    }
-    GlStateManager.scaled(0.45, 0.45, 0.45);
-    GlStateManager.scalef(0.9F, 1.1F, 1.5F);
-    GlStateManager.translated(data.left() ? 0.85 : -0.85, isSneaking ? -1.2 + armorOffset : -1.50 + armorOffset, -0.06);
+  public EntityModel<LivingEntity> getModel() {
+    return this;
   }
 
-  public void setRotationAngles(ShoulderData data, int ticksExisted, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    for (int i = 0; i < this.bodyParts.length; ++i) {
-      this.bodyParts[i].rotateAngleY = MathHelper.cos(ageInTicks * 0.25F + (float) i * 0.15F * (float) Math.PI) * (float) Math.PI * 0.01F * (float) (1 + Math.abs(i - 2));
-      this.bodyParts[i].rotationPointX = MathHelper.sin(ageInTicks * 0.25F + (float) i * 0.15F * (float) Math.PI) * (float) Math.PI * 0.1F * (float) Math.abs(i - 2);
-    }
+  @Override
+  public Iterable<ModelRenderer> getParts() {
+    return Arrays.asList(bodyParts);
+  }
+
+  @Override
+  public void renderToBuffer(MatrixStack pMatrixStack, IVertexBuilder pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
   }
 }
-*/
