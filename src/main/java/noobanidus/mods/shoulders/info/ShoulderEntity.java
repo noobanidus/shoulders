@@ -1,6 +1,5 @@
 package noobanidus.mods.shoulders.info;
 
-import net.minecraft.util.math.vector.Vector3f;
 import noobanidus.mods.shoulders.client.models.*;
 import noobanidus.mods.shoulders.client.transforms.ModelTransformer;
 
@@ -47,7 +46,7 @@ public enum ShoulderEntity {
           .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1.05 : -1.51, -0.06))
           .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
   ),
-  FOX("fox",
+  SILVER_FOX("silver_fox",
       SilverFoxModel::new,
       ModelTransformer.transformer()
           .left()
@@ -99,51 +98,107 @@ public enum ShoulderEntity {
           .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
           .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
   ),
-  BAT("bat",
-      BatModel::new,
+  RABBIT("rabbit",
+      RabbitModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p) -> s.translate(1.575, p.isCrouching() ? 0 : -1.5, 0))
-          .s((s, d, p) -> s.scale(0.26f, 0.26f, 0.26f))
-          .r((s, d, p) -> s.mulPose(Vector3f.ZP.rotationDegrees(180)))
-          .r((s, d, p) -> s.mulPose(Vector3f.YP.rotationDegrees(180)))
+          .t((s, d, p) -> s.translate(0.95, p.isCrouching() ? -1 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
           .right()
-          .t((s, d, p) -> s.translate(-1.575, p.isCrouching() ? 0 : -1.5, 0))
-          .s((s, d, p) -> s.scale(0.26f, 0.26f, 0.26f))
-          .r((s, d, p) -> s.mulPose(Vector3f.ZP.rotationDegrees(180)))
-          .r((s, d, p) -> s.mulPose(Vector3f.YP.rotationDegrees(180)))
-  );
+          .t((s, d, p) -> s.translate(-0.95, p.isCrouching() ? -1 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.4f, 0.4f, 0.4f))
+  ),
+  OCELOT("ocelot",
+      OcelotModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+  ),
+  TURTLE("turtle",
+      TurtleModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.675, p.isCrouching() ? -0.8 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.25f, 0.25f, 0.25f))
+          .right()
+          .t((s, d, p) -> s.translate(-1.675, p.isCrouching() ? -0.8 : -1.48, -0.06))
+          .s((s, d, p) -> s.scale(0.25f, 0.25f, 0.25f))
+  ),
+  DOLPHIN("dolphin",
+      DolphinModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.875, p.isCrouching() ? -0.88 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+          .right()
+          .t((s, d, p) -> s.translate(-1.875, p.isCrouching() ? -0.88 : -1.55, -0.06))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+  ),
+  FOX("fox",
+      FoxModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.875, p.isCrouching() ? -0.83 : -1.5, -0.2))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+          .right()
+          .t((s, d, p) -> s.translate(-1.875, p.isCrouching() ? -0.83 : -1.5, -0.2))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+  ),
+  PANDA("panda",
+      PandaModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(2.47, p.isCrouching() ? -0.8 : -1.48, 0))
+          .s((s, d, p) -> s.scale(0.15f, 0.15f, 0.15f))
+          .right()
+          .t((s, d, p) -> s.translate(-2.47, p.isCrouching() ? -0.8 : -1.48, 0))
+          .s((s, d, p) -> s.scale(0.15f, 0.15f, 0.15f))
+      ),
+  PARROT("parrot",
+      ParrotModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.4, p.isCrouching() ? -1.3 : -1.5, 0))
+          .right()
+          .t((s, d, p) -> s.translate(-0.4, p.isCrouching() ? -1.3 : -1.5, 0))
+      ),
+  POLAR_BEAR("polar_bear",
+      PolarBearModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(1.85, p.isCrouching() ? -0.5 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+          .right()
+          .t((s, d, p) -> s.translate(-1.85, p.isCrouching() ? -0.5 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+      ),
+  WOLF("wolf",
+      WolfModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+          .right()
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, 0))
+          .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
+      )/*,
+  BEE("bee",
+  )*/;
   /*
-  RABBIT("rabbit", RabbitModel::new),
-  OCELOT("ocelot", OcelotModel::new),
-  BAT("bat", BatModel::new),
   TURTLE("turtle", TurtleModel::new),
-  CHICKEN("chicken", ChickenModel::new),
-  COW("cow", CowModel::new),
-  HORSE("horse", HorseModel::new),
-  PIG("pig", PigModel::new),
-  SHEEP("sheep", SheepModel::new),
   DOLPHIN("dolphin", DolphinModel::new),
-  COD("cod", CodModel::new),
   FOX("fox", FoxModel::new),
-  LLAMA("llama", LlamaModel::new),
-  MOOSHROOM("mooshroom", MooshroomModel::new),
   PANDA("panda", PandaModel::new),
   PARROT("parrot", ParrotModel::new),
-  PUFFERFISH("pufferfish", PufferfishModel::new),
   POLAR_BEAR("polar_bear", PolarBearModel::new),
-  SALMON("salmon", SalmonModel::new),
   SNOW_GOLEM("snow_golem", SnowGolemModel::new),
-  SQUID("squid", SquidModel::new),
-  LARGE_TROPICAL_FISH("large_tropical_fish", LargeTropicalFishModel::new),
-  SMALL_TROPICAL_FISH("small_tropical_fish", SmallTropicalFishModel::new),
   WOLF("wolf", WolfModel::new),
-  DEER("deer", DeerModel::new),
-  FROG("frog", FrogModel::new),
-  OWL("owl", OwlModel::new),
-  SILVER_FOX("silver_fox", SilverFoxModel::new),
-  SPROUT("sprout", SproutModel::new),
-  SILKWORM("silkworm", SilkwormModel::new);*/
+
+   */
 
   private final String entity;
   private final Supplier<IShoulderRidingModel> model;
