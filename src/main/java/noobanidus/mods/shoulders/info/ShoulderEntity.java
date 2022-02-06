@@ -157,7 +157,7 @@ public enum ShoulderEntity {
           .right()
           .t((s, d, p) -> s.translate(-2.47, p.isCrouching() ? -0.8 : -1.48, 0))
           .s((s, d, p) -> s.scale(0.15f, 0.15f, 0.15f))
-      ),
+  ),
   PARROT("parrot",
       ParrotModel::new,
       ModelTransformer.transformer()
@@ -165,7 +165,7 @@ public enum ShoulderEntity {
           .t((s, d, p) -> s.translate(0.4, p.isCrouching() ? -1.3 : -1.5, 0))
           .right()
           .t((s, d, p) -> s.translate(-0.4, p.isCrouching() ? -1.3 : -1.5, 0))
-      ),
+  ),
   POLAR_BEAR("polar_bear",
       PolarBearModel::new,
       ModelTransformer.transformer()
@@ -175,7 +175,7 @@ public enum ShoulderEntity {
           .right()
           .t((s, d, p) -> s.translate(-1.85, p.isCrouching() ? -0.5 : -1.5, 0))
           .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
-      ),
+  ),
   WOLF("wolf",
       WolfModel::new,
       ModelTransformer.transformer()
@@ -185,20 +185,7 @@ public enum ShoulderEntity {
           .right()
           .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, 0))
           .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
-      )/*,
-  BEE("bee",
-  )*/;
-  /*
-  TURTLE("turtle", TurtleModel::new),
-  DOLPHIN("dolphin", DolphinModel::new),
-  FOX("fox", FoxModel::new),
-  PANDA("panda", PandaModel::new),
-  PARROT("parrot", ParrotModel::new),
-  POLAR_BEAR("polar_bear", PolarBearModel::new),
-  SNOW_GOLEM("snow_golem", SnowGolemModel::new),
-  WOLF("wolf", WolfModel::new),
-
-   */
+  );
 
   private final String entity;
   private final Supplier<IShoulderRidingModel> model;
