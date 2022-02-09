@@ -7,5 +7,5 @@ import noobanidus.mods.shoulders.info.ShoulderData;
 
 @FunctionalInterface
 public interface ITransformer {
-  void transform (MatrixStack stack, ShoulderData data, PlayerEntity player);
+  void transform (MatrixStack stack, ShoulderData data, PlayerEntity player, double armorOffset);
 }

@@ -32,7 +32,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
 
   @Override
   public void render(@Nonnull MatrixStack pMatrixStack, @Nonnull IRenderTypeBuffer pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.PARROT, Shoulder.RIGHT, 4);  //ShoulderList.getData(pLivingEntity);
+    ShoulderData data = new ShoulderData(null, ShoulderEntity.SILVER_FOX, Shoulder.RIGHT, 0);  //ShoulderList.getData(pLivingEntity);
     //noinspection ConstantConditions
     if (data != null) {
       if ((data.getShoulder().left() && !pLivingEntity.getShoulderEntityLeft().isEmpty()) || data.getShoulder().right() && !pLivingEntity.getShoulderEntityRight().isEmpty()) {
@@ -42,7 +42,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
       IShoulderRidingModel model = getModelFor(data);
       if (model != null) {
         pMatrixStack.pushPose();
-        data.getEntity().getTransformers().transform(pMatrixStack, data, pLivingEntity);
+        data.getEntity().getTransformers().transform(pMatrixStack, data, pLivingEntity, data.getEntity().getArmorOffset());
         IVertexBuilder vertex = pBuffer.getBuffer(model.getRenderType(data));
         model.renderOnShoulder(pMatrixStack, data, vertex, pPackedLight, OverlayTexture.NO_OVERLAY, pLimbSwing, pLimbSwingAmount, pNetHeadYaw, pHeadPitch, pLivingEntity.tickCount);
         model.renderExtra(data, pMatrixStack, pBuffer, pPackedLight, pLivingEntity, pLimbSwing, pLimbSwingAmount, pPartialTicks, pAgeInTicks, pNetHeadYaw, pHeadPitch);

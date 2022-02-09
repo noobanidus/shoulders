@@ -2,6 +2,7 @@ package noobanidus.mods.shoulders.client.transforms;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.EquipmentSlotType;
 import noobanidus.mods.shoulders.info.Shoulder;
 import noobanidus.mods.shoulders.info.ShoulderData;
 
@@ -46,10 +47,16 @@ public class ModelTransformer {
     return scale(scales);
   }
 
-  public void transform(MatrixStack stack, ShoulderData data, PlayerEntity player) {
-    scales.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(s -> s.transform(stack, data, player));
-    rotations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(r -> r.transform(stack, data, player));
-    translations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(t -> t.transform(stack, data, player));
+  public void transform(MatrixStack stack, ShoulderData data, PlayerEntity player, double armorOffset) {
+    final double ao;
+    if (player.getItemBySlot(EquipmentSlotType.CHEST).isEmpty()) {
+      ao = 0d;
+    } else {
+      ao = armorOffset;
+    }
+    scales.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(s -> s.transform(stack, data, player, ao));
+    rotations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(r -> r.transform(stack, data, player, ao));
+    translations.getOrDefault(data.getShoulder(), Collections.emptyList()).forEach(t -> t.transform(stack, data, player, ao));
   }
 
   public static ModelTransformer transformer () {
