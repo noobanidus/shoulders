@@ -1,0 +1,32 @@
+[
+  {
+    "player": "a1c40d68-8734-4e16-9716-69c63bea6f15",
+    "entity": "silver_fox",
+    "shoulder": "left",
+    "variant": 1
+  },
+  {
+    "player": "d1534e8e-00f1-426f-8173-46b1e65e7e4f",
+    "entity": "owl",
+    "shoulder": "right",
+    "variant": 0
+  },
+  {
+    "player": "083c3cd5-9c94-40c7-a166-5692e4dc4b2c",
+    "entity": "duck",
+    "shoulder": "left",
+    "variant": 0
+  },
+  {
+    "player": "ec0fa42d-252e-495f-823c-cf4c50df80b3",
+    "entity": "frog",
+    "shoulder": "left",
+    "variant": 1
+  },
+  {
+    "player": "cb64826c-ffa1-4f83-a34e-8399546598a4",
+    "entity": "rabbit",
+    "shoulder": "right",
+    "variant": 4
+  }
+]
