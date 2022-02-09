@@ -112,10 +112,10 @@ public enum ShoulderEntity {
       OcelotModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .t((s, d, p) -> s.translate(0.85, p.isCrouching() ? -1.2 : -1.5, 0.1))
           .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
           .right()
-          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, -0.06))
+          .t((s, d, p) -> s.translate(-0.85, p.isCrouching() ? -1.2 : -1.5, 0.1))
           .s((s, d, p) -> s.scale(0.45f, 0.45f, 0.45f))
   ),
   TURTLE("turtle",
@@ -142,11 +142,11 @@ public enum ShoulderEntity {
       FoxModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p) -> s.translate(1.875, p.isCrouching() ? -0.83 : -1.5, -0.2))
-          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+          .t((s, d, p) -> s.translate(1.075, p.isCrouching() ? -0.83 : -1.5, -0.2))
+          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
           .right()
-          .t((s, d, p) -> s.translate(-1.875, p.isCrouching() ? -0.83 : -1.5, -0.2))
-          .s((s, d, p) -> s.scale(0.2f, 0.2f, 0.2f))
+          .t((s, d, p) -> s.translate(-1.075, p.isCrouching() ? -0.83 : -1.5, -0.2))
+          .s((s, d, p) -> s.scale(0.35f, 0.35f, 0.35f))
   ),
   PANDA("panda",
       PandaModel::new,

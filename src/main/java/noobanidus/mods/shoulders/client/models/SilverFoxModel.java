@@ -127,27 +127,6 @@ public class SilverFoxModel extends AgeableModel<LivingEntity> implements IShoul
 
   @Override
   public void setupAnim(ShoulderData data, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    float sin = (float) Math.sin(ageInTicks * 0.125f * (Math.PI * 2.0f));
-    float cos = (float) Math.cos(ageInTicks * 0.0625f * (Math.PI * 2.0f));
-    this.earL.zRot = 0.5235987755982988F + getBobble(60, ageInTicks) * 0.0981747703F;
-    this.earR.zRot = -0.5235987755982988F - getBobble(130, ageInTicks) * 0.0981747703F;
-    this.backL.xRot = limbSwingAmount * sin;
-    this.frontR.xRot = limbSwingAmount * sin;
-    this.backR.xRot = -limbSwingAmount * sin;
-    this.frontL.xRot = -limbSwingAmount * sin;
-    this.head.xRot = headPitch * 0.017453292F;
-    this.head.yRot = netHeadYaw * 0.017453292F;
-    this.tail1.xRot = 1.1780972450961724F + limbSwingAmount;
-    this.tail1.zRot = limbSwingAmount * 0.375f * cos + 0.0872664626F * getBobble(45, ageInTicks);
-    this.tail2.zRot = limbSwingAmount * 0.375f * cos + 0.0872664626F * getBobble(90, ageInTicks);
-    this.tail3.zRot = limbSwingAmount * 0.375f * cos + 0.0872664626F * getBobble(135, ageInTicks);
-    this.tail4.zRot = limbSwingAmount * 0.375f * cos + 0.0872664626F * getBobble(180, ageInTicks);
-    this.setRotateAngle(body1, 0F, 0.0F, 0.0F);
-    this.setRotateAngle(body2, 0F, 0.0F, 0.0F);
-  }
-
-  @Override
-  public void prepare(ShoulderData data) {
     this.backL.setPos(1.0F, 4.0F, 1.5F);
     this.backR.setPos(-1.0F, 4.0F, 1.5F);
     this.body1.setPos(0.0F, 15.5F, -2.0F);
@@ -163,6 +142,28 @@ public class SilverFoxModel extends AgeableModel<LivingEntity> implements IShoul
     this.tail2.setPos(0.0F, 1.5F, 0.0F);
     this.tail3.setPos(0.0F, 3.0F, 0.0F);
     this.tail4.setPos(0.0F, 3.5F, 0.0F);
+
+    this.setRotateAngle(backL, -0.8196066167365371F, -0.31869712141416456F, 0.0F);
+    this.setRotateAngle(backR, -0.8196066167365371F, 0.36425021489121656F, 0.0F);
+    this.setRotateAngle(body1, -0.6829473363053812F, 0.0F, 0.0F);
+    this.setRotateAngle(body2, -0.045553093477052F, 0.0F, 0.0F);
+    this.setRotateAngle(earL, 0.0F, -0.2617993877991494F, 0.6085963101704227F);
+    this.setRotateAngle(earR, 0.0F, 0.2617993877991494F, -0.5988224663592545F);
+    this.setRotateAngle(frontL, 0.31869712141416456F, 0.0F, 0.0F);
+    this.setRotateAngle(frontR, 0.31869712141416456F, 0.0F, 0.0F);
+    this.setRotateAngle(neck, 0.3f, 0.0F, 0.0F);
+    this.setRotateAngle(snout, 0.17453292519943295F, 0.0F, 0.0F);
+    this.setRotateAngle(tail1, 2.5497515042385164F, 0.0F, 0.06178465552059926F);
+    this.setRotateAngle(tail2, -0.39269908169872414F, 0.0F, 0.08726646259971647F);
+    this.setRotateAngle(tail3, 0.0F, 0.0F, 0.06178465552059926F);
+    this.setRotateAngle(tail4, 0.39269908169872414F, 0.0F, 0.0F);
+
+    this.head.xRot = 0.3f + headPitch * 0.017453292F;
+    this.head.yRot = netHeadYaw * 0.017453292F;
+  }
+
+  @Override
+  public void prepare(ShoulderData data) {
   }
 
   @Override

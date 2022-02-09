@@ -114,10 +114,6 @@ public class OwlModel extends AgeableModel<LivingEntity> implements IShoulderRid
 
   @Override
   public void setupAnim(ShoulderData data, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    this.head.xRot = headPitch * 0.017453292F;
-    this.head.yRot = netHeadYaw * 0.017453292F;
-    this.head.zRot = 0.0F;
-
     setRotationAngle(this.body, 0, 0, 0);
     setRotationAngle(this.footR, 0, 0, 0);
     setRotationAngle(this.footL, 0, 0, 0);
@@ -127,6 +123,10 @@ public class OwlModel extends AgeableModel<LivingEntity> implements IShoulderRid
     setRotationAngle(wingR2, 0.1745F, 0.0349F, -0.1745F);
     setRotationAngle(wingL1, 0, 0, 0);
     setRotationAngle(wingL2, 0.1745F, -0.0349F, 0.1745F);
+
+    this.head.xRot = headPitch * 0.017453292F;
+    this.head.yRot = netHeadYaw * 0.017453292F;
+    this.head.zRot = 0.0F;
   }
 
   @Override

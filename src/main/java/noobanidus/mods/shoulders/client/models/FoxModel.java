@@ -82,22 +82,14 @@ public class FoxModel extends AgeableModel<LivingEntity> implements IShoulderRid
   public void setupAnim(ShoulderData data, int ticks, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
     this.body.xRot = ((float) Math.PI / 2F);
     this.tail.xRot = -0.05235988F;
-    this.head.setPos(-1.0F, 16.5F, -3.0F);
     this.head.yRot = 0.0F;
-    this.head.zRot = pNetHeadYaw * ((float) Math.PI / 180F) * 0.11F;
-    this.leg0.visible = true;
-    this.leg1.visible = true;
-    this.leg2.visible = true;
-    this.leg3.visible = true;
-    this.body.setPos(0.0F, 16.0F, -6.0F);
     this.body.zRot = 0.0F;
-    this.leg0.setPos(-5.0F, 17.5F, 7.0F);
-    this.leg1.setPos(-1.0F, 17.5F, 7.0F);
     this.body.xRot = ((float) Math.PI / 6F);
     this.body.setPos(0.0F, 9.0F, -3.0F);
     this.tail.xRot = ((float) Math.PI / 4F);
     this.tail.setPos(-4.0F, 15.0F, -2.0F);
-    this.head.setPos(-1.0F, 10.0F, -0.25F);
+/*    this.head.setPos(1.0F, 19.49F, -3.0F);*/
+    this.head.setPos(-1.0F, 10.0F, -3.0F);
     this.head.xRot = 0.0F;
     this.head.yRot = 0.0F;
     this.leg0.xRot = -1.3089969F;
@@ -106,12 +98,8 @@ public class FoxModel extends AgeableModel<LivingEntity> implements IShoulderRid
     this.leg1.setPos(-1.0F, 21.5F, 6.75F);
     this.leg2.xRot = -0.2617994F;
     this.leg3.xRot = -0.2617994F;
-    float f = MathHelper.cos(pAgeInTicks) * 0.01F;
-    this.body.yRot = f;
-    this.leg0.zRot = f;
-    this.leg1.zRot = f;
-    this.leg2.zRot = f / 2.0F;
-    this.leg3.zRot = f / 2.0F;
+    this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+    this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
   }
 
   @Override
