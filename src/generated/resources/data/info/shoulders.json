@@ -1,5 +1,11 @@
 [
   {
+    "player": "9902e63b-d02d-4689-8c5c-9653f45cc268",
+    "entity": "panda",
+    "shoulder": "right",
+    "variant": 0
+  },
+  {
     "player": "a1c40d68-8734-4e16-9716-69c63bea6f15",
     "entity": "silver_fox",
     "shoulder": "left",
@@ -28,5 +34,41 @@
     "entity": "rabbit",
     "shoulder": "right",
     "variant": 4
+  },
+  {
+    "player": "4154b07d-76ef-41c9-967b-da1770e0b480",
+    "entity": "ocelot",
+    "shoulder": "left",
+    "variant": 1
+  },
+  {
+    "player": "4eb20d4f-987c-473d-8f34-878f1c9fe321",
+    "entity": "ocelot",
+    "shoulder": "left",
+    "variant": 2
+  },
+  {
+    "player": "dce1900d-0761-4471-9a09-48b575c03457",
+    "entity": "ocelot",
+    "shoulder": "right",
+    "variant": 11
+  },
+  {
+    "player": "e5e2b89d-3884-4190-8b69-97863eb95bc6",
+    "entity": "frog",
+    "shoulder": "left",
+    "variant": 0
+  },
+  {
+    "player": "e3298bd7-61bf-427f-af89-4e418a20bf57",
+    "entity": "fox",
+    "shoulder": "right",
+    "variant": 1
+  },
+  {
+    "player": "59199808-a261-42dc-aff9-6df568615020",
+    "entity": "sprout",
+    "shoulder": "right",
+    "variant": 0
   }
 ]

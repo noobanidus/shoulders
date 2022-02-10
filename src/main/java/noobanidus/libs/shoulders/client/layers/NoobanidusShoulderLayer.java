@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.model.PlayerModel;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.entity.player.PlayerEntity;
 import noobanidus.libs.shoulders.client.models.IShoulderRidingModel;
+import noobanidus.libs.shoulders.data.ShoulderList;
 import noobanidus.libs.shoulders.info.Shoulder;
 import noobanidus.libs.shoulders.info.ShoulderData;
 import noobanidus.libs.shoulders.info.ShoulderEntity;
@@ -32,7 +33,7 @@ public class NoobanidusShoulderLayer<T extends PlayerEntity> extends LayerRender
 
   @Override
   public void render(@Nonnull MatrixStack pMatrixStack, @Nonnull IRenderTypeBuffer pBuffer, int pPackedLight, @Nonnull T pLivingEntity, float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-    ShoulderData data = new ShoulderData(null, ShoulderEntity.SILVER_FOX, Shoulder.RIGHT, 0);  //ShoulderList.getData(pLivingEntity);
+    ShoulderData data = ShoulderList.getData(pLivingEntity);
     //noinspection ConstantConditions
     if (data != null) {
       if ((data.getShoulder().left() && !pLivingEntity.getShoulderEntityLeft().isEmpty()) || data.getShoulder().right() && !pLivingEntity.getShoulderEntityRight().isEmpty()) {
