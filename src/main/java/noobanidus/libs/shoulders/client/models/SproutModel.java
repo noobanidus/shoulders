@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.libs.shoulders.Constants;
+import noobanidus.libs.shoulders.client.bootstrap.Bootstrap;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
 import java.util.Arrays;
@@ -90,12 +91,19 @@ public class SproutModel extends AgeableModel<LivingEntity> implements IShoulder
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    int texture = data.getVariant() & 31;
-    if (texture > TEXTURES.size()) {
-      return TEXTURES.get(0);
+    switch (data.getVariant()) {
+      default:
+      case 0:
+        return Bootstrap.modTex("sprout_green");
+      case 1:
+        return Bootstrap.modTex("sprout_hell");
+      case 2:
+        return Bootstrap.modTex("sprout_purple");
+      case 3:
+        return Bootstrap.modTex("sprout_red");
+      case 4:
+        return Bootstrap.modTex("sprout_tan");
     }
-
-    return TEXTURES.get(texture);
   }
 
   @Override

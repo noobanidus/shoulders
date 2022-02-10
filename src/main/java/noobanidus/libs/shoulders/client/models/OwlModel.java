@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.libs.shoulders.Constants;
+import noobanidus.libs.shoulders.client.bootstrap.Bootstrap;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
 import javax.annotation.Nonnull;
@@ -139,11 +140,9 @@ public class OwlModel extends AgeableModel<LivingEntity> implements IShoulderRid
     return renderType(getTexture(data));
   }
 
-  private static final ResourceLocation TEXTURE = Constants.rl("textures/entity/owl.png");
-
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    return TEXTURE;
+    return Bootstrap.modTex("owl");
   }
 
   @Override

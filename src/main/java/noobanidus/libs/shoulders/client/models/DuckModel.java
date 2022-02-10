@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.libs.shoulders.Constants;
+import noobanidus.libs.shoulders.client.bootstrap.Bootstrap;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
 import java.util.Collections;
@@ -103,11 +104,9 @@ public class DuckModel extends AgeableModel<LivingEntity> implements IShoulderRi
     return renderType(getTexture(data));
   }
 
-  public static ResourceLocation TEXTURE = Constants.rl("textures/entity/duck.png");
-
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    return TEXTURE;
+    return Bootstrap.modTex("duck");
   }
 
   @Override

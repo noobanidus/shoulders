@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.ResourceLocation;
 import noobanidus.libs.shoulders.Constants;
+import noobanidus.libs.shoulders.client.bootstrap.Bootstrap;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
 import javax.annotation.Nonnull;
@@ -97,11 +98,13 @@ public class FrogModel extends AgeableModel<LivingEntity> implements IShoulderRi
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    if (data.getVariant() > TEXTURES.size()) {
-      return TEXTURES.get(0);
+    switch (data.getVariant()) {
+      default:
+      case 0:
+        return Bootstrap.modTex("frog.png");
+      case 1:
+        return Bootstrap.modTex("toad.png");
     }
-
-    return TEXTURES.get(data.getVariant());
   }
 
   @Override
