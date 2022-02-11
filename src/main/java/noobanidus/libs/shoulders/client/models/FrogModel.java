@@ -94,16 +94,14 @@ public class FrogModel extends AgeableModel<LivingEntity> implements IShoulderRi
     return renderType(getTexture(data));
   }
 
-  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.rl("textures/entity/frog.png"), Constants.rl("textures/entity/toad.png"));
-
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
     switch (data.getVariant()) {
       default:
       case 0:
-        return Bootstrap.modTex("frog.png");
+        return Bootstrap.modTex("frog");
       case 1:
-        return Bootstrap.modTex("toad.png");
+        return Bootstrap.modTex("toad");
     }
   }
 

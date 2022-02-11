@@ -54,10 +54,10 @@ public enum ShoulderEntity {
       FrogModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.5 + o : -1.55 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.05 + o : -1.55 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f))
           .right()
-          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.5 + o: -1.55 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.05 + o: -1.55 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f)),
       -0.1
   ),
@@ -65,10 +65,10 @@ public enum ShoulderEntity {
       OwlModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p, o) -> s.translate(0.95, p.isCrouching() ? -1.25 + o: -1.55 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(0.95, p.isCrouching() ? -1.05 + o: -1.55 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.4f, 0.4f, 0.4f))
           .right()
-          .t((s, d, p, o) -> s.translate(-0.95, p.isCrouching() ? -1.25 + o : -1.55 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(-0.95, p.isCrouching() ? -1.05 + o : -1.55 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.4f, 0.4f, 0.4f)),
       -0.15
   ),
@@ -76,10 +76,10 @@ public enum ShoulderEntity {
       SproutModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.2 + o: -1.5 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.1 + o: -1.5 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f))
           .right()
-          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.2 + o: -1.5 + o, -0.06))
+          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.1 + o: -1.5 + o, -0.06))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f)),
       -0.1
   ),
@@ -98,10 +98,10 @@ public enum ShoulderEntity {
       OcelotModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.2 + o: -1.5 + o, 0.1))
+          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.1 + o: -1.5 + o, 0.1))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f))
           .right()
-          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.2 + o: -1.5 + o, 0.1))
+          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.1 + o: -1.5 + o, 0.1))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f)),
            -0.1
   ),
@@ -151,10 +151,10 @@ public enum ShoulderEntity {
       WolfModel::new,
       ModelTransformer.transformer()
           .left()
-          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.2 + o : -1.5 + o, 0))
+          .t((s, d, p, o) -> s.translate(0.85, p.isCrouching() ? -1.0 + o : -1.5 + o, 0))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f))
           .right()
-          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.2 + o : -1.5 + o, 0))
+          .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.0 + o : -1.5 + o, 0))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f)),
       -0.05
   );

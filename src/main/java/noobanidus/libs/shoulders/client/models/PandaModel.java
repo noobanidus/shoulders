@@ -46,7 +46,10 @@ public class PandaModel extends QuadrupedModel {
     super.setupAnim(data, ticks, pLimbSwing, pLimbSwingAmount, pAgeInTicks, pNetHeadYaw, pHeadPitch);
     this.head.zRot = 0.0F;
     this.body.xRot = ModelUtils.rotlerpRad(this.body.xRot, 1.7407963F, 1f);
-    this.head.xRot = ModelUtils.rotlerpRad(this.head.xRot, ((float) Math.PI / 2F), 1f);
+/*    this.head.xRot = ModelUtils.rotlerpRad(this.head.xRot, ((float) Math.PI / 2F), 1f);
+    this.head.zRot = 0;*/
+    this.head.xRot = pHeadPitch * ((float) Math.PI / 180F);
+    this.head.yRot = pNetHeadYaw * ((float) Math.PI / 180F);
     this.leg2.zRot = -0.27079642F;
     this.leg3.zRot = 0.27079642F;
     this.leg0.zRot = 0.5707964F;
