@@ -20,7 +20,7 @@ import java.util.Map;
 public class Bootstrap {
   public static MethodHandle getLayerRenderers;
 
-  private static String MODID;
+  private static final String MODID = "shoulders";
 
   public static ResourceLocation modTex (String name) {
     return new ResourceLocation(MODID, "textures/entity/" + name + ".png");
@@ -39,9 +39,8 @@ public class Bootstrap {
   }
 
   @SuppressWarnings("unchecked")
-  public static void init(String modid, Minecraft mc) {
+  public static void init(Minecraft mc) {
     boolean found = false;
-    MODID = modid;
 
     Map<String, PlayerRenderer> skinMap = mc.getEntityRenderDispatcher().getSkinMap();
 
