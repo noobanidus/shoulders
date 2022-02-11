@@ -7,7 +7,7 @@ import noobanidus.libs.shoulders.gen.GenerateInfo;
 
 public class ClientSetup {
   public static void onClientSetup(FMLClientSetupEvent event) {
-    Bootstrap.init("shoulders", Minecraft.getInstance());
+    Bootstrap.init(Minecraft.getInstance());
     GenerateInfo.run();
   }
 }
