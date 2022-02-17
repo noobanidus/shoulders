@@ -157,6 +157,17 @@ public enum ShoulderEntity {
           .t((s, d, p, o) -> s.translate(-0.85, p.isCrouching() ? -1.0 + o : -1.5 + o, 0))
           .s((s, d, p, o) -> s.scale(0.45f, 0.45f, 0.45f)),
       -0.05
+  ),
+  JERBOA("jerboa",
+      JerboaModel::new,
+      ModelTransformer.transformer()
+          .left()
+          .t((s, d, p, o) -> s.translate(0.95, p.isCrouching() ? -1 + o : -1.48 + o, -0.06))
+/*          .s((s, d, p, o) -> s.scale(0.4f, 0.4f, 0.4f))*/
+          .right()
+          .t((s, d, p, o) -> s.translate(-0.95, p.isCrouching() ? -1 + o: -1.48 + o, -0.06)),
+/*          .s((s, d, p, o) -> s.scale(0.4f, 0.4f, 0.4f)),*/
+      -0.15
   );
 
   private final String entity;
