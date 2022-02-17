@@ -147,9 +147,11 @@ public class BeetleModel extends AgeableModel<LivingEntity> implements IShoulder
     return renderType(getTexture(data));
   }
 
+  private static final ResourceLocation TEXTURE = Constants.entityTexture("beetle_blue");
+
   @Override
   public ResourceLocation getTexture(ShoulderData state) {
-    return Bootstrap.modTex("beetle_blue");
+    return TEXTURE;
   }
 
   @Override

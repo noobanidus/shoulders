@@ -140,9 +140,11 @@ public class OwlModel extends AgeableModel<LivingEntity> implements IShoulderRid
     return renderType(getTexture(data));
   }
 
+  private static final ResourceLocation TEXTURE = Constants.entityTexture("owl");
+
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    return Bootstrap.modTex("owl");
+    return TEXTURE;
   }
 
   @Override

@@ -12,4 +12,8 @@ public interface Constants {
   static ResourceLocation rl (String path) {
     return new ResourceLocation(MODID, path);
   }
+
+  static ResourceLocation entityTexture (String path) {
+    return rl("textures/entity/" + path + ".png");
+  }
 }

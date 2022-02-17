@@ -12,7 +12,9 @@ import noobanidus.libs.shoulders.Constants;
 import noobanidus.libs.shoulders.client.bootstrap.Bootstrap;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 public class DuckModel extends AgeableModel<LivingEntity> implements IShoulderRidingModel {
   private final ModelRenderer main;
@@ -104,9 +106,11 @@ public class DuckModel extends AgeableModel<LivingEntity> implements IShoulderRi
     return renderType(getTexture(data));
   }
 
+  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.entityTexture("duck"), Constants.entityTexture("black_duck"));
+
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    return Bootstrap.modTex("duck");
+    return getTexture(data, TEXTURES);
   }
 
   @Override

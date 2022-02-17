@@ -12,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import noobanidus.libs.shoulders.info.ShoulderData;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public interface IShoulderRidingModel {
   void setupAnim(ShoulderData data, int ticks, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch);
@@ -21,6 +22,14 @@ public interface IShoulderRidingModel {
   RenderType getRenderType(ShoulderData data);
 
   ResourceLocation getTexture(ShoulderData data);
+
+  default ResourceLocation getTexture (ShoulderData data, List<ResourceLocation> textures) {
+    if (data.getVariant() >= textures.size()) {
+      return textures.get(0);
+    }
+
+    return textures.get(data.getVariant());
+  }
 
   EntityModel<LivingEntity> getModel();
 

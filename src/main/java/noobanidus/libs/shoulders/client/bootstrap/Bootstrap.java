@@ -20,14 +20,7 @@ import java.util.Map;
 public class Bootstrap {
   public static MethodHandle getLayerRenderers;
 
-  private static final String MODID = "shoulders";
-
-  public static ResourceLocation modTex (String name) {
-    return new ResourceLocation(MODID, "textures/entity/" + name + ".png");
-  }
-
   static {
-    MethodType.methodType(List.class);
     MethodHandles.Lookup lookup = MethodHandles.lookup();
     Field layerRenderers = ObfuscationReflectionHelper.findField(LivingRenderer.class, "field_177097_h");
     layerRenderers.setAccessible(true);

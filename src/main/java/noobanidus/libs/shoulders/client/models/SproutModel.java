@@ -87,23 +87,11 @@ public class SproutModel extends AgeableModel<LivingEntity> implements IShoulder
     return renderType(getTexture(data));
   }
 
-  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.rl("textures/entity/sprout_green.png"), Constants.rl("textures/entity/sprout_hell.png"), Constants.rl("textures/entity/sprout_purple.png"), Constants.rl("textures/entity/sprout_red.png"), Constants.rl("textures/entity/sprout_tan.png"));
+  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.entityTexture("sprout_green"), Constants.entityTexture("sprout_hell"), Constants.entityTexture("sprout_purple"), Constants.entityTexture("sprout_red"), Constants.entityTexture("sprout_tan"));
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    switch (data.getVariant()) {
-      default:
-      case 0:
-        return Bootstrap.modTex("sprout_green");
-      case 1:
-        return Bootstrap.modTex("sprout_hell");
-      case 2:
-        return Bootstrap.modTex("sprout_purple");
-      case 3:
-        return Bootstrap.modTex("sprout_red");
-      case 4:
-        return Bootstrap.modTex("sprout_tan");
-    }
+    return getTexture(data, TEXTURES);
   }
 
   @Override

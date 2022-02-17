@@ -172,19 +172,11 @@ public class SilverFoxModel extends AgeableModel<LivingEntity> implements IShoul
     return renderType(getTexture(data));
   }
 
-  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.rl("textures/entity/red_fox.png"), Constants.rl("textures/entity/silver_fox.png"), Constants.rl("textures/entity/aqua_fox.png"));
+  private static final List<ResourceLocation> TEXTURES = Arrays.asList(Constants.entityTexture("red_fox"), Constants.entityTexture("silver_fox"), Constants.entityTexture("aqua_fox"));
 
   @Override
   public ResourceLocation getTexture(ShoulderData data) {
-    switch (data.getVariant()) {
-      default:
-      case 0:
-        return Bootstrap.modTex("red_fox");
-      case 1:
-        return Bootstrap.modTex("silver_fox");
-      case 2:
-        return Bootstrap.modTex("aqua_fox");
-    }
+    return getTexture(data, TEXTURES);
   }
 
   @Override
