@@ -1,7 +1,7 @@
 [
   {
     "player": "9902e63b-d02d-4689-8c5c-9653f45cc268",
-    "entity": "owl",
+    "entity": "panda",
     "shoulder": "right",
     "variant": 0
   },
@@ -70,5 +70,11 @@
     "entity": "sprout",
     "shoulder": "right",
     "variant": 0
+  },
+  {
+    "player": "564267c7-2ad2-4059-866a-6ca980b32777",
+    "entity": "jerboa",
+    "shoulder": "right",
+    "variant": 3
   }
 ]

@@ -39,9 +39,9 @@ public class GenerateInfo /*implements IDataProvider*/ {
         new ShoulderData(UUID.fromString("dce1900d-0761-4471-9a09-48b575c03457"), ShoulderEntity.OCELOT, Shoulder.RIGHT, 11), // febilian
         new ShoulderData(UUID.fromString("e5e2b89d-3884-4190-8b69-97863eb95bc6"), ShoulderEntity.FROG, Shoulder.LEFT, 0), // katubug
         new ShoulderData(UUID.fromString("e3298bd7-61bf-427f-af89-4e418a20bf57"), ShoulderEntity.FOX, Shoulder.RIGHT, 1), // ChosenArchitect
-new ShoulderData(UUID.fromString("59199808-a261-42dc-aff9-6df568615020"), ShoulderEntity.SPROUT, Shoulder.RIGHT, 
-  0)); // CosmicParticle
-        //  );
+new ShoulderData(UUID.fromString("59199808-a261-42dc-aff9-6df568615020"), ShoulderEntity.SPROUT, Shoulder.RIGHT, 0), // CosmicParticle
+        new ShoulderData(UUID.fromString("564267c7-2ad2-4059-866a-6ca980b32777"), ShoulderEntity.JERBOA, Shoulder.RIGHT, 3) // VallenFrostweavr
+    );
 
     JsonArray dataArray = new JsonArray();
     patreonData.forEach(o -> dataArray.add(o.toJson()));
