@@ -40,6 +40,7 @@ public class GenerateInfo /*implements IDataProvider*/ {
         new ShoulderData(UUID.fromString("e5e2b89d-3884-4190-8b69-97863eb95bc6"), ShoulderEntity.FROG, Shoulder.LEFT, 0), // katubug
         new ShoulderData(UUID.fromString("e3298bd7-61bf-427f-af89-4e418a20bf57"), ShoulderEntity.FOX, Shoulder.RIGHT, 1), // ChosenArchitect
 new ShoulderData(UUID.fromString("59199808-a261-42dc-aff9-6df568615020"), ShoulderEntity.SPROUT, Shoulder.RIGHT, 0), // CosmicParticle
+        new ShoulderData(UUID.fromString("4a405d17-9e7b-4007-b4e3-a1adcd41c489"), ShoulderEntity.OWL, Shoulder.LEFT, 0)
 /*        new ShoulderData(UUID.fromString("564267c7-2ad2-4059-866a-6ca980b32777"), ShoulderEntity.JERBOA, Shoulder.RIGHT, 3) // VallenFrostweavr*/
     );
 
