@@ -76,5 +76,11 @@
     "entity": "owl",
     "shoulder": "left",
     "variant": 0
+  },
+  {
+    "player": "3e81bde9-9b6e-4f8a-b77b-5ae8254a700f",
+    "entity": "ocelot",
+    "shoulder": "left",
+    "variant": 11
   }
 ]
