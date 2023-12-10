@@ -82,5 +82,11 @@
     "entity": "ocelot",
     "shoulder": "left",
     "variant": 11
+  },
+  {
+    "player": "6859954f-e3b0-45a8-84d7-5f9e9782651f",
+    "entity": "ocelot",
+    "shoulder": "right",
+    "variant": 4
   }
 ]
